@@ -52,8 +52,7 @@ const BeansiteXP=(props)=>{
 export const Window=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
-  return (
-    <WindowClass 
+  return (<WindowClass 
     state={windows}
     dispatch={dispatch}
     size={{
@@ -71,7 +70,6 @@ export const Window=(props)=>{
     title={props.title}
     icon={props.icon}>
       {props.children}
-    </WindowClass>
-  )
+  </WindowClass>)
 }
 export default BeansiteXP;

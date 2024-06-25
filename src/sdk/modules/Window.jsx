@@ -29,6 +29,18 @@ export class WindowClass extends Component {
       "icon": this.props.icon,
     };
   }
+  updateDemensions=()=>{
+    let win=document.getElementById(`win_${this.props.id}`);
+    this.setState(prevState=>{
+      let state=Object.assign({},prevState);
+      state.pos={
+        "x": win.style.left,
+        "y": win.style.top};
+      state.size={
+        "height": win.style.height,
+        "width": win.style.width,};
+      return {state};});
+  }
   nb_actions={
     close:(e)=>{
       e.preventDefault();
@@ -42,8 +54,15 @@ export class WindowClass extends Component {
       isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
     },
     maximize:(maxBtn,win)=>{
+      this.updateDemensions();
+      win.classList.add("maximized");
     },
     unmaximize:(maxBtn,win)=>{
+      win.classList.remove("maximized");
+      win.style.top=this.state.pos.y;
+      win.style.left=this.state.pos.x;
+      win.style.height=this.state.size.height;
+      win.style.width=this.state.size.width;
     },
     maxToggle:(e)=>{
       e.preventDefault();
@@ -51,22 +70,14 @@ export class WindowClass extends Component {
       const maxBtn=document.getElementById(`win_${this.props.id}_max`);
       const win=document.getElementById(`win_${this.props.id}`);
       maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
-      if(isMax.getAttribute("content")==="false"){
-        this.nb_actions.maximize(maxBtn,win);}else{this.nb_actions.unmaximize(maxBtn,win);}
+      this.nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
       isMax.setAttribute("content",!(isMax.getAttribute("content")==="true"));
     },
   }
-  dragElement(elmnt) {
+  dragElement=(elmnt)=>{
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(elmnt.id + "_header")) {
-      // if present, the header is where you move the DIV from:
-      document.getElementById(elmnt.id + "_header").onmousedown = dragMouseDown;
-    } else {
-      // otherwise, move the DIV from anywhere inside the DIV:
-      elmnt.onmousedown = dragMouseDown;
-    }
-  
-    function dragMouseDown(e) {
+    const updateDemensions=()=>this.updateDemensions();
+    const dragMouseDown=(e)=>{
       e = e || window.event;
       e.preventDefault();
       elmnt.style.transition="0s";
@@ -77,8 +88,7 @@ export class WindowClass extends Component {
       // call a function whenever the cursor moves:
       document.onmousemove = elementDrag;
     }
-  
-    function elementDrag(e) {
+    const elementDrag=(e)=>{
       e = e || window.event;
       e.preventDefault();
       // calculate the new cursor position:
@@ -90,12 +100,19 @@ export class WindowClass extends Component {
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
-  
-    function closeDragElement() {
+    const closeDragElement=()=>{
       // stop moving when mouse button is released:
       document.onmouseup = null;
       document.onmousemove = null;
       elmnt.style.transition=".5s";
+      updateDemensions();
+    }
+    if (document.getElementById(elmnt.id + "_header")) {
+      // if present, the header is where you move the DIV from:
+      document.getElementById(elmnt.id + "_header").onmousedown = dragMouseDown;
+    } else {
+      // otherwise, move the DIV from anywhere inside the DIV:
+      elmnt.onmousedown = dragMouseDown;
     }
   }
   componentDidMount() {
@@ -105,6 +122,7 @@ export class WindowClass extends Component {
     this.props.dispatch(createWindow({"win_id":this.win_id,"windata":this.state }))
     new ResizeObserver(()=>{
       e.style.transition="0s";
+      this.updateDemensions();
     }).observe(e);
   }
   render(){
