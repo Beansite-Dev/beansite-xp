@@ -9,7 +9,6 @@ import "./stylesheets/style/style.css"
 const BeansiteXPGui=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
-  console.log("loaded sdk");
   document.title="Beansite XP";
   const Icon=document.getElementById("icon");
   const TaskbarIcon=(tbi_props)=>{

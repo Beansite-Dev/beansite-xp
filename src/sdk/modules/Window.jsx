@@ -31,15 +31,17 @@ export class WindowClass extends Component {
   }
   updateDemensions=()=>{
     let win=document.getElementById(`win_${this.props.id}`);
-    this.setState(prevState=>{
-      let state=Object.assign({},prevState);
-      state.pos={
-        "x": win.style.left,
-        "y": win.style.top};
-      state.size={
-        "height": win.style.height,
-        "width": win.style.width,};
-      return {state};});
+    if(win){
+      this.setState(prevState=>{
+        let state=Object.assign({},prevState);
+        state.pos={
+          "x": win.style.left,
+          "y": win.style.top};
+        state.size={
+          "height": win.style.height,
+          "width": win.style.width,};
+        return {state};});
+    }
   }
   nb_actions={
     close:(e)=>{
