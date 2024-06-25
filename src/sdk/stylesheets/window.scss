@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "Tahoma";
+    src: url("/fonts/tahoma.ttf");
+}
+.Window {
+    h1, h2, h3 {
+        margin: 0;
+        padding: 0;
+    }
+    resize: both;
+    min-height: 192px;
+    min-width: 256px;
+    max-height: 100dvh;
+    max-width: 100dvw;
+    font-family: "Tahoma";
+    position: fixed;
+    background: #2939cf;
+    $border-radius: 15px;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    border: #2432b2 1px solid;
+    overflow: hidden;
+    transition: .5s;
+    header {
+        position: absolute;
+        user-select: none;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 36px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: row;
+        box-sizing: border-box;
+        padding: 6px;
+        gap: 3px;
+        cursor: grab;
+        &:active{cursor: grabbing;}
+        background: linear-gradient(
+            0deg,
+            #2939cf 0%,
+            #2d4ce4 35%,
+            #2d4ce4 75%,
+            #4c90ff 100%);
+        button {
+            height: 26px;
+            aspect-ratio: 1 / 1;
+            border-radius: 5px;
+            border: 1px #fff solid;
+            text-align: center;
+            vertical-align: middle;
+            font-size: .9rem;
+            padding: 0;
+            color: #fff;
+            cursor: pointer;
+            background: radial-gradient(
+                farthest-corner at 20% 20%,
+                #7691dc 0%, 
+                #3e6ff7 45%, 
+                #3e6ff7 85%, 
+                #2833ca 100%);
+            &:active {
+                background: #fff;
+                border: 1px #2432b2 solid;
+                color: #2432b2;
+            }
+        }
+        button[id$='close'] {
+            background: radial-gradient(
+                farthest-corner at 20% 20%,
+                #ea856a 0%, 
+                #e5511c 45%, 
+                #e5511c 85%, 
+                #ae2900 100%);
+            &:active {
+                background: #fff;
+                border: 1px #ae2900 solid;
+                color: #ae2900;
+            }
+        }
+        h2 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 35px;
+            font-size: 1rem;
+            color: #fff;
+            text-shadow: 1px 1px 1px black;
+        }
+        .icon {
+            filter: drop-shadow(1px,1px,1px,black);
+            height: 24px;
+            aspect-ratio: 1 / 1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 6px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    .content {
+        height: calc(100% - 38px);
+        width: calc(100% - 4px);
+        background: #fff;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 2px;
+        padding: 2vmin;
+        left: 2px;
+    }
+}

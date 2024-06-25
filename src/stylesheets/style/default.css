@@ -1,0 +1,12 @@
+html * {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  text-wrap: wrap;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}/*# sourceMappingURL=default.css.map */
