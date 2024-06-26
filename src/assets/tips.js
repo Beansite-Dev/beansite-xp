@@ -61,4 +61,5 @@ const tips=[
     "im so fucking done with this",
     "Finally got rid of the god-forsaken codebase of beansite 95 and I couldn't be happier.",
     
-]
+];
+export default tips;

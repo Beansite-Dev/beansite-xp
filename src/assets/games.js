@@ -330,3 +330,4 @@ const games={
       "type": "OpenInGL"
     }
 };
+export default games;
