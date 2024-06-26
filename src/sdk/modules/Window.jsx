@@ -29,37 +29,36 @@ export class WindowClass extends Component {
       "icon": this.props.icon,
     };
   }
-  updateDemensions=()=>{
-    let win=document.getElementById(`win_${this.props.id}`);
-    if(win){
-      this.setState(prevState=>{
-        let state=Object.assign({},prevState);
-        state.pos={
-          "x": win.style.left,
-          "y": win.style.top};
-        state.size={
-          "height": win.style.height,
-          "width": win.style.width,};
-        return {state};});
-    }
-  }
+  win;
   nb_actions={
     close:(e)=>{
       e.preventDefault();
+      this.props.callbacks.beforeWindowClose();
       document.getElementById(`win_${this.props.id}`).remove();
       this.props.dispatch(destroyWindow(this.win_id));
     },
     min:(e)=>{
       e.preventDefault();
+      this.props.callbacks.beforeWindowMinimize();
       const isMin=document.getElementById(`win_${this.props.id}_isMin?`);
       document.getElementById(`win_${this.props.id}`).style.display="none";
       isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
     },
     maximize:(maxBtn,win)=>{
-      this.updateDemensions();
+      this.setState(prevState=>{
+        let state=Object.assign({},prevState);
+        state.pos={
+          "x": this.win.style.left,
+          "y": this.win.style.top};
+        state.size={
+          "height": this.win.style.height,
+          "width": this.win.style.width,};
+        return {state};});
+      this.props.callbacks.beforeWindowMaximize();
       win.classList.add("maximized");
     },
     unmaximize:(maxBtn,win)=>{
+      this.props.callbacks.beforeWindowUnmaximize();
       win.classList.remove("maximized");
       win.style.top=this.state.pos.y;
       win.style.left=this.state.pos.x;
@@ -78,7 +77,15 @@ export class WindowClass extends Component {
   }
   dragElement=(elmnt)=>{
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    const updateDemensions=()=>this.updateDemensions();
+    this.setState(prevState=>{
+      let state=Object.assign({},prevState);
+      state.pos={
+        "x": this.win.style.left,
+        "y": this.win.style.top};
+      state.size={
+        "height": this.win.style.height,
+        "width": this.win.style.width,};
+      return {state};});
     const dragMouseDown=(e)=>{
       e = e || window.event;
       e.preventDefault();
@@ -107,7 +114,15 @@ export class WindowClass extends Component {
       document.onmouseup = null;
       document.onmousemove = null;
       elmnt.style.transition=".5s";
-      updateDemensions();
+      this.setState(prevState=>{
+        let state=Object.assign({},prevState);
+        state.pos={
+          "x": this.win.style.left,
+          "y": this.win.style.top};
+        state.size={
+          "height": this.win.style.height,
+          "width": this.win.style.width,};
+        return {state};});
     }
     if (document.getElementById(elmnt.id + "_header")) {
       // if present, the header is where you move the DIV from:
@@ -119,12 +134,21 @@ export class WindowClass extends Component {
   }
   componentDidMount() {
     const e=document.getElementById(`win_${this.props.id}`);
+    this.win=document.getElementById(`win_${this.props.id}`);
     console.log(`created window with data: ${JSON.stringify(this.state)}`)
     this.dragElement(e);
     this.props.dispatch(createWindow({"win_id":this.win_id,"windata":this.state }))
     new ResizeObserver(()=>{
       e.style.transition="0s";
-      this.updateDemensions();
+      this.setState(prevState=>{
+        let state=Object.assign({},prevState);
+        state.pos={
+          "x": this.win.style.left,
+          "y": this.win.style.top};
+        state.size={
+          "height": this.win.style.height,
+          "width": this.win.style.width,};
+        return {state};});
     }).observe(e);
   }
   render(){

@@ -6,6 +6,12 @@ import { WindowClass } from "./modules/Window";
 import { Provider } from 'react-redux'
 import "./stylesheets/style/style.css"
 
+export const SDK={
+  OpenWindow:(win_id)=>{
+
+  },
+}
+
 const BeansiteXPGui=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
@@ -26,13 +32,13 @@ const BeansiteXPGui=(props)=>{
   }
   const Taskbar=(tb_props)=>{
     return(<div id="taskbar">
+      <button id="startbtn">Start</button>
       {tb_props.children}
     </div>)
   }
   return (<div id="bxpgui">
     {props.children}
     <Taskbar>
-      <button id="startbtn">Start</button>
       {Object.keys(windows).map((win_id)=>
         <TaskbarIcon 
           key={win_id} 
@@ -64,6 +70,12 @@ export const Window=(props)=>{
       "min": props.includeTitlebarOptions.min,
       "max": props.includeTitlebarOptions.max,
       "close": props.includeTitlebarOptions.close,
+    }}
+    callbacks={{
+      beforeWindowClose:()=>{props.callbacks.beforeWindowClose?props.callbacks.beforeWindowClose():null},
+      beforeWindowMinimize:()=>{props.callbacks.beforeWindowMinimize?props.callbacks.beforeWindowMinimize():null},
+      beforeWindowMaximize:()=>{props.callbacks.beforeWindowMaximize?props.callbacks.beforeWindowMaximize():null},
+      beforeWindowUnmaximize:()=>{props.callbacks.beforeWindowUnmaximize?props.callbacks.beforeWindowUnmaximize():null},
     }}
     id={props.id}
     title={props.title}
