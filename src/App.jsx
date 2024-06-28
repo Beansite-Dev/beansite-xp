@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import BeansiteXP, { Window } from './sdk/sdk'
+import { useState } from 'react';
+import { SDK } from './sdk/sdk';
 import "./stylesheets/style/App.css";
 const App=()=>{
   return(<>
-    <BeansiteXP>
-      <Window 
+    <SDK.BeansiteXP>
+      <SDK.Window 
       size={{
         "height": "38vmin",
         "width": "58vmin"}} 
@@ -31,8 +31,8 @@ const App=()=>{
       icon="/icons/xp/Command Prompt.png">
           <h1>Hello World!</h1>
           <button id="button">Press Me!</button>
-      </Window>
-    </BeansiteXP>
+      </SDK.Window>
+    </SDK.BeansiteXP>
   </>)
 }
 export default App;

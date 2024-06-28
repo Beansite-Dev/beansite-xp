@@ -1,0 +1,97 @@
+@font-face {
+  font-family: "Tahoma";
+  src: url("/fonts/tahoma.ttf");
+}
+#loading {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  z-index: 997;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vmin;
+  pointer-events: auto;
+}
+#loading #loadingIcon {
+  height: 50vmin;
+  width: 100vmin;
+  background-image: url("/assets/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 2vmin rgba(255, 255, 255, 0.3960784314));
+}
+#loading #loadingTips {
+  color: gray;
+  position: absolute;
+  bottom: 2vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Tahoma";
+  font-size: 2vmin;
+  height: auto;
+  width: 35vmin;
+  text-align: center;
+}
+#loading #loadingBar {
+  height: 24px;
+  width: 50vmin;
+  margin-bottom: 15vmin;
+  border: 3px gray solid;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 1vmin;
+}
+#loading #loadingBar #loadingIcons {
+  height: calc(100% - 8px);
+  width: fit-content;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: center;
+  font-size: 1.5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+  background: rgb(0, 74, 255);
+  background: -moz-linear-gradient(180deg, rgb(0, 74, 255) 0%, rgb(29, 158, 230) 30%, rgb(17, 78, 240) 70%, rgb(0, 39, 255) 100%);
+  background: -webkit-linear-gradient(180deg, rgb(0, 74, 255) 0%, rgb(29, 158, 230) 15%, rgb(17, 78, 240) 46%, rgb(0, 39, 255) 100%);
+  background: linear-gradient(180deg, rgb(0, 74, 255) 0%, rgb(29, 158, 230) 15%, rgb(17, 78, 240) 46%, rgb(0, 39, 255) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#004aff",endColorstr="#0027ff",GradientType=1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: loadigIconsAni 3s linear infinite;
+}
+
+@keyframes loadigIconsAni {
+  0% {
+    transform: translateX(-15vmin);
+  }
+  100% {
+    transform: translateX(65vmin);
+  }
+}
+.fadeout {
+  animation: fadeout 1s linear forwards;
+  pointer-events: none !important;
+  overflow: auto !important;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}/*# sourceMappingURL=loading.css.map */

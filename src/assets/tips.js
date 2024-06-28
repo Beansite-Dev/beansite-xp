@@ -8,7 +8,7 @@ const tips=[
     "Beans on toast are good, I don't care what you say",
     "British people are very scary",
     "run 'secret' in DOS; I dare you",
-    "You know this project is open source? yeah, you can f**k it up in any way you want",
+    "You know this project is open source? yeah, you can fuck it up in any way you want",
     "I spent 4 hours on this update please follow my socials",
     "Half the sh*t here is like an bean-themed aldi version of actual apps",
     "Tell your friends about Beansite! (I need money)",
@@ -60,6 +60,14 @@ const tips=[
     "Nothing to see here!",
     "im so fucking done with this",
     "Finally got rid of the god-forsaken codebase of beansite 95 and I couldn't be happier.",
-    
+    "im freeeee~",
+    "sleep deprivations getting to my ass",
+    "i cant believe it took so long to get here",
+    "im so fucking proud. this project. its complete. ive fixed the bugs. ive overcome the problems. feels like part of me is finally complete",
+    "thanks for playing yall",
+    "I WANT ADS! FUCK ADSENSE I WANT MY FUCKING ADS",
+    "yk the beansite xp sdk is rly easy to use. yall can literally make ur own beansites.",
+    "just bought ANOTHER monitor (i still dont enough enough)",
+    "'should i cop?' - me, to rajeh",
 ];
 export default tips;

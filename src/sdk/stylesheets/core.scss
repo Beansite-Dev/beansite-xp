@@ -1,0 +1,21 @@
+@import "window";
+@import "taskbar";
+@import "loading";
+//---------------------------
+@font-face {
+    font-family: "Tahoma";
+    src: url("/fonts/tahoma.ttf");
+}
+#bxpgui{
+    height: 100dvh;
+    width: 100dvw;
+    position: fixed;
+    z-index: 90;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/assets/bg.png");
+}

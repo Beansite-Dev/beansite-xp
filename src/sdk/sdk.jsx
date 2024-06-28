@@ -1,16 +1,11 @@
-import { Component, createRef, useState, createContext } from "react";
+import { Component, createRef, useState, createContext, useEffect } from "react";
 import { createSlice, configureStore } from '@reduxjs/toolkit';
-import { useSelector, useDispatch } from 'react-redux'
-import store from './store/store'
-import { WindowClass } from "./modules/Window";
-import { Provider } from 'react-redux'
-import "./stylesheets/style/style.css"
-
-export const SDK={
-  OpenWindow:(win_id)=>{
-
-  },
-}
+import { useSelector, useDispatch } from 'react-redux';
+import tips from "../assets/tips"
+import store from './store/store';
+import { WindowClass, generateId } from "./modules/Window";
+import { Provider } from 'react-redux';
+import "./stylesheets/style/core.css";
 
 const BeansiteXPGui=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
@@ -36,25 +31,74 @@ const BeansiteXPGui=(props)=>{
       {tb_props.children}
     </div>)
   }
-  return (<div id="bxpgui">
-    {props.children}
-    <Taskbar>
-      {Object.keys(windows).map((win_id)=>
-        <TaskbarIcon 
-          key={win_id} 
-          title={windows[win_id].title} 
-          id={`${win_id}_tbs`} 
-          eid={windows[win_id].eid} 
-          icon={windows[win_id].icon} />)}
-    </Taskbar>
-  </div>)
+  const LoadingScreen=()=>{
+    function waitForElm(selector) {
+      return new Promise(resolve => {
+      if (document.querySelector(selector)) {
+        return resolve(document.querySelector(selector));}
+      const observer = new MutationObserver(mutations => {
+        if (document.querySelector(selector)) {
+          observer.disconnect();
+          resolve(document.querySelector(selector));}});
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true});
+    });}
+    const shuffle = (array) => { 
+      for (let i=array.length-1;i>0;i--) { 
+        const j=Math.floor(Math.random()*(i + 1)); 
+        [array[i],array[j]]=[array[j],array[i]]; 
+      } return array; 
+    };
+    const shuffledTips=shuffle(tips);
+    let i=0;
+    const[tip,setTip]=useState(shuffledTips[i]);
+    const tipsInterval=setInterval(()=>{
+      i++;setTip(shuffledTips[i]);},5000);
+    useEffect(() => {
+      const onPageLoad=()=>{
+        if(document.getElementById("loading")){
+          setTimeout(()=>{console.log("loaded")},1000);
+          clearInterval(tipsInterval);
+          document.getElementById("loading").classList.add("fadeout");
+          setTimeout(()=>{document.getElementById("loading").style.display="none";},1000);
+        }
+      };
+      if (document.readyState === 'complete') {onPageLoad();} else {
+        window.addEventListener('load', onPageLoad, false);
+        return () => window.removeEventListener('load', onPageLoad);
+      }
+    },[]);
+    return(<div id="loading">
+      <div id="loadingIcon"></div>
+      <div id="loadingBar">
+        <div id="loadingIcons">█ █ █ █ █ █</div>
+      </div>
+      <p id="loadingTips">{tip}</p>
+    </div>)
+  }
+  return (<>
+    <LoadingScreen />
+    <div id="bxpgui">
+      {props.children}
+      <Taskbar>
+        {Object.keys(windows).map((win_id)=>
+          <TaskbarIcon 
+            key={win_id} 
+            title={windows[win_id].title} 
+            id={`${win_id}_tbs`} 
+            eid={windows[win_id].eid} 
+            icon={windows[win_id].icon} />)}
+      </Taskbar>
+    </div>
+  </>)
 }
 const BeansiteXP=(props)=>{
   return (<Provider store={store}>
     <BeansiteXPGui>{props.children}</BeansiteXPGui>
   </Provider>)
 }
-export const Window=(props)=>{
+const Window=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
   return (<WindowClass 
@@ -83,4 +127,8 @@ export const Window=(props)=>{
       {props.children}
   </WindowClass>)
 }
+export const SDK={
+  BeansiteXP:BeansiteXP,
+  Window:Window,
+};
 export default BeansiteXP;

@@ -1,10 +1,10 @@
 import { Component, createRef, useState, createContext } from "react";
 import { createSlice, configureStore } from '@reduxjs/toolkit';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { createWindow, destroyWindow } from "../store/windowslice";
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 
-const generateId=(length)=>{
+export const generateId=(length)=>{
   let result='';
   const characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
