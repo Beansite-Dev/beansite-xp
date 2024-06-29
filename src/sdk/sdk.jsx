@@ -3,7 +3,7 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import tips from "../assets/tips"
 import store from './store/store';
-import { WindowClass, generateId } from "./modules/Window";
+import { Window, generateId } from "./modules/Window";
 import { Provider } from 'react-redux';
 import "./stylesheets/style/core.css";
 
@@ -98,35 +98,35 @@ const BeansiteXP=(props)=>{
     <BeansiteXPGui>{props.children}</BeansiteXPGui>
   </Provider>)
 }
-const Window=(props)=>{
-  const windows=useSelector((state)=>state.windows.value);
-  const dispatch=useDispatch();
-  return (<WindowClass 
-    state={windows}
-    dispatch={dispatch}
-    size={{
-      "height": props.size.height,
-      "width": props.size.width}} 
-    pos={{
-      "x":props.pos.x,
-      "y":props.pos.y,}}
-    includeTitlebarOptions={{
-      "min": props.includeTitlebarOptions.min,
-      "max": props.includeTitlebarOptions.max,
-      "close": props.includeTitlebarOptions.close,
-    }}
-    callbacks={{
-      beforeWindowClose:()=>{props.callbacks.beforeWindowClose?props.callbacks.beforeWindowClose():null},
-      beforeWindowMinimize:()=>{props.callbacks.beforeWindowMinimize?props.callbacks.beforeWindowMinimize():null},
-      beforeWindowMaximize:()=>{props.callbacks.beforeWindowMaximize?props.callbacks.beforeWindowMaximize():null},
-      beforeWindowUnmaximize:()=>{props.callbacks.beforeWindowUnmaximize?props.callbacks.beforeWindowUnmaximize():null},
-    }}
-    id={props.id}
-    title={props.title}
-    icon={props.icon}>
-      {props.children}
-  </WindowClass>)
-}
+// const Window=(props)=>{
+//   const windows=useSelector((state)=>state.windows.value);
+//   const dispatch=useDispatch();
+//   return (<WindowClass 
+//     state={windows}
+//     dispatch={dispatch}
+//     size={{
+//       "height": props.size.height,
+//       "width": props.size.width}} 
+//     pos={{
+//       "x":props.pos.x,
+//       "y":props.pos.y,}}
+//     includeTitlebarOptions={{
+//       "min": props.includeTitlebarOptions.min,
+//       "max": props.includeTitlebarOptions.max,
+//       "close": props.includeTitlebarOptions.close,
+//     }}
+//     callbacks={{
+//       beforeWindowClose:()=>{props.callbacks.beforeWindowClose?props.callbacks.beforeWindowClose():null},
+//       beforeWindowMinimize:()=>{props.callbacks.beforeWindowMinimize?props.callbacks.beforeWindowMinimize():null},
+//       beforeWindowMaximize:()=>{props.callbacks.beforeWindowMaximize?props.callbacks.beforeWindowMaximize():null},
+//       beforeWindowUnmaximize:()=>{props.callbacks.beforeWindowUnmaximize?props.callbacks.beforeWindowUnmaximize():null},
+//     }}
+//     id={props.id}
+//     title={props.title}
+//     icon={props.icon}>
+//       {props.children}
+//   </WindowClass>)
+// }
 export const SDK={
   BeansiteXP:BeansiteXP,
   Window:Window,

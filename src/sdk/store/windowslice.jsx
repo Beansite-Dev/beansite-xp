@@ -6,15 +6,14 @@ export const windowSlice=createSlice({
   },
   reducers: {
     createWindow:(state,action)=>{
-      // state.value[action.payload.win_id]=action.payload.windata;
       state.value=Object.assign(
-        {[action.payload.win_id]:action.payload.windata},state.value)
-      // console.log(action.payload);
-    },
+        {[action.payload.win_id]:action.payload.windata},state.value)},
     destroyWindow:(state,action)=>{
-      delete state.value[action.payload];
-    }
+      delete state.value[action.payload];},
+    updateWindow:(state,action)=>{
+      state.value=Object.assign(
+        {[action.payload.win_id]:action.payload.windata},state.value)},
   },
 })
-export const {createWindow,destroyWindow}=windowSlice.actions;
+export const {createWindow,updateWindow,destroyWindow}=windowSlice.actions;
 export default windowSlice.reducer;

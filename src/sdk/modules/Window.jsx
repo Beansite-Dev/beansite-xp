@@ -1,7 +1,7 @@
-import { Component, createRef, useState, createContext } from "react";
+import { Component, createRef, useState, createContext, useEffect } from "react";
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
-import { createWindow, destroyWindow } from "../store/windowslice";
+import { createWindow, updateWindow, destroyWindow } from "../store/windowslice";
 import { Provider } from 'react-redux';
 
 export const generateId=(length)=>{
@@ -15,77 +15,79 @@ export const generateId=(length)=>{
   }
   return btoa(result);
 }
-export class WindowClass extends Component {
-  win_id=generateId(10);
-  constructor(props){
-    super(props);
-    this.state={
-      "title": this.props.title,
-      "win_id": this.win_id,
-      "eid": this.props.id,
-      "size": this.props.size,
-      "pos": this.props.pos,
-      "includeTitlebarOptions": this.props.includeTitlebarOptions,
-      "icon": this.props.icon,
-    };
-  }
-  win;
-  nb_actions={
+export const Window=(props)=>{
+  const windows=useSelector((state)=>state.windows.value);
+  const dispatch=useDispatch();
+  const[win_id,setWin_id]=useState(generateId(10));
+  const[state,setState]=useState({
+    "title": props.title,
+    "win_id": win_id,
+    "eid": props.id,
+    "size": props.size,
+    "pos": props.pos,
+    "includeTitlebarOptions": props.includeTitlebarOptions,
+    "icon": props.icon,
+  });
+  var win;
+  useEffect(()=>{
+    dispatch(updateWindow({"win_id":win_id,"windata":state}))
+  },[state])
+  const nb_actions={
     close:(e)=>{
       e.preventDefault();
-      this.props.callbacks.beforeWindowClose();
-      document.getElementById(`win_${this.props.id}`).remove();
-      this.props.dispatch(destroyWindow(this.win_id));
+      props.callbacks.beforeWindowClose();
+      document.getElementById(`win_${props.id}`).remove();
+      dispatch(destroyWindow(win_id));
     },
     min:(e)=>{
       e.preventDefault();
-      this.props.callbacks.beforeWindowMinimize();
-      const isMin=document.getElementById(`win_${this.props.id}_isMin?`);
-      document.getElementById(`win_${this.props.id}`).style.display="none";
+      props.callbacks.beforeWindowMinimize();
+      const isMin=document.getElementById(`win_${props.id}_isMin?`);
+      document.getElementById(`win_${props.id}`).style.display="none";
       isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
     },
     maximize:(maxBtn,win)=>{
-      this.setState(prevState=>{
-        let state=Object.assign({},prevState);
-        state.pos={
-          "x": this.win.style.left,
-          "y": this.win.style.top};
-        state.size={
-          "height": this.win.style.height,
-          "width": this.win.style.width,};
-        return {state};});
-      this.props.callbacks.beforeWindowMaximize();
+      setState(prevState=>{
+        let nstate=Object.assign({},prevState);
+        nstate.pos={
+          "x": win.style.left,
+          "y": win.style.top};
+          nstate.size={
+          "height": win.style.height,
+          "width": win.style.width,};
+        return {nstate};});
+      props.callbacks.beforeWindowMaximize();
       win.classList.add("maximized");
     },
     unmaximize:(maxBtn,win)=>{
-      this.props.callbacks.beforeWindowUnmaximize();
+      props.callbacks.beforeWindowUnmaximize();
       win.classList.remove("maximized");
-      win.style.top=this.state.pos.y;
-      win.style.left=this.state.pos.x;
-      win.style.height=this.state.size.height;
-      win.style.width=this.state.size.width;
+      win.style.top=state.pos.y;
+      win.style.left=state.pos.x;
+      win.style.height=state.size.height;
+      win.style.width=state.size.width;
     },
     maxToggle:(e)=>{
       e.preventDefault();
-      const isMax=document.getElementById(`win_${this.props.id}_isMax?`);
-      const maxBtn=document.getElementById(`win_${this.props.id}_max`);
-      const win=document.getElementById(`win_${this.props.id}`);
+      const isMax=document.getElementById(`win_${props.id}_isMax?`);
+      const maxBtn=document.getElementById(`win_${props.id}_max`);
+      const win=document.getElementById(`win_${props.id}`);
       maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
-      this.nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
+      nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
       isMax.setAttribute("content",!(isMax.getAttribute("content")==="true"));
     },
   }
-  dragElement=(elmnt)=>{
+  const dragElement=(elmnt)=>{
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    this.setState(prevState=>{
-      let state=Object.assign({},prevState);
-      state.pos={
-        "x": this.win.style.left,
-        "y": this.win.style.top};
-      state.size={
-        "height": this.win.style.height,
-        "width": this.win.style.width,};
-      return {state};});
+    setState(prevState=>{
+      let nstate=Object.assign({},prevState);
+      nstate.pos={
+        "x": win.style.left,
+        "y": win.style.top};
+        nstate.size={
+        "height": win.style.height,
+        "width": win.style.width,};
+      return {nstate};});
     const dragMouseDown=(e)=>{
       e = e || window.event;
       e.preventDefault();
@@ -114,15 +116,15 @@ export class WindowClass extends Component {
       document.onmouseup = null;
       document.onmousemove = null;
       elmnt.style.transition=".5s";
-      this.setState(prevState=>{
-        let state=Object.assign({},prevState);
-        state.pos={
-          "x": this.win.style.left,
-          "y": this.win.style.top};
-        state.size={
-          "height": this.win.style.height,
-          "width": this.win.style.width,};
-        return {state};});
+      setState(prevState=>{
+        let nstate=Object.assign({},prevState);
+        nstate.pos={
+          "x": win.style.left,
+          "y": win.style.top};
+          nstate.size={
+          "height": win.style.height,
+          "width": win.style.width,};
+        return {nstate};});
     }
     if (document.getElementById(elmnt.id + "_header")) {
       // if present, the header is where you move the DIV from:
@@ -132,47 +134,45 @@ export class WindowClass extends Component {
       elmnt.onmousedown = dragMouseDown;
     }
   }
-  componentDidMount() {
-    const e=document.getElementById(`win_${this.props.id}`);
-    this.win=document.getElementById(`win_${this.props.id}`);
-    console.log(`created window with data: ${JSON.stringify(this.state)}`)
-    this.dragElement(e);
-    this.props.dispatch(createWindow({"win_id":this.win_id,"windata":this.state }))
+  useEffect(()=>{
+    const e=document.getElementById(`win_${props.id}`);
+    win=document.getElementById(`win_${props.id}`);
+    console.log(`created window with data: ${JSON.stringify(state)}`)
+    dragElement(e);
+    dispatch(createWindow({"win_id":win_id,"windata":state }))
     new ResizeObserver(()=>{
       e.style.transition="0s";
-      this.setState(prevState=>{
+      setState(prevState=>{
         let state=Object.assign({},prevState);
         state.pos={
-          "x": this.win.style.left,
-          "y": this.win.style.top};
+          "x": win.style.left,
+          "y": win.style.top};
         state.size={
-          "height": this.win.style.height,
-          "width": this.win.style.width,};
+          "height": win.style.height,
+          "width": win.style.width,};
         return {state};});
     }).observe(e);
-  }
-  render(){
-    return(<div 
-      className="Window"
-      style={{
-        "height":this.props.size.height,
-        "width":this.props.size.width,
-        "left":this.props.pos.x,
-        "top":this.props.pos.y,
-      }} 
-      id={`win_${this.props.id}`}>
-      <header id={`win_${this.props.id}_header`}>
-        <meta id={`win_${this.props.id}_isMin?`} content="false"/>
-        <meta id={`win_${this.props.id}_isMax?`} content="false"/>
-        <div className="icon" style={{"backgroundImage":`url("${this.props.icon}")`}}></div>
-        <h2>{this.props.title}</h2>
-        {this.props.includeTitlebarOptions.min?<button id={`win_${this.props.id}_min`} onClick={(e)=>this.nb_actions.min(e)}>🗕</button>:null}
-        {this.props.includeTitlebarOptions.max?<button id={`win_${this.props.id}_max`} onClick={(e)=>this.nb_actions.maxToggle(e)}>🗖</button>:null} {/* 🗗 for unmaximize */}
-        {this.props.includeTitlebarOptions.close?<button id={`win_${this.props.id}_close`} onClick={(e)=>this.nb_actions.close(e)}>✖</button>:null}
-      </header>
-      <div className="content">
-        {this.props.children}
-      </div>
-    </div>);
-  }
+  },[])
+  return(<div 
+    className="Window"
+    style={{
+      "height":props.size.height,
+      "width":props.size.width,
+      "left":props.pos.x,
+      "top":props.pos.y,
+    }} 
+    id={`win_${props.id}`}>
+    <header id={`win_${props.id}_header`}>
+      <meta id={`win_${props.id}_isMin?`} content="false"/>
+      <meta id={`win_${props.id}_isMax?`} content="false"/>
+      <div className="icon" style={{"backgroundImage":`url("${props.icon}")`}}></div>
+      <h2>{props.title}</h2>
+      {props.includeTitlebarOptions.min?<button id={`win_${props.id}_min`} onClick={(e)=>nb_actions.min(e)}>🗕</button>:null}
+      {props.includeTitlebarOptions.max?<button id={`win_${props.id}_max`} onClick={(e)=>nb_actions.maxToggle(e)}>🗖</button>:null} {/* 🗗 for unmaximize */}
+      {props.includeTitlebarOptions.close?<button id={`win_${props.id}_close`} onClick={(e)=>nb_actions.close(e)}>✖</button>:null}
+    </header>
+    <div className="content">
+      {props.children}
+    </div>
+  </div>)
 }
