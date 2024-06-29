@@ -3,7 +3,7 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import tips from "../assets/tips"
 import store from './store/store';
-import { Window, generateId } from "./modules/Window";
+export { Window, generateId } from "./modules/Window";
 import { Provider } from 'react-redux';
 import "./stylesheets/style/core.css";
 
@@ -93,11 +93,12 @@ const BeansiteXPGui=(props)=>{
     </div>
   </>)
 }
-const BeansiteXP=(props)=>{
+export const BeansiteXP=(props)=>{
   return (<Provider store={store}>
     <BeansiteXPGui>{props.children}</BeansiteXPGui>
   </Provider>)
 }
+
 // const Window=(props)=>{
 //   const windows=useSelector((state)=>state.windows.value);
 //   const dispatch=useDispatch();
@@ -127,8 +128,8 @@ const BeansiteXP=(props)=>{
 //       {props.children}
 //   </WindowClass>)
 // }
-export const SDK={
-  BeansiteXP:BeansiteXP,
-  Window:Window,
-};
+// export const SDK={
+//   BeansiteXP:BeansiteXP,
+//   Window:Window,
+// };
 export default BeansiteXP;

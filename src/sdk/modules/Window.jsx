@@ -19,7 +19,7 @@ export const Window=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
   const[win_id,setWin_id]=useState(generateId(10));
-  const[state,setState]=useState({
+  var window_state={
     "title": props.title,
     "win_id": win_id,
     "eid": props.id,
@@ -27,11 +27,16 @@ export const Window=(props)=>{
     "pos": props.pos,
     "includeTitlebarOptions": props.includeTitlebarOptions,
     "icon": props.icon,
-  });
-  var win;
-  useEffect(()=>{
-    dispatch(updateWindow({"win_id":win_id,"windata":state}))
-  },[state])
+  };
+  const updateState=(win)=>{
+    window_state=Object.assign({},window_state,{"pos":{
+      "x":win.style.left,
+      "y":win.style.top,}});
+    window_state=Object.assign({},window_state,{"size":{
+      "height":win.style.height,
+      "width":win.style.width,}});
+    dispatch(updateWindow({"win_id":win_id,"windata":window_state}));
+  }
   const nb_actions={
     close:(e)=>{
       e.preventDefault();
@@ -47,25 +52,17 @@ export const Window=(props)=>{
       isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
     },
     maximize:(maxBtn,win)=>{
-      setState(prevState=>{
-        let nstate=Object.assign({},prevState);
-        nstate.pos={
-          "x": win.style.left,
-          "y": win.style.top};
-          nstate.size={
-          "height": win.style.height,
-          "width": win.style.width,};
-        return {nstate};});
+      updateState(win);
       props.callbacks.beforeWindowMaximize();
       win.classList.add("maximized");
     },
     unmaximize:(maxBtn,win)=>{
       props.callbacks.beforeWindowUnmaximize();
       win.classList.remove("maximized");
-      win.style.top=state.pos.y;
-      win.style.left=state.pos.x;
-      win.style.height=state.size.height;
-      win.style.width=state.size.width;
+      win.style.top=window_state.pos?window_state.pos.y:windows.pos.y;
+      win.style.left=window_state.pos?window_state.pos.x:windows.pos.x;
+      win.style.height=window_state.size?window_state.size.height:windows.size.height;
+      win.style.width=window_state.size?window_state.size.width:windows.size.width;
     },
     maxToggle:(e)=>{
       e.preventDefault();
@@ -79,15 +76,7 @@ export const Window=(props)=>{
   }
   const dragElement=(elmnt)=>{
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    setState(prevState=>{
-      let nstate=Object.assign({},prevState);
-      nstate.pos={
-        "x": win.style.left,
-        "y": win.style.top};
-        nstate.size={
-        "height": win.style.height,
-        "width": win.style.width,};
-      return {nstate};});
+    updateState(elmnt);
     const dragMouseDown=(e)=>{
       e = e || window.event;
       e.preventDefault();
@@ -116,15 +105,7 @@ export const Window=(props)=>{
       document.onmouseup = null;
       document.onmousemove = null;
       elmnt.style.transition=".5s";
-      setState(prevState=>{
-        let nstate=Object.assign({},prevState);
-        nstate.pos={
-          "x": win.style.left,
-          "y": win.style.top};
-          nstate.size={
-          "height": win.style.height,
-          "width": win.style.width,};
-        return {nstate};});
+      updateState(elmnt);
     }
     if (document.getElementById(elmnt.id + "_header")) {
       // if present, the header is where you move the DIV from:
@@ -136,21 +117,12 @@ export const Window=(props)=>{
   }
   useEffect(()=>{
     const e=document.getElementById(`win_${props.id}`);
-    win=document.getElementById(`win_${props.id}`);
-    console.log(`created window with data: ${JSON.stringify(state)}`)
+    console.log(`created window with data: ${JSON.stringify(window_state)}`)
     dragElement(e);
-    dispatch(createWindow({"win_id":win_id,"windata":state }))
+    dispatch(createWindow({"win_id":win_id,"windata":window_state }))
     new ResizeObserver(()=>{
       e.style.transition="0s";
-      setState(prevState=>{
-        let state=Object.assign({},prevState);
-        state.pos={
-          "x": win.style.left,
-          "y": win.style.top};
-        state.size={
-          "height": win.style.height,
-          "width": win.style.width,};
-        return {state};});
+      updateState(e);
     }).observe(e);
   },[])
   return(<div 
