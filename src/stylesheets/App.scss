@@ -1,5 +1,18 @@
 #win_testwin {
     #button {
         padding: .5vmin 3.5vmin;
+        margin: 1vmin 0;
+        background: linear-gradient(165deg, lightgreen,green, darkgreen);
+        cursor: pointer;
+        transition: .35s;
+        &:hover{
+            transform: translateY(-.5vmin);
+        }
+        &:active{
+            border: 1px green solid;
+            background: #fff;
+            color: green;
+            transition: .2s;
+        }
     }
 }

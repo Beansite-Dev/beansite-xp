@@ -9,8 +9,8 @@ const App=()=>{
         "height": "38vmin",
         "width": "58vmin"}} 
       pos={{
-        "x":"5vmin",
-        "y":"5vmin",}}
+        "x":"calc(50% - (58vmin / 2))",
+        "y":"calc(50% - (38vmin / 2) - 48px)",}}
       includeTitlebarOptions={{
         "min": true,
         "max": true,

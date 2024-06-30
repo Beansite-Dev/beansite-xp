@@ -8,12 +8,9 @@
   min-width: 256px;
   max-height: 100dvh;
   max-width: 100dvw;
-  font-family: "Tahoma";
   position: fixed;
-  background: #2939cf;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  border: #2432b2 1px solid;
   overflow: hidden;
   transition: 0.5s;
 }
@@ -36,7 +33,6 @@
   padding: 6px;
   gap: 3px;
   cursor: grab;
-  background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
 }
 .Window header:active {
   cursor: grabbing;
@@ -45,27 +41,11 @@
   height: 26px;
   aspect-ratio: 1/1;
   border-radius: 5px;
-  border: 1px #fff solid;
   text-align: center;
   vertical-align: middle;
   font-size: 0.9rem;
   padding: 0;
-  color: #fff;
   cursor: pointer;
-  background: radial-gradient(farthest-corner at 20% 20%, #7691dc 0%, #3e6ff7 45%, #3e6ff7 85%, #2833ca 100%);
-}
-.Window header button:active {
-  background: #fff;
-  border: 1px #2432b2 solid;
-  color: #2432b2;
-}
-.Window header button[id$=close] {
-  background: radial-gradient(farthest-corner at 20% 20%, #ea856a 0%, #e5511c 45%, #e5511c 85%, #ae2900 100%);
-}
-.Window header button[id$=close]:active {
-  background: #fff;
-  border: 1px #ae2900 solid;
-  color: #ae2900;
 }
 .Window header h2 {
   position: absolute;
@@ -73,11 +53,8 @@
   transform: translateY(-50%);
   left: 35px;
   font-size: 1rem;
-  color: #fff;
-  text-shadow: 1px 1px 1px black;
 }
 .Window header .icon {
-  filter: drop-shadow(1px, 1px, 1px, black);
   height: 24px;
   aspect-ratio: 1/1;
   position: absolute;
@@ -91,7 +68,6 @@
 .Window .content {
   height: calc(100% - 38px);
   width: calc(100% - 4px);
-  background: #fff;
   box-sizing: border-box;
   position: absolute;
   bottom: 2px;

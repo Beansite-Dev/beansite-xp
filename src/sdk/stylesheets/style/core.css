@@ -8,12 +8,9 @@
   min-width: 256px;
   max-height: 100dvh;
   max-width: 100dvw;
-  font-family: "Tahoma";
   position: fixed;
-  background: #2939cf;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  border: #2432b2 1px solid;
   overflow: hidden;
   transition: 0.5s;
 }
@@ -36,7 +33,6 @@
   padding: 6px;
   gap: 3px;
   cursor: grab;
-  background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
 }
 .Window header:active {
   cursor: grabbing;
@@ -45,27 +41,11 @@
   height: 26px;
   aspect-ratio: 1/1;
   border-radius: 5px;
-  border: 1px #fff solid;
   text-align: center;
   vertical-align: middle;
   font-size: 0.9rem;
   padding: 0;
-  color: #fff;
   cursor: pointer;
-  background: radial-gradient(farthest-corner at 20% 20%, #7691dc 0%, #3e6ff7 45%, #3e6ff7 85%, #2833ca 100%);
-}
-.Window header button:active {
-  background: #fff;
-  border: 1px #2432b2 solid;
-  color: #2432b2;
-}
-.Window header button[id$=close] {
-  background: radial-gradient(farthest-corner at 20% 20%, #ea856a 0%, #e5511c 45%, #e5511c 85%, #ae2900 100%);
-}
-.Window header button[id$=close]:active {
-  background: #fff;
-  border: 1px #ae2900 solid;
-  color: #ae2900;
 }
 .Window header h2 {
   position: absolute;
@@ -73,11 +53,8 @@
   transform: translateY(-50%);
   left: 35px;
   font-size: 1rem;
-  color: #fff;
-  text-shadow: 1px 1px 1px black;
 }
 .Window header .icon {
-  filter: drop-shadow(1px, 1px, 1px, black);
   height: 24px;
   aspect-ratio: 1/1;
   position: absolute;
@@ -91,7 +68,6 @@
 .Window .content {
   height: calc(100% - 38px);
   width: calc(100% - 4px);
-  background: #fff;
   box-sizing: border-box;
   position: absolute;
   bottom: 2px;
@@ -107,14 +83,9 @@
   border-radius: 0 !important;
 }
 
-@font-face {
-  font-family: "Tahoma";
-  src: url("/fonts/tahoma.ttf");
-}
 #taskbar {
   height: 48px;
   width: 100dvw;
-  border: #2432b2 1px solid;
   z-index: 99;
   position: fixed;
   bottom: 0%;
@@ -125,17 +96,14 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
 }
 #taskbar .tbicon {
-  font-family: "Tahoma";
   width: 25vmin;
   height: calc(100% - 1vmin);
   margin: 0;
   padding: 0;
   overflow: hidden;
   display: flex;
-  color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -147,9 +115,7 @@
   line-height: 0;
   border-radius: 5px;
   gap: 0.5vmin;
-  border: 1px #4c90ff solid;
   user-select: none;
-  background: linear-gradient(0deg, #3150eb 0%, #4c90ff 35%, #4c90ff 75%, #649dfb 100%);
 }
 #taskbar .tbicon .tbi_icon {
   height: 100%;
@@ -167,17 +133,12 @@
   border: none;
   font-size: 2.65vmin;
   letter-spacing: 0.165vmin;
-  font-family: "Tahoma";
-  color: #fff;
   font-style: italic;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: 1px 1px 1px #000;
-  border-right: 1px #6ea769 solid;
-  background: linear-gradient(180deg, #41b04b 0%, #6ea769 2.5%, #41b04b 35%, #41b04b 75%, #2a6c2a 97.5%, #41b04b 100%);
 }
 
 @font-face {
@@ -264,7 +225,7 @@
   }
 }
 .fadeout {
-  animation: fadeout 1s linear;
+  animation: fadeout 1s linear forwards;
   pointer-events: none !important;
   overflow: auto !important;
 }
@@ -277,6 +238,51 @@
     opacity: 0;
   }
 }
+#startmenu {
+  height: 65vmin;
+  width: 55vmin;
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow: hidden;
+}
+#startmenu #topbar {
+  position: absolute;
+  width: 100%;
+  height: 18%;
+  padding: 3vmin;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1.65vmin;
+}
+#startmenu #footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+}
+#startmenu .contents {
+  position: absolute;
+  top: 18%;
+  height: 72%;
+  width: 100%;
+}
+#startmenu .contents .left {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+}
+#startmenu .contents .right {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  right: 0;
+}
+
 @font-face {
   font-family: "Tahoma";
   src: url("/fonts/tahoma.ttf");

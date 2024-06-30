@@ -1,14 +1,10 @@
-@font-face {
-    font-family: "Tahoma";
-    src: url("/fonts/tahoma.ttf");
-}
 #taskbar {
     height: 48px;
     width: 100dvw;
     $border-radius: 15px;
     // border-top-left-radius: $border-radius;
     // border-top-right-radius: $border-radius;
-    border: #2432b2 1px solid;
+    // border: #2432b2 1px solid;
     z-index: 99;
     position: fixed;
     bottom: 0%;
@@ -19,21 +15,21 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    background: linear-gradient(
-        0deg,
-        #2939cf 0%,
-        #2d4ce4 35%,
-        #2d4ce4 75%,
-        #4c90ff 100%);
+    // background: linear-gradient(
+    //     0deg,
+    //     #2939cf 0%,
+    //     #2d4ce4 35%,
+    //     #2d4ce4 75%,
+    //     #4c90ff 100%);
     .tbicon {
-        font-family: "Tahoma";
+        // font-family: "Tahoma";
         width: 25vmin;
         height: calc(100% - 1vmin);
         margin: 0;
         padding: 0;
         overflow: hidden;
         display: flex;
-        color: #fff;
+        // color: #fff;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -45,14 +41,14 @@
         line-height: 0;
         border-radius: 5px;
         gap: .5vmin;
-        border: 1px #4c90ff solid;
+        // border: 1px #4c90ff solid;
         user-select: none;
-        background: linear-gradient(
-            0deg,
-            #3150eb 0%,
-            #4c90ff 35%,
-            #4c90ff 75%,
-            #649dfb 100%);
+        // background: linear-gradient(
+        //     0deg,
+        //     #3150eb 0%,
+        //     #4c90ff 35%,
+        //     #4c90ff 75%,
+        //     #649dfb 100%);
         .tbi_icon {
             height: 100%;
             aspect-ratio: 1 / 1;
@@ -71,24 +67,24 @@
         border: none;
         font-size: 2.65vmin;
         letter-spacing: .165vmin;
-        font-family: "Tahoma";
-        color: #fff;
+        // font-family: "Tahoma";
+        // color: #fff;
         font-style: italic;
         font-weight: bold;
         cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-shadow: 1px 1px 1px #000;
-        border-right: 1px #6ea769 solid;
-        background: linear-gradient(
-            180deg,
-            #41b04b 0%,
-            #6ea769 2.5%,
-            #41b04b 35%,
-            #41b04b 75%,
-            #2a6c2a 97.5%,
-            #41b04b 100%);
+        // text-shadow: 1px 1px 1px #000;
+        // border-right: 1px #6ea769 solid;
+        // background: linear-gradient(
+        //     180deg,
+        //     #41b04b 0%,
+        //     #6ea769 2.5%,
+        //     #41b04b 35%,
+        //     #41b04b 75%,
+        //     #2a6c2a 97.5%,
+        //     #41b04b 100%);
         
     }
 }

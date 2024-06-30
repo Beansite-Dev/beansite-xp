@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Tahoma";
+  src: url("/fonts/tahoma.ttf");
+}
+#taskbar {
+  border: #2432b2 1px solid;
+  background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
+}
+#taskbar .tbicon {
+  font-family: "Tahoma";
+  color: #fff;
+  border: 1px #4c90ff solid;
+  background: linear-gradient(0deg, #3150eb 0%, #4c90ff 35%, #4c90ff 75%, #649dfb 100%);
+}
+#taskbar #startbtn {
+  text-shadow: 1px 1px 1px #000;
+  border-right: 1px #6ea769 solid;
+  font-family: "Tahoma";
+  color: #fff;
+  background: linear-gradient(180deg, #41b04b 0%, #6ea769 2.5%, #41b04b 35%, #41b04b 75%, #2a6c2a 97.5%, #41b04b 100%);
+}
+
+.Window {
+  border: #2432b2 1px solid;
+  font-family: "Tahoma";
+  background: #2939cf;
+}
+.Window header {
+  background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
+}
+.Window button {
+  border: 1px #fff solid;
+  color: #fff;
+  background: radial-gradient(farthest-corner at 20% 20%, #7691dc 0%, #3e6ff7 45%, #3e6ff7 85%, #2833ca 100%);
+}
+.Window button:active {
+  background: #fff;
+  border: 1px #2432b2 solid;
+  color: #2432b2;
+}
+.Window button[id$=close] {
+  background: radial-gradient(farthest-corner at 20% 20%, #ea856a 0%, #e5511c 45%, #e5511c 85%, #ae2900 100%);
+}
+.Window button[id$=close]:active {
+  background: #fff;
+  border: 1px #ae2900 solid;
+  color: #ae2900;
+}
+.Window h2 {
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+}
+.Window .icon {
+  filter: drop-shadow(1px, 1px, 1px, black);
+}
+.Window .content {
+  background: #fff;
+}
+
+#startmenu {
+  background: #fff;
+  font-family: "Tahoma";
+  border: 1px #2432b2 solid;
+}
+#startmenu #topbar {
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+  background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
+}
+#startmenu #footer {
+  background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
+}
+#startmenu .contents .left {
+  background: #fff;
+  border-right: #95bdee 1px solid;
+}
+#startmenu .contents .right {
+  background: #d3e5fa;
+}/*# sourceMappingURL=classic.css.map */

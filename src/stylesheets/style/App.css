@@ -1,3 +1,16 @@
 #win_testwin #button {
   padding: 0.5vmin 3.5vmin;
+  margin: 1vmin 0;
+  background: linear-gradient(165deg, lightgreen, green, darkgreen);
+  cursor: pointer;
+  transition: 0.35s;
+}
+#win_testwin #button:hover {
+  transform: translateY(-0.5vmin);
+}
+#win_testwin #button:active {
+  border: 1px green solid;
+  background: #fff;
+  color: green;
+  transition: 0.2s;
 }/*# sourceMappingURL=App.css.map */

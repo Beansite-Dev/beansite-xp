@@ -3,12 +3,14 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import tips from "../assets/tips"
 import store from './store/store';
+import { setUsername } from "./store/userdataslice";
 export { Window, generateId } from "./modules/Window";
 import { Provider } from 'react-redux';
 import "./stylesheets/style/core.css";
 
 const BeansiteXPGui=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
+  const userdata=useSelector((state)=>state.userdata);
   const dispatch=useDispatch();
   document.title="Beansite XP";
   const Icon=document.getElementById("icon");
@@ -31,19 +33,26 @@ const BeansiteXPGui=(props)=>{
       {tb_props.children}
     </div>)
   }
+  const StartMenu=(props)=>{
+    return(<div id="startmenu">
+      <meta id="startMenuOpen?" content="false" />
+      <div id="topbar">
+        <h1>{userdata.username}</h1>
+      </div>
+      <div className="contents">
+        <div className="left">
+
+        </div>
+        <div className="right">
+
+        </div>
+      </div>
+      <div id="footer">
+
+      </div>
+    </div>)
+  }
   const LoadingScreen=()=>{
-    function waitForElm(selector) {
-      return new Promise(resolve => {
-      if (document.querySelector(selector)) {
-        return resolve(document.querySelector(selector));}
-      const observer = new MutationObserver(mutations => {
-        if (document.querySelector(selector)) {
-          observer.disconnect();
-          resolve(document.querySelector(selector));}});
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true});
-    });}
     const shuffle = (array) => { 
       for (let i=array.length-1;i>0;i--) { 
         const j=Math.floor(Math.random()*(i + 1)); 
@@ -63,6 +72,13 @@ const BeansiteXPGui=(props)=>{
           document.getElementById("loading").classList.add("fadeout");
           setTimeout(()=>{document.getElementById("loading").style.display="none";},1000);
         }
+        if(!document.getElementById("theme")){
+          let theme=document.createElement("link");
+          theme.id="theme";
+          theme.rel="stylesheet";
+          theme.href="/themes/style/classic.css"; //default
+          document.head.appendChild(theme);
+        }
       };
       if (document.readyState === 'complete') {onPageLoad();} else {
         window.addEventListener('load', onPageLoad, false);
@@ -77,10 +93,16 @@ const BeansiteXPGui=(props)=>{
       <p id="loadingTips">{tip}</p>
     </div>)
   }
+  useEffect(()=>{
+    dispatch(setUsername("Guest"));
+  },[])
   return (<>
     <LoadingScreen />
     <div id="bxpgui">
       {props.children}
+      <StartMenu>
+
+      </StartMenu>
       <Taskbar>
         {Object.keys(windows).map((win_id)=>
           <TaskbarIcon 

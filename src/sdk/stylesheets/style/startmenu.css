@@ -1,0 +1,45 @@
+#startmenu {
+  height: 65vmin;
+  width: 55vmin;
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow: hidden;
+  transition: 0.35s;
+}
+#startmenu #topbar {
+  position: absolute;
+  width: 100%;
+  height: 18%;
+  padding: 3vmin;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1.65vmin;
+}
+#startmenu #footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+}
+#startmenu .contents {
+  position: absolute;
+  top: 18%;
+  height: 72%;
+  width: 100%;
+}
+#startmenu .contents .left {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+}
+#startmenu .contents .right {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  right: 0;
+}/*# sourceMappingURL=startmenu.css.map */
