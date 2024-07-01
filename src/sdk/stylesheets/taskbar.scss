@@ -41,6 +41,7 @@
         line-height: 0;
         border-radius: 5px;
         gap: .5vmin;
+        transition: .35s;
         // border: 1px #4c90ff solid;
         user-select: none;
         // background: linear-gradient(
@@ -49,6 +50,10 @@
         //     #4c90ff 35%,
         //     #4c90ff 75%,
         //     #649dfb 100%);
+        &:hover {
+            transform: scale(103.5%);
+            filter: brightness(125%);
+        }
         .tbi_icon {
             height: 100%;
             aspect-ratio: 1 / 1;

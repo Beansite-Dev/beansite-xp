@@ -2,6 +2,7 @@
 @import "taskbar";
 @import "loading";
 @import "startmenu";
+@import "misc";
 //---------------------------
 @font-face {
     font-family: "Tahoma";
@@ -19,4 +20,5 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("/assets/bg.png");
+    #winWrapper{z-index:176;}
 }

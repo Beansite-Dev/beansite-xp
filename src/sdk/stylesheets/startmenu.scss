@@ -9,6 +9,7 @@
     border-top-right-radius: $border-radius;
     overflow: hidden;
     transition: .35s;
+    transform: translateX(-55vmin);
     #topbar {
         position: absolute;
         width: 100%;

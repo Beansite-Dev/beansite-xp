@@ -30,7 +30,12 @@
   line-height: 0;
   border-radius: 5px;
   gap: 0.5vmin;
+  transition: 0.35s;
   user-select: none;
+}
+#taskbar .tbicon:hover {
+  transform: scale(103.5%);
+  filter: brightness(125%);
 }
 #taskbar .tbicon .tbi_icon {
   height: 100%;

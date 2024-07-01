@@ -52,9 +52,14 @@
         border-radius: 1vmin;
         #loadingIcons {
             height: calc(100% - 8px);
+            position: absolute;
+            top: calc(50% - ((100% - 8px) / 2));
             width: fit-content;
             overflow: hidden;
             text-align: center;
+            margin: 0;
+            user-select: none;
+            padding: 0;
             vertical-align: center;
             font-size: 1.5vmin;
             display: flex;
@@ -73,8 +78,10 @@
     }
 }
 @keyframes loadigIconsAni {
-    0%{transform: translateX(-15vmin);}
-    100%{transform: translateX(65vmin);}}
+    0%{transform: 
+        translateX(-15vmin);}
+    100%{transform: 
+        translateX(65vmin);}}
 .fadeout {
     animation: fadeout 1s linear forwards;
     pointer-events:none!important;

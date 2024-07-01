@@ -19,6 +19,11 @@
   color: #fff;
   background: linear-gradient(180deg, #41b04b 0%, #6ea769 2.5%, #41b04b 35%, #41b04b 75%, #2a6c2a 97.5%, #41b04b 100%);
 }
+#taskbar #startbtn:active {
+  background: #fff;
+  border: 1px solid #2a6c2a;
+  color: #2a6c2a;
+}
 
 .Window {
   border: #2432b2 1px solid;

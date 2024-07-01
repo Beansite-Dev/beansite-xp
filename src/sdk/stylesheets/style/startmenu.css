@@ -8,6 +8,7 @@
   border-top-right-radius: 15px;
   overflow: hidden;
   transition: 0.35s;
+  transform: translateX(-55vmin);
 }
 #startmenu #topbar {
   position: absolute;

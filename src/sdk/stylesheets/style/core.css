@@ -115,7 +115,12 @@
   line-height: 0;
   border-radius: 5px;
   gap: 0.5vmin;
+  transition: 0.35s;
   user-select: none;
+}
+#taskbar .tbicon:hover {
+  transform: scale(103.5%);
+  filter: brightness(125%);
 }
 #taskbar .tbicon .tbi_icon {
   height: 100%;
@@ -197,9 +202,14 @@
 }
 #loading #loadingBar #loadingIcons {
   height: calc(100% - 8px);
+  position: absolute;
+  top: calc(50% - (100% - 8px) / 2);
   width: fit-content;
   overflow: hidden;
   text-align: center;
+  margin: 0;
+  user-select: none;
+  padding: 0;
   vertical-align: center;
   font-size: 1.5vmin;
   display: flex;
@@ -247,6 +257,8 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   overflow: hidden;
+  transition: 0.35s;
+  transform: translateX(-55vmin);
 }
 #startmenu #topbar {
   position: absolute;
@@ -283,6 +295,23 @@
   right: 0;
 }
 
+#maximizePreview {
+  height: calc(100dvh - 48px - 2vmin);
+  width: calc(100dvw - 2vmin);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 48px + 2.5vmin));
+  background: rgba(255, 255, 255, 0.7098039216);
+  border: 1px #fff solid;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  transition: 0.35s;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
 @font-face {
   font-family: "Tahoma";
   src: url("/fonts/tahoma.ttf");
@@ -299,4 +328,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("/assets/bg.png");
+}
+#bxpgui #winWrapper {
+  z-index: 176;
 }/*# sourceMappingURL=core.css.map */

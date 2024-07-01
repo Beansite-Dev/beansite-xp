@@ -3,6 +3,7 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { createWindow, updateWindow, destroyWindow } from "../store/windowslice";
 import { Provider } from 'react-redux';
+import { createTBI, destoryTBI, updateTBI } from "../store/tbislice";
 
 export const generateId=(length)=>{
   let result='';
@@ -19,7 +20,7 @@ export const Window=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
   const[win_id,setWin_id]=useState(generateId(10));
-  var window_state={
+  var [window_state,setWindowState]=useState({
     "title": props.title,
     "win_id": win_id,
     "eid": props.id,
@@ -27,15 +28,15 @@ export const Window=(props)=>{
     "pos": props.pos,
     "includeTitlebarOptions": props.includeTitlebarOptions,
     "icon": props.icon,
-  };
+  });
   const updateState=(win)=>{
-    window_state=Object.assign({},window_state,{"pos":{
+    setWindowState(Object.assign({},window_state,{"pos":{
       "x":win.style.left,
-      "y":win.style.top,}});
-    window_state=Object.assign({},window_state,{"size":{
+      "y":win.style.top,}}));
+    setWindowState(Object.assign({},window_state,{"size":{
       "height":win.style.height,
-      "width":win.style.width,}});
-    dispatch(updateWindow({"win_id":win_id,"windata":window_state}));
+      "width":win.style.width,}}));
+    // dispatch(updateWindow({"win_id":win_id,"windata":window_state}));
   }
   const nb_actions={
     close:(e)=>{
@@ -43,6 +44,7 @@ export const Window=(props)=>{
       props.callbacks.beforeWindowClose();
       document.getElementById(`win_${props.id}`).remove();
       dispatch(destroyWindow(win_id));
+      dispatch(destoryTBI(win_id));
     },
     min:(e)=>{
       e.preventDefault();
@@ -59,10 +61,10 @@ export const Window=(props)=>{
     unmaximize:(maxBtn,win)=>{
       props.callbacks.beforeWindowUnmaximize();
       win.classList.remove("maximized");
-      win.style.top=window_state.pos?window_state.pos.y:windows.pos.y;
-      win.style.left=window_state.pos?window_state.pos.x:windows.pos.x;
-      win.style.height=window_state.size?window_state.size.height:windows.size.height;
-      win.style.width=window_state.size?window_state.size.width:windows.size.width;
+      win.style.top=window_state.pos;
+      win.style.left=window_state.pos;
+      win.style.height=window_state.size;
+      win.style.width=window_state.size;
     },
     maxToggle:(e)=>{
       e.preventDefault();
@@ -96,6 +98,7 @@ export const Window=(props)=>{
       pos2 = pos4 - e.clientY;
       pos3 = e.clientX;
       pos4 = e.clientY;
+      document.getElementById("maximizePreview").style.opacity=(pos4<=60)?1:0;
       // set the element's new position:
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -105,7 +108,11 @@ export const Window=(props)=>{
       document.onmouseup = null;
       document.onmousemove = null;
       elmnt.style.transition=".5s";
-      updateState(elmnt);
+      if(pos4<=60){
+        document.getElementById(`win_${props.id}_max`).innerHTML="🗗";
+        document.getElementById(`win_${props.id}_isMax?`).setAttribute("content","true");
+        document.getElementById("maximizePreview").style.opacity=0;
+        nb_actions.maximize(null,elmnt);}else{updateState(elmnt);}
     }
     if (document.getElementById(elmnt.id + "_header")) {
       // if present, the header is where you move the DIV from:
@@ -119,7 +126,8 @@ export const Window=(props)=>{
     const e=document.getElementById(`win_${props.id}`);
     console.log(`created window with data: ${JSON.stringify(window_state)}`)
     dragElement(e);
-    dispatch(createWindow({"win_id":win_id,"windata":window_state }))
+    dispatch(createTBI({"win_id":win_id,"windata":window_state }));
+    dispatch(createWindow({"win_id":win_id,"windata":window_state }));
     new ResizeObserver(()=>{
       e.style.transition="0s";
       updateState(e);

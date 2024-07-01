@@ -34,6 +34,11 @@
             #41b04b 75%,
             #2a6c2a 97.5%,
             #41b04b 100%);
+        &:active{
+            background: #fff;
+            border: 1px solid #2a6c2a;
+            color: #2a6c2a;
+        }
     }
 }
 .Window {

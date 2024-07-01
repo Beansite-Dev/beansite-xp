@@ -1,7 +1,7 @@
 import { Component, createRef, useState, createContext, useEffect } from "react";
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
-import tips from "../assets/tips"
+import tips from "../assets/tips";
 import store from './store/store';
 import { setUsername } from "./store/userdataslice";
 export { Window, generateId } from "./modules/Window";
@@ -11,6 +11,7 @@ import "./stylesheets/style/core.css";
 const BeansiteXPGui=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const userdata=useSelector((state)=>state.userdata);
+  const tbi=useSelector((state)=>state.tbi.value);
   const dispatch=useDispatch();
   document.title="Beansite XP";
   const Icon=document.getElementById("icon");
@@ -27,11 +28,9 @@ const BeansiteXPGui=(props)=>{
       {tbi_props.title}
     </div>)
   }
-  const Taskbar=(tb_props)=>{
-    return(<div id="taskbar">
-      <button id="startbtn">Start</button>
-      {tb_props.children}
-    </div>)
+  const sm_actions={
+    open:()=>document.getElementById("startmenu").style.transform=`translateX(0px)`,
+    close:()=>document.getElementById("startmenu").style.transform=`translateX(-55vmin)`,
   }
   const StartMenu=(props)=>{
     return(<div id="startmenu">
@@ -41,15 +40,25 @@ const BeansiteXPGui=(props)=>{
       </div>
       <div className="contents">
         <div className="left">
-
         </div>
         <div className="right">
-
         </div>
       </div>
       <div id="footer">
-
       </div>
+    </div>)
+  }
+  const Taskbar=(tb_props)=>{
+    return(<div id="taskbar">
+      <button id="startbtn" onClick={()=>{
+        // console.log(document.getElementById("startMenuOpen?").getAttribute("content")==="true");
+        sm_actions[(
+          (document.getElementById("startMenuOpen?").getAttribute("content")==="true")
+          ?"close":"open")]();
+        document.getElementById("startMenuOpen?").setAttribute("content",
+          !(document.getElementById("startMenuOpen?").getAttribute("content")==="true"));
+      }}>Start</button>
+      {tb_props.children}
     </div>)
   }
   const LoadingScreen=()=>{
@@ -99,18 +108,19 @@ const BeansiteXPGui=(props)=>{
   return (<>
     <LoadingScreen />
     <div id="bxpgui">
-      {props.children}
+      <div id="winWrapper">{props.children}</div>
+      <div id="maximizePreview"></div>
       <StartMenu>
 
       </StartMenu>
       <Taskbar>
-        {Object.keys(windows).map((win_id)=>
+        {Object.keys(tbi).map((win_id)=>
           <TaskbarIcon 
             key={win_id} 
-            title={windows[win_id].title} 
+            title={tbi[win_id].title} 
             id={`${win_id}_tbs`} 
-            eid={windows[win_id].eid} 
-            icon={windows[win_id].icon} />)}
+            eid={tbi[win_id].eid} 
+            icon={tbi[win_id].icon} />)}
       </Taskbar>
     </div>
   </>)
