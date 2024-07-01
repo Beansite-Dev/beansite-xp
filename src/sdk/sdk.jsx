@@ -131,6 +131,7 @@ export const BeansiteXP=(props)=>{
   </Provider>)
 }
 
+//!DEPRICATED: v0.3 
 // const Window=(props)=>{
 //   const windows=useSelector((state)=>state.windows.value);
 //   const dispatch=useDispatch();
