@@ -3,6 +3,7 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { createWindow, updateWindow, destroyWindow } from "../store/windowslice";
 import { Provider } from 'react-redux';
+import $ from 'jquery';
 import { createTBI, destoryTBI, updateTBI } from "../store/tbislice";
 
 export const generateId=(length)=>{
@@ -77,62 +78,75 @@ export const Window=(props)=>{
     },
   }
   const dragElement=(elmnt)=>{
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    updateState(elmnt);
-    const dragMouseDown=(e)=>{
-      e = e || window.event;
-      e.preventDefault();
-      elmnt.style.transition="0s";
-      // get the mouse cursor position at startup:
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-      // call a function whenever the cursor moves:
-      document.onmousemove = elementDrag;
-    }
-    const elementDrag=(e)=>{
-      e = e || window.event;
-      e.preventDefault();
-      // calculate the new cursor position:
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      document.getElementById("maximizePreview").style.opacity=(pos4<=60)?1:0;
-      // set the element's new position:
-      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    }
-    const closeDragElement=()=>{
-      // stop moving when mouse button is released:
-      document.onmouseup = null;
-      document.onmousemove = null;
-      elmnt.style.transition=".5s";
-      if(pos4<=60){
-        document.getElementById(`win_${props.id}_max`).innerHTML="🗗";
-        document.getElementById(`win_${props.id}_isMax?`).setAttribute("content","true");
-        document.getElementById("maximizePreview").style.opacity=0;
-        nb_actions.maximize(null,elmnt);}else{updateState(elmnt);}
-    }
-    if (document.getElementById(elmnt.id + "_header")) {
-      // if present, the header is where you move the DIV from:
-      document.getElementById(elmnt.id + "_header").onmousedown = dragMouseDown;
+    if(document.getElementById(`win_${props.id}_isMax?`).getAttribute("content")=="false"){
+      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+      updateState(elmnt);
+      const dragMouseDown=(e)=>{
+        e = e || window.event;
+        e.preventDefault();
+        elmnt.style.transition="0s";
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+      }
+      const elementDrag=(e)=>{
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.getElementById("maximizePreview").style.opacity=(pos4<=60)?1:0;
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+      const closeDragElement=()=>{
+        // stop moving when mouse button is released:
+        document.onmouseup = null;
+        document.onmousemove = null;
+        elmnt.style.transition=".5s";
+        if(pos4<=60){
+          document.getElementById(`win_${props.id}_max`).innerHTML="🗗";
+          document.getElementById(`win_${props.id}_isMax?`).setAttribute("content","true");
+          document.getElementById("maximizePreview").style.opacity=0;
+          nb_actions.maximize(null,elmnt);}else{updateState(elmnt);}
+      }
+      if (document.getElementById(elmnt.id + "_header")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(elmnt.id + "_header").onmousedown = dragMouseDown;
+      } else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        elmnt.onmousedown = dragMouseDown;
+      }
     } else {
-      // otherwise, move the DIV from anywhere inside the DIV:
-      elmnt.onmousedown = dragMouseDown;
+      console.log("drag canceled");
     }
   }
+  const _onFocus=()=>{
+    document.getElementById(`win_${props.id}`).style.zIndex="567";};
+  const _onBlur=()=>{
+    document.getElementById(`win_${props.id}`).style.zIndex="auto";};
   useEffect(()=>{
     const e=document.getElementById(`win_${props.id}`);
     console.log(`created window with data: ${JSON.stringify(window_state)}`)
     dragElement(e);
     dispatch(createTBI({"win_id":win_id,"windata":window_state }));
     dispatch(createWindow({"win_id":win_id,"windata":window_state }));
+    $("Window").on("click",function() {
+      console.log(`focused on element ${this.id}`)
+      $("Window").not(this).css("z-index", "290");
+      $(this).css("z-index", "295");
+    });
     new ResizeObserver(()=>{
       e.style.transition="0s";
       updateState(e);
     }).observe(e);
-  },[])
+  },[]);
   return(<div 
     className="Window"
     style={{
@@ -141,6 +155,7 @@ export const Window=(props)=>{
       "left":props.pos.x,
       "top":props.pos.y,
     }} 
+    tabIndex={Object.keys(windows).indexOf(win_id)}
     id={`win_${props.id}`}>
     <header id={`win_${props.id}_header`}>
       <meta id={`win_${props.id}_isMin?`} content="false"/>

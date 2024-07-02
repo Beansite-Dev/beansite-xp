@@ -13,8 +13,9 @@ const BeansiteXPGui=(props)=>{
   const userdata=useSelector((state)=>state.userdata);
   const tbi=useSelector((state)=>state.tbi.value);
   const dispatch=useDispatch();
-  document.title="Beansite XP";
   const Icon=document.getElementById("icon");
+  document.title="Beansite XP";
+  Icon.href="/assets/beanxp_logo.png";
   const TaskbarIcon=(tbi_props)=>{
     return(<div className="tbicon" id={`${tbi_props.id}_tbicon`} onClick={(e)=>{
       e.preventDefault();
@@ -26,7 +27,7 @@ const BeansiteXPGui=(props)=>{
     }}>
       <div className="tbi_icon" style={{"backgroundImage":`url("${tbi_props.icon}")`}}></div>
       {tbi_props.title}
-    </div>)
+    </div>);
   }
   const sm_actions={
     open:()=>document.getElementById("startmenu").style.transform=`translateX(0px)`,
@@ -46,7 +47,7 @@ const BeansiteXPGui=(props)=>{
       </div>
       <div id="footer">
       </div>
-    </div>)
+    </div>);
   }
   const Taskbar=(tb_props)=>{
     return(<div id="taskbar">
@@ -59,7 +60,7 @@ const BeansiteXPGui=(props)=>{
           !(document.getElementById("startMenuOpen?").getAttribute("content")==="true"));
       }}>Start</button>
       {tb_props.children}
-    </div>)
+    </div>);
   }
   const LoadingScreen=()=>{
     const shuffle = (array) => { 
@@ -100,7 +101,7 @@ const BeansiteXPGui=(props)=>{
         <div id="loadingIcons">█ █ █ █ █ █</div>
       </div>
       <p id="loadingTips">{tip}</p>
-    </div>)
+    </div>);
   }
   useEffect(()=>{
     dispatch(setUsername("Guest"));
@@ -123,12 +124,12 @@ const BeansiteXPGui=(props)=>{
             icon={tbi[win_id].icon} />)}
       </Taskbar>
     </div>
-  </>)
+  </>);
 }
 export const BeansiteXP=(props)=>{
   return (<Provider store={store}>
     <BeansiteXPGui>{props.children}</BeansiteXPGui>
-  </Provider>)
+  </Provider>);
 }
 
 //!DEPRICATED: v0.3 
