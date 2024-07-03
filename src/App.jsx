@@ -1,7 +1,10 @@
-import { useState } from 'react';
-import { BeansiteXP, Window } from './sdk/sdk';
+import { useEffect, useState } from 'react';
+import { BeansiteXP, Window, SDK } from './sdk/sdk';
 import "./stylesheets/style/App.css";
 const App=()=>{
+  // useEffect(()=>{
+    // SDK.hideWindow("testwin1");
+  // },[]);
   return(<>
     <BeansiteXP>
       <Window 

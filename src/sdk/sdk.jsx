@@ -1,10 +1,11 @@
 import { Component, createRef, useState, createContext, useEffect } from "react";
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+// import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import tips from "../assets/tips";
 import store from './store/store';
 import { setUsername } from "./store/userdataslice";
 export { Window, generateId } from "./modules/Window";
+// import bsod from "./modules/BSoD";
 import { Provider } from 'react-redux';
 import "./stylesheets/style/core.css";
 
@@ -17,7 +18,7 @@ const BeansiteXPGui=(props)=>{
   document.title="Beansite XP";
   Icon.href="/assets/beanxp_logo.png";
   const TaskbarIcon=(tbi_props)=>{
-    return(<div className="tbicon" id={`${tbi_props.id}_tbicon`} onClick={(e)=>{
+    return(<div className="tbicon" id={`${tbi_props.eid}_tbi`} onClick={(e)=>{
       e.preventDefault();
       document.getElementById(`win_${tbi_props.eid}_isMin?`).setAttribute("content",
         !(document.getElementById(`win_${tbi_props.eid}_isMin?`).getAttribute("content")==="true"));
@@ -109,7 +110,36 @@ const BeansiteXPGui=(props)=>{
   return (<>
     <LoadingScreen />
     <div id="bxpgui">
-      <div id="winWrapper">{props.children}</div>
+      <div id="winWrapper">
+        {props.children}
+        {/* {Object.keys(windows).map((win_id)=><Window 
+        size={{
+          "height": windows[win_id].size.height,
+          "width": windows[win_id].size.height}} 
+        pos={{
+          "x": windows[win_id].pos.x,
+          "y": windows[win_id].pos.y,}}
+        includeTitlebarOptions={{
+          "min": windows[win_id].includeTitlebarOptions.min,
+          "max": windows[win_id].includeTitlebarOptions.max,
+          "close": windows[win_id].includeTitlebarOptions.close,
+        }}
+        callbacks={{
+          beforeWindowClose:()=>{
+            windows[win_id].callbacks.beforeWindowClose();},
+          beforeWindowMinimize:()=>{
+            windows[win_id].callbacks.beforeWindowMinimize();},
+          beforeWindowMaximize:()=>{
+            windows[win_id].callbacks.beforeWindowMaximize();},
+          beforeWindowUnmaximize:()=>{
+            windows[win_id].callbacks.beforeWindowUnmaximize();},
+        }}
+        id={windows[win_id].eid}
+        title={windows[win_id].title}
+        icon={windows[win_id].icon}>
+          {windows[win_id].children}
+      </Window>)} */}
+      </div>
       <div id="maximizePreview"></div>
       <StartMenu>
 
@@ -128,9 +158,16 @@ const BeansiteXPGui=(props)=>{
 }
 export const BeansiteXP=(props)=>{
   return (<Provider store={store}>
-    <BeansiteXPGui>{props.children}</BeansiteXPGui>
+      <BeansiteXPGui>{props.children}</BeansiteXPGui>
   </Provider>);
 }
+
+export const SDK={
+  hideWindow:(win_id)=>{
+    document.getElementById(`win_${win_id}`).style.display="none";
+    document.getElementById(`${win_id}_tbi`).style.display="none";
+  }
+} 
 
 //!DEPRICATED: v0.3 
 // const Window=(props)=>{

@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Lucida Console";
+  src: url("/fonts/lucon.ttf");
+}
+#bsod {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0000ab;
+  padding: 5vmin;
+  color: #fff;
+  font-family: "Lucida Console";
+  font-size: 2vmin;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#bsod #bsodAsciiArt {
+  white-space: pre;
+  aspect-ratio: 1/1;
+  width: 100vmin;
+}
+#bsod #bsodTextWrapper {
+  width: calc(100dvw - 20vmin);
+  height: calc(100dvh - 20vmin);
+}
+#bsod #bsodTextWrapper #bsodHelpInfo {
+  width: 100vmin;
+}/*# sourceMappingURL=bsod.css.map */

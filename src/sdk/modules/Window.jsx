@@ -29,6 +29,7 @@ export const Window=(props)=>{
     "pos": props.pos,
     "includeTitlebarOptions": props.includeTitlebarOptions,
     "icon": props.icon,
+    "children":{}
   });
   const updateState=(win)=>{
     setWindowState(Object.assign({},window_state,{"pos":{
