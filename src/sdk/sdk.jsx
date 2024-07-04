@@ -1,7 +1,6 @@
 import { Component, createRef, useState, createContext, useEffect } from "react";
 // import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
-import tips from "../assets/tips";
 import store from './store/store';
 import { setUsername } from "./store/userdataslice";
 export { Window, generateId } from "./modules/Window";
@@ -63,52 +62,10 @@ const BeansiteXPGui=(props)=>{
       {tb_props.children}
     </div>);
   }
-  const LoadingScreen=()=>{
-    const shuffle = (array) => { 
-      for (let i=array.length-1;i>0;i--) { 
-        const j=Math.floor(Math.random()*(i + 1)); 
-        [array[i],array[j]]=[array[j],array[i]]; 
-      } return array; 
-    };
-    const shuffledTips=shuffle(tips);
-    let i=0;
-    const[tip,setTip]=useState(shuffledTips[i]);
-    const tipsInterval=setInterval(()=>{
-      i++;setTip(shuffledTips[i]);},5000);
-    useEffect(() => {
-      const onPageLoad=()=>{
-        if(document.getElementById("loading")){
-          setTimeout(()=>{console.log("loaded")},1000);
-          clearInterval(tipsInterval);
-          document.getElementById("loading").classList.add("fadeout");
-          setTimeout(()=>{document.getElementById("loading").style.display="none";},1000);
-        }
-        if(!document.getElementById("theme")){
-          let theme=document.createElement("link");
-          theme.id="theme";
-          theme.rel="stylesheet";
-          theme.href="/themes/style/classic.css"; //default
-          document.head.appendChild(theme);
-        }
-      };
-      if (document.readyState === 'complete') {onPageLoad();} else {
-        window.addEventListener('load', onPageLoad, false);
-        return () => window.removeEventListener('load', onPageLoad);
-      }
-    },[]);
-    return(<div id="loading">
-      <div id="loadingIcon"></div>
-      <div id="loadingBar">
-        <div id="loadingIcons">█ █ █ █ █ █</div>
-      </div>
-      <p id="loadingTips">{tip}</p>
-    </div>);
-  }
   useEffect(()=>{
     dispatch(setUsername("Guest"));
-  },[])
+  },[]);
   return (<>
-    <LoadingScreen />
     <div id="bxpgui">
       <div id="winWrapper">
         {props.children}
@@ -161,11 +118,42 @@ export const BeansiteXP=(props)=>{
       <BeansiteXPGui>{props.children}</BeansiteXPGui>
   </Provider>);
 }
-
+function waitForElm(selector) {
+  return new Promise(resolve => {
+      if (document.querySelector(selector)) {
+        return resolve(document.querySelector(selector));}
+      const observer = new MutationObserver(mutations => {
+        if (document.querySelector(selector)) {
+          observer.disconnect();
+          resolve(document.querySelector(selector));
+        }});
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true});
+  });
+}
 export const SDK={
-  hideWindow:(win_id)=>{
-    document.getElementById(`win_${win_id}`).style.display="none";
-    document.getElementById(`${win_id}_tbi`).style.display="none";
+  hideWindow:async(win_id)=>{
+    await waitForElm(`#win_${win_id}`);
+    await waitForElm(`#${win_id}_tbi`);
+    if(document.getElementById(`win_${win_id}`)&&
+      document.getElementById(`${win_id}_tbi`)){
+      document.getElementById(`win_${win_id}`).style.display="none";
+      document.getElementById(`${win_id}_tbi`).style.display="none";
+    } else {
+      console.warn(`[SDK_ERROR] > REFRENCE_ERROR\n${win_id} does not exist`);
+    }
+  },
+  openWindow:async(win_id)=>{
+    await waitForElm(`#win_${win_id}`);
+    await waitForElm(`#${win_id}_tbi`);
+    if(document.getElementById(`win_${win_id}`)&&
+      document.getElementById(`${win_id}_tbi`)){
+      document.getElementById(`win_${win_id}`).style.display="block";
+      document.getElementById(`${win_id}_tbi`).style.display="flex";
+    } else {
+      console.warn(`[SDK_ERROR] > REFRENCE_ERROR\n${win_id} does not exist`);
+    }
   }
 } 
 

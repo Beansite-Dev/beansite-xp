@@ -1,14 +1,17 @@
-#win_testwin #button {
+#win_welcome hr {
+  margin: 1vmin 0;
+}
+#win_welcome #button {
   padding: 0.5vmin 3.5vmin;
   margin: 1vmin 0;
   background: linear-gradient(165deg, lightgreen, green, darkgreen);
   cursor: pointer;
   transition: 0.35s;
 }
-#win_testwin #button:hover {
+#win_welcome #button:hover {
   transform: translateY(-0.5vmin);
 }
-#win_testwin #button:active {
+#win_welcome #button:active {
   border: 1px green solid;
   background: #fff;
   color: green;

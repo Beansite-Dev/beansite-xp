@@ -111,6 +111,9 @@
         padding: 2vmin;
         left: 2px;
     }
+    .md {
+        white-space: 'pre-wrap';
+    }
 }
 .maximized {
     height: calc(100dvh - 48px) !important;

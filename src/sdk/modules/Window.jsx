@@ -3,6 +3,9 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { createWindow, updateWindow, destroyWindow } from "../store/windowslice";
 import { Provider } from 'react-redux';
+import Markdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from "remark-breaks";
 import $ from 'jquery';
 import { createTBI, destoryTBI, updateTBI } from "../store/tbislice";
 
@@ -168,6 +171,11 @@ export const Window=(props)=>{
       {props.includeTitlebarOptions.close?<button id={`win_${props.id}_close`} onClick={(e)=>nb_actions.close(e)}>✖</button>:null}
     </header>
     <div className="content">
+      <Markdown remarkPlugins={[
+        remarkGfm,
+        remarkBreaks]}
+        className="md">
+        {props.markdownSource===undefined?"":String(props.markdownSource)}</Markdown>
       {props.children}
     </div>
   </div>)

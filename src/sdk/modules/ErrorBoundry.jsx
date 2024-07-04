@@ -7,7 +7,7 @@ class ErrorBoundary extends React.Component {
     static getDerivedStateFromError(error){
         return{hasError:true,errorData:error};}
     componentDidCatch(error,info) {
-        console.error(`[SDK_ERR] ${error}\n${info}`);
+        console.error(`[SDK_ERR] ${error}\n${info.componentStack}`);
         this.setState({
             hasError:true,
             errorData:[error,info]});
