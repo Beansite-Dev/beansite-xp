@@ -3,6 +3,8 @@
   src: url("/fonts/tahoma.ttf");
 }
 .Window {
+  opacity: 0;
+  transition: 0.5s;
   resize: both;
   min-height: 192px;
   min-width: 256px;
@@ -12,7 +14,7 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   overflow: hidden;
-  transition: 0.5s;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3137254902), 4px 4px 3px rgba(0, 0, 0, 0.3137254902), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 2px 2px 2px #000000;
 }
 .Window h1, .Window h2, .Window h3 {
   margin: 0;
@@ -45,7 +47,13 @@
   vertical-align: middle;
   font-size: 0.9rem;
   padding: 0;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1450980392), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 2px 2px 2px rgba(0, 0, 0, 0.2078431373);
   cursor: pointer;
+  transition: 0.35s;
+}
+.Window header button:hover {
+  transform: scale(110%);
+  filter: brightness(125%);
 }
 .Window header h2 {
   position: absolute;
@@ -73,6 +81,11 @@
   bottom: 2px;
   padding: 2vmin;
   left: 2px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.Window .md {
+  white-space: "pre-wrap";
 }
 
 .maximized {
@@ -86,16 +99,20 @@
 #taskbar {
   height: 48px;
   width: 100dvw;
-  z-index: 99;
+  z-index: 359;
   position: fixed;
   bottom: 0%;
   left: 0%;
   overflow: hidden;
   gap: 1vmin;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.0823529412), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 0px -2px 2px rgba(0, 0, 0, 0.1450980392);
+}
+#taskbar * {
+  user-select: none;
 }
 #taskbar .tbicon {
   width: 25vmin;
@@ -111,6 +128,8 @@
   padding: 1vmin;
   box-sizing: border-box;
   font-size: 2vmin;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1450980392), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 2px 2px 2px rgba(0, 0, 0, 0.2078431373);
   font-weight: lighter;
   line-height: 0;
   border-radius: 5px;
@@ -133,7 +152,7 @@
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   height: 100%;
-  width: auto;
+  width: 10vmin;
   padding: 0 2vmin;
   border: none;
   font-size: 2.65vmin;
@@ -144,6 +163,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.35s;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1450980392), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 2px 2px 2px rgba(0, 0, 0, 0.2078431373);
+}
+#taskbar #startbtn:hover {
+  width: 12.5vmin;
+}
+#taskbar #startbtn:active {
+  transition: 0.05s;
 }
 
 @font-face {
@@ -258,8 +285,9 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   overflow: hidden;
-  transition: 0.35s;
-  transform: translateX(-55vmin);
+  transition: 0.65s;
+  transform: translateY(65vmin);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3333333333), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 2px 2px 2px rgba(0, 0, 0, 0.5843137255);
 }
 #startmenu #topbar {
   position: absolute;
@@ -344,6 +372,23 @@
   opacity: 0;
   pointer-events: none;
   z-index: 3;
+}
+
+::-webkit-scrollbar {
+  width: 1vmin;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  outline: 1px outset rgb(167, 167, 167);
+  box-sizing: border-box;
+  background: #cecece;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(155, 155, 155);
+  outline: 1px outset rgb(167, 167, 167);
+  box-sizing: border-box;
 }
 
 @font-face {

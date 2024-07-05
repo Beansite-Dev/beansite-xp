@@ -5,16 +5,21 @@
     // border-top-left-radius: $border-radius;
     // border-top-right-radius: $border-radius;
     // border: #2432b2 1px solid;
-    z-index: 99;
+    z-index: 359;
     position: fixed;
     bottom: 0%;
     left: 0%;
     overflow: hidden;
     gap: 1vmin;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    box-shadow: 
+        0px 0px 5px #00000015,
+        0px 0px 5px #00000050 inset,
+        0px -2px 2px #00000025;
+    * {user-select: none;}
     // background: linear-gradient(
     //     0deg,
     //     #2939cf 0%,
@@ -37,6 +42,11 @@
         padding: 1vmin;
         box-sizing: border-box;
         font-size: 2vmin;
+        text-shadow: 1px 1px 1px black;
+        box-shadow: 
+            0px 0px 3px #00000025,
+            0px 0px 5px #00000050 inset,
+            2px 2px 2px #00000035;
         font-weight: lighter;
         line-height: 0;
         border-radius: 5px;
@@ -67,7 +77,7 @@
         border-top-right-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
         height: 100%;
-        width: auto;
+        width: 10vmin;
         padding: 0 2vmin;
         border: none;
         font-size: 2.65vmin;
@@ -80,6 +90,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: .35s;
+        box-shadow: 
+            0px 0px 3px #00000025,
+            0px 0px 5px #00000050 inset,
+            2px 2px 2px #00000035;
+        &:hover {
+            width: 12.5vmin;
+        }
+        &:active {
+            transition: .05s;
+        }
         // text-shadow: 1px 1px 1px #000;
         // border-right: 1px #6ea769 solid;
         // background: linear-gradient(

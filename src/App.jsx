@@ -1,14 +1,14 @@
 import { Component, useEffect, useState } from 'react';
-import { BeansiteXP, Window, SDK } from './sdk/sdk';
+import { BeansiteXP, Window, WinUtils, waitForElm } from './sdk/sdk';
 import "./stylesheets/style/App.css";
 import { WelcomeSrc } from './mdsrc';
-
+import BeanpoweredGui from './beanpowered/bpgui';
 class App extends Component {
   constructor(){
     super();
   }
   async componentDidMount(){
-    SDK.hideWindow("testwin2");
+    // WinUtils.hideWindow("beanpowered");
   }
   render(){
     return(<>
@@ -40,7 +40,15 @@ class App extends Component {
           icon="/icons/xp/Information.png"
           markdownMode
           markdownSource={WelcomeSrc}>
-
+            <button 
+              className='button1'
+              onClick={()=>WinUtils.openWindow("beanpowered")}>
+                Play games on Beanpowered</button>
+            <br/><br/><hr/>
+            <footer>
+              M1dnightDev (c) 2024 | Made with {`<3`} in NJ<br/>
+              <a href="https://github.com/Beansite-Dev">Github</a> | <a href="https://github.com/m1dnight-ofcl">Personal Github</a> | <a href="https://youtube.com/@m1dnightdev">Youtube</a> | <a href="https://twitter.com/@m1dnightdev">Twitter</a> | <a href="https://tiktok.com/@m1dnightdev">TikTok</a>
+            </footer>
         </Window>
         <Window 
           size={{
@@ -52,8 +60,7 @@ class App extends Component {
           includeTitlebarOptions={{
             "min": true,
             "max": true,
-            "close": true,
-          }}
+            "close": true,}}
           callbacks={{
             beforeWindowClose:()=>{
               console.log("closing window");},
@@ -64,10 +71,10 @@ class App extends Component {
             beforeWindowUnmaximize:()=>{
               console.log("unmaximizing window");},
           }}
-          id="testwin2"
-          title="Test Window 2"
-          icon="/icons/xp/Command Prompt.png">
-            <h1>Hello World! 2</h1>
+          id="beanpowered"
+          title="Beanpowered"
+          icon="/icons/bp.png">
+            <BeanpoweredGui />
         </Window>
       </BeansiteXP>
     </>);

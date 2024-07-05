@@ -7,6 +7,8 @@
         margin: 0;
         padding: 0;
     }
+    opacity: 0;
+    transition: .5s;
     resize: both;
     min-height: 192px;
     min-width: 256px;
@@ -20,7 +22,11 @@
     border-top-right-radius: $border-radius;
     // border: #2432b2 1px solid;
     overflow: hidden;
-    transition: .5s;
+    box-shadow: 
+        0px 0px 3px #00000050,
+        4px 4px 3px #00000050,
+        0px 0px 5px #00000050 inset,
+        2px 2px 2px #000000;
     header {
         position: absolute;
         user-select: none;
@@ -52,8 +58,17 @@
             vertical-align: middle;
             font-size: .9rem;
             padding: 0;
+            box-shadow: 
+                0px 0px 3px #00000025,
+                0px 0px 5px #00000050 inset,
+                2px 2px 2px #00000035;
             // color: #fff;
             cursor: pointer;
+            transition: .35s;
+            &:hover {
+                transform: scale(110%);
+                filter: brightness(125%);
+            }
             // background: radial-gradient(
                 // farthest-corner at 20% 20%,
                 // #7691dc 0%, 
@@ -110,6 +125,8 @@
         bottom: 2px;
         padding: 2vmin;
         left: 2px;
+        overflow: hidden;
+        overflow-y: auto;
     }
     .md {
         white-space: 'pre-wrap';

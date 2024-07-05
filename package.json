@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
-    "flux": "^4.0.4",
+    "electron": "^31.1.0",
+    "electron-builder": "^24.13.3",
     "fluxxor": "^1.7.3",
     "jquery": "^3.7.1",
     "react": "^18.3.1",

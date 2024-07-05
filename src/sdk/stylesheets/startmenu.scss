@@ -9,8 +9,12 @@
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
     overflow: hidden;
-    transition: .35s;
-    transform: translateX(-55vmin);
+    transition: .65s;
+    transform: translateY(65vmin);
+    box-shadow: 
+        0px 0px 3px #00000055,
+        0px 0px 5px #00000050 inset,
+        2px 2px 2px #00000095;
     #topbar {
         position: absolute;
         width: 100%;

@@ -8,6 +8,8 @@ import remarkGfm from 'remark-gfm';
 import remarkBreaks from "remark-breaks";
 import $ from 'jquery';
 import { createTBI, destoryTBI, updateTBI } from "../store/tbislice";
+import { WinUtils, waitForElm } from "./WinUtils";
+export { WinUtils, waitForElm } from "./WinUtils";
 
 export const generateId=(length)=>{
   let result='';
@@ -19,6 +21,9 @@ export const generateId=(length)=>{
     counter+=1;
   }
   return btoa(result);
+}
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 export const Window=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
@@ -44,12 +49,20 @@ export const Window=(props)=>{
     // dispatch(updateWindow({"win_id":win_id,"windata":window_state}));
   }
   const nb_actions={
-    close:(e)=>{
+    destroy:(e)=>{ //! dangerous
       e.preventDefault();
       props.callbacks.beforeWindowClose();
       document.getElementById(`win_${props.id}`).remove();
       dispatch(destroyWindow(win_id));
       dispatch(destoryTBI(win_id));
+    },
+    close:(e)=>{
+      e.preventDefault();
+      WinUtils.hideWindow(props.id,true);
+    },
+    open:(e)=>{
+      e.preventDefault();
+      WinUtils.openWindow(props.id);
     },
     min:(e)=>{
       e.preventDefault();
@@ -137,7 +150,7 @@ export const Window=(props)=>{
     document.getElementById(`win_${props.id}`).style.zIndex="auto";};
   useEffect(()=>{
     const e=document.getElementById(`win_${props.id}`);
-    console.log(`created window with data: ${JSON.stringify(window_state)}`)
+    // console.log(`created window with data: ${JSON.stringify(window_state)}`);
     dragElement(e);
     dispatch(createTBI({"win_id":win_id,"windata":window_state }));
     dispatch(createWindow({"win_id":win_id,"windata":window_state }));
@@ -150,6 +163,7 @@ export const Window=(props)=>{
       e.style.transition="0s";
       updateState(e);
     }).observe(e);
+    e.style.opacity="1";
   },[]);
   return(<div 
     className="Window"

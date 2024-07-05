@@ -15,8 +15,7 @@ const LoadingScreen=()=>{
     useEffect(() => {
         const onPageLoad=()=>{
             if(document.getElementById("loading")){
-                setTimeout(()=>{console.log("loaded")},1000);
-                clearInterval(tipsInterval);
+                setTimeout(()=>{clearInterval(tipsInterval);},1000);
                 document.getElementById("loading").classList.add("fadeout");
                 setTimeout(()=>{document.getElementById("loading").style.display="none";},1000);
             }
@@ -28,7 +27,7 @@ const LoadingScreen=()=>{
                 document.head.appendChild(theme);
             }
         };
-        if (document.readyState === 'complete') {onPageLoad();} else {
+        if(document.readyState === 'complete'){onPageLoad();}else{
             window.addEventListener('load', onPageLoad, false);
             return () => window.removeEventListener('load', onPageLoad);
         }

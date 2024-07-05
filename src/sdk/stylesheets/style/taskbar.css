@@ -1,16 +1,20 @@
 #taskbar {
   height: 48px;
   width: 100dvw;
-  z-index: 99;
+  z-index: 359;
   position: fixed;
   bottom: 0%;
   left: 0%;
   overflow: hidden;
   gap: 1vmin;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.0823529412), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 0px -2px 2px rgba(0, 0, 0, 0.1450980392);
+}
+#taskbar * {
+  user-select: none;
 }
 #taskbar .tbicon {
   width: 25vmin;
@@ -26,6 +30,8 @@
   padding: 1vmin;
   box-sizing: border-box;
   font-size: 2vmin;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1450980392), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 2px 2px 2px rgba(0, 0, 0, 0.2078431373);
   font-weight: lighter;
   line-height: 0;
   border-radius: 5px;
@@ -48,7 +54,7 @@
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   height: 100%;
-  width: auto;
+  width: 10vmin;
   padding: 0 2vmin;
   border: none;
   font-size: 2.65vmin;
@@ -59,4 +65,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.35s;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1450980392), 0px 0px 5px rgba(0, 0, 0, 0.3137254902) inset, 2px 2px 2px rgba(0, 0, 0, 0.2078431373);
+}
+#taskbar #startbtn:hover {
+  width: 12.5vmin;
+}
+#taskbar #startbtn:active {
+  transition: 0.05s;
 }/*# sourceMappingURL=taskbar.css.map */

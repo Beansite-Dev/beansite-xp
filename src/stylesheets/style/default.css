@@ -9,4 +9,6 @@ html * {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
 }/*# sourceMappingURL=default.css.map */
