@@ -16,8 +16,12 @@ const TaskbarIcon=(tbi_props)=>{
     </div>);
 }
 const sm_actions={
-    open:()=>document.getElementById("startmenu").style.transform=`translateY(0px)`,
-    close:()=>document.getElementById("startmenu").style.transform=`translateY(65vmin)`,
+    open:()=>{
+        document.getElementById("startmenu").style.transform=`translateY(0px)`
+        document.getElementById("startmenu").style.filter=`brightness(100%)`},
+    close:()=>{
+        document.getElementById("startmenu").style.transform=`translateY(65vmin)`
+        document.getElementById("startmenu").style.filter=`brightness(85%)`},
 }
 const StartMenu=(props)=>{
     const userdata=useSelector((state)=>state.userdata);
