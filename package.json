@@ -22,7 +22,8 @@
     "react-transition-group": "^4.4.5",
     "redux": "^5.0.1",
     "remark-breaks": "^4.0.0",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^4.0.0",
+    "vercel": "^34.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
