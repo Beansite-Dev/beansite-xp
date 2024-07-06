@@ -8,7 +8,8 @@
   color: #fff;
   top: 0;
   left: 0;
-  background: linear-gradient(-185deg, #353585, #252565);
+  background: linear-gradient(-185deg, #252550, #252540);
+  background-attachment: fixed;
   height: fit-content;
   padding: 2vmin;
   width: 100%;

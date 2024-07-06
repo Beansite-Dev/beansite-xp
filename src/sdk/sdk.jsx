@@ -3,11 +3,16 @@ import { Component, createRef, useState, createContext, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import store from './store/store';
 import { setUsername } from "./store/userdataslice";
-export { Window, generateId, WinUtils, waitForElm } from "./modules/Window";
+export { Window, WinUtils, waitForElm } from "./modules/Window";
+import { generateId, timeout } from "./modules/lib";
+export { generateId, timeout } from "./modules/lib";
 // import bsod from "./modules/BSoD";
 import { Provider } from 'react-redux';
 import "./stylesheets/style/core.css";
 import { Taskbar, TaskbarIcon, StartMenu } from "./modules/Explorer";
+import NotificationSystem, { Notification } from "./modules/Notification";
+import { createNotification } from "./store/notificationslice";
+export { createNotification } from "./store/notificationslice";
 
 const BeansiteXPGui=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
@@ -29,6 +34,7 @@ const BeansiteXPGui=(props)=>{
       <StartMenu>
 
       </StartMenu>
+      <NotificationSystem />
       <Taskbar>
         {Object.keys(tbi).map((win_id)=>
           <TaskbarIcon 
@@ -42,9 +48,5 @@ const BeansiteXPGui=(props)=>{
   </>);
 }
 export const BeansiteXP=(props)=>{
-  return (<Provider store={store}>
-      <BeansiteXPGui>{props.children}</BeansiteXPGui>
-  </Provider>);
-}
-
+  return (<BeansiteXPGui>{props.children}</BeansiteXPGui>);}
 export default BeansiteXP;

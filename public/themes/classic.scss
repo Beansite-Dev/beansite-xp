@@ -124,3 +124,15 @@
         }
     }
 }
+#notiwrapper {
+    .notification {
+        color: #fff;
+        border: 1px #4c90ff solid;
+        background: linear-gradient(
+            0deg,
+            #3150eb 0%,
+            #4c90ff 35%,
+            #4c90ff 75%,
+            #649dfb 100%);
+    }
+}

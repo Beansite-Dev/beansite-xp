@@ -10,21 +10,8 @@ import $ from 'jquery';
 import { createTBI, destoryTBI, updateTBI } from "../store/tbislice";
 import { WinUtils, waitForElm } from "./WinUtils";
 export { WinUtils, waitForElm } from "./WinUtils";
+import { generateId, timeout } from "./lib";
 
-export const generateId=(length)=>{
-  let result='';
-  const characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
-  let counter=0;
-  while (counter<length) {
-    result+=characters.charAt(Math.floor(Math.random() * charactersLength));
-    counter+=1;
-  }
-  return btoa(result);
-}
-function timeout(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 export const Window=(props)=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();

@@ -3,6 +3,7 @@
 @import "loading";
 @import "startmenu";
 @import "bsod";
+@import "notification";
 @import "misc";
 //---------------------------
 @font-face {
@@ -22,5 +23,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("/assets/bg.png");
+    background-color: #000;
     #winWrapper{z-index:176;}
 }
