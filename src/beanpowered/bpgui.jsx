@@ -2,29 +2,77 @@ import React, { useState, useEffect } from "react";
 import "./style/style.css";
 import games from "./assets/games";
 const BeanpoweredGui=(props)=>{
-    const Item=({ title, url, id, type, index })=>{
-        return(<div 
-            className="item" 
-            style={{
-                "borderBottom":!(index>=Object.keys(games).length-1)?
-                    "1px #515171 solid":"none"
-            }}>
-            <h1>{title}</h1>
-        </div>);
-    }
+    const [res,setRes]=useState(games);
+    const [selectedGame,setSelectedGame]=useState({
+        "title":"Select a game",
+        "gdata":{
+            "url":null,
+            "id": "_placeholder",
+            "type": "OpenInGL"
+        }
+    });
+    const SidebarItem=({ title, url, id, type, index })=>{
+        return(<div className="bpsb_item" 
+            onClick={()=>{setSelectedGame({
+                "title":title,
+                "gdata":games[title],
+            });}}>{title}</div>);}
     return(<div id="bp_gui">
-        <div id="bp_wrapper">
-            <h1>Welcome to Beanpowered</h1>
-            <hr/>
-            <div className="itemWrapper">
-                {Object.keys(games).map((title,index)=><Item 
-                    key={index}
-                    index={index}
-                    title={title}
-                    url={games[title].url}
-                    id={games[title].id}
-                    type={games[title].type}/>)}
+        <div className="bp_sidebar">
+            <input 
+                autoComplete="off"
+                type="text" 
+                id="search" 
+                placeholder="Search Catalog" 
+                onInput={(e)=>{
+                    setRes(e.target.value?
+                        Object.keys(games)
+                        .filter(key=>key.toLowerCase().includes(e.target.value.toLowerCase()))
+                        .reduce((obj,key) => {
+                            obj[key]=games[key];
+                            return obj;
+                        },{}):games)}}/>
+            {Object.keys(res).map((title,index)=><SidebarItem 
+                key={index}
+                index={index}
+                title={title}
+                url={games[title].url}
+                id={games[title].id}
+                type={games[title].type}/>)}
+        </div>
+        <div id="bp_contents">
+            <div className="banner" style={{"backgroundImage": `url("/assets/bp_assets/gbanner/${selectedGame.gdata.id}.png")`,}}></div>
+            <div className="actionbar">
+                <h1>{selectedGame.title}</h1>
+                <button className="playButton">Play ▶</button>
             </div>
+            <h2>System Requirements</h2>
+            <ul>
+                <li>{[
+                    "2 Core 2.3GHz",
+                    "4 Core 4.3GHz",
+                    "1 Core 50KHz",
+                    "8 Core 5GHz",]
+                    [Math.floor(Math.random()*4)]}</li>
+                <li>{[
+                    "4Gb VRAM",
+                    "8Gb VRAM",
+                    "2Gb VRAM",
+                    "1Gb VRAM"]
+                    [Math.floor(Math.random()*4)]}</li>
+                <li>{[
+                    "4Gb RAM",
+                    "8Gb RAM",
+                    "2Gb RAM",
+                    "1Gb RAM"]
+                    [Math.floor(Math.random()*4)]}</li>
+                <li>{[
+                    "50Gb Drive Capacity",
+                    "100Mb Drive Capacity",
+                    "10Gb Drive Capacity",
+                    "500Mb Drive Capacity",]
+                    [Math.floor(Math.random()*4)]}</li>
+            </ul>
         </div>
     </div>);
 }

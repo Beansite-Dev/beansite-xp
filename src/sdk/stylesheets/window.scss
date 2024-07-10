@@ -49,10 +49,13 @@
             // #2d4ce4 35%,
             // #2d4ce4 75%,
             // #4c90ff 100%);
+        .min{background-image: url("/icons/xp/Minimize.png");}
+        .max{background-image: url("/icons/xp/Maximize.png");}
+        .close{background-image: url("/icons/xp/Exit.png");}
         button {
             height: 26px;
             aspect-ratio: 1 / 1;
-            border-radius: 5px;
+            // border-radius: 5px;
             // border: 1px #fff solid;
             text-align: center;
             vertical-align: middle;
@@ -62,7 +65,11 @@
                 0px 0px 3px #00000025,
                 0px 0px 5px #00000050 inset,
                 2px 2px 2px #00000035;
+            border: none;
             // color: #fff;
+            background-position: center;
+            background-size: contain;
+            background-color: rgba(0,0,0,0);
             cursor: pointer;
             transition: .35s;
             &:hover {

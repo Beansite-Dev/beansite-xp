@@ -1,8 +1,6 @@
-#win_welcome hr {
-  margin: 1vmin 0;
-}
-#win_welcome .button1 {
+.button1 {
   padding: 0.5vmin 3.5vmin;
+  color: #fff;
   margin: 1vmin 0;
   background: linear-gradient(165deg, lightgreen, green, darkgreen);
   cursor: pointer;
@@ -10,12 +8,23 @@
   border: 1px lightgreen solid;
   box-shadow: 0px 0px 3px rgba(0, 98, 3, 0.1450980392), 0px 0px 5px rgba(0, 98, 3, 0.3137254902) inset, 2px 2px 2px rgba(0, 98, 3, 0.2078431373);
 }
-#win_welcome .button1:hover {
+.button1:hover {
   transform: translateY(-0.5vmin);
 }
-#win_welcome .button1:active {
+.button1:active {
   border: 1px green solid;
   background: #fff;
   color: green;
   transition: 0.2s;
+}
+
+#win_welcome hr {
+  margin: 1vmin 0;
+}
+
+#win_debugMenu hr {
+  margin: 1vmin 0;
+}
+#win_debugMenu .button1 {
+  width: 50%;
 }/*# sourceMappingURL=App.css.map */

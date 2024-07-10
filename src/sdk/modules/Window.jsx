@@ -76,7 +76,8 @@ export const Window=(props)=>{
       const isMax=document.getElementById(`win_${props.id}_isMax?`);
       const maxBtn=document.getElementById(`win_${props.id}_max`);
       const win=document.getElementById(`win_${props.id}`);
-      maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
+      // maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
+      maxBtn.style.backgroundImage=`url("/icons/xp/${(isMax.getAttribute("content")==="false")?"Restore":"Maximize"}.png")`;
       nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
       isMax.setAttribute("content",!(isMax.getAttribute("content")==="true"));
     },
@@ -115,7 +116,8 @@ export const Window=(props)=>{
         document.onmousemove = null;
         elmnt.style.transition=".5s";
         if(pos4<=60){
-          document.getElementById(`win_${props.id}_max`).innerHTML="🗗";
+          // document.getElementById(`win_${props.id}_max`).innerHTML="";
+          document.getElementById(`win_${props.id}_max`).style.backgroundImage=`url("/icons/xp/Restore.png")`;
           document.getElementById(`win_${props.id}_isMax?`).setAttribute("content","true");
           document.getElementById("maximizePreview").style.opacity=0;
           nb_actions.maximize(null,elmnt);}else{updateState(elmnt);}
@@ -157,8 +159,11 @@ export const Window=(props)=>{
     style={{
       "height":props.size.height,
       "width":props.size.width,
-      "left":props.pos.x,
-      "top":props.pos.y,
+      // [props.pos.x[0]]:[props.pos.x[1]],
+      // [props.pos.y[0]]:[props.pos.y[1]],
+      "top": props.pos.y[1],
+      "left": props.pos.x[1],
+      "zIndex":props.customLayer?props.customLayer:"auto",
     }} 
     tabIndex={Object.keys(windows).indexOf(win_id)}
     id={`win_${props.id}`}>
@@ -167,9 +172,9 @@ export const Window=(props)=>{
       <meta id={`win_${props.id}_isMax?`} content="false"/>
       <div className="icon" style={{"backgroundImage":`url("${props.icon}")`}}></div>
       <h2>{props.title}</h2>
-      {props.includeTitlebarOptions.min?<button id={`win_${props.id}_min`} onClick={(e)=>nb_actions.min(e)}>🗕</button>:null}
-      {props.includeTitlebarOptions.max?<button id={`win_${props.id}_max`} onClick={(e)=>nb_actions.maxToggle(e)}>🗖</button>:null} {/* 🗗 for unmaximize */}
-      {props.includeTitlebarOptions.close?<button id={`win_${props.id}_close`} onClick={(e)=>nb_actions.close(e)}>✖</button>:null}
+      {props.includeTitlebarOptions.min?<button className="min" id={`win_${props.id}_min`} onClick={(e)=>nb_actions.min(e)}></button>:null}
+      {props.includeTitlebarOptions.max?<button className="max" id={`win_${props.id}_max`} onClick={(e)=>nb_actions.maxToggle(e)}></button>:null} {/* 🗗 for unmaximize */}
+      {props.includeTitlebarOptions.close?<button className="close" id={`win_${props.id}_close`} onClick={(e)=>nb_actions.close(e)}></button>:null}
     </header>
     <div className="content">
       <Markdown remarkPlugins={[

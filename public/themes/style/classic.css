@@ -33,24 +33,6 @@
 .Window header {
   background: linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%);
 }
-.Window button {
-  border: 1px #fff solid;
-  color: #fff;
-  background: radial-gradient(farthest-corner at 20% 20%, #7691dc 0%, #3e6ff7 45%, #3e6ff7 85%, #2833ca 100%);
-}
-.Window button:active {
-  background: #fff;
-  border: 1px #2432b2 solid;
-  color: #2432b2;
-}
-.Window button[id$=close] {
-  background: radial-gradient(farthest-corner at 20% 20%, #ea856a 0%, #e5511c 45%, #e5511c 85%, #ae2900 100%);
-}
-.Window button[id$=close]:active {
-  background: #fff;
-  border: 1px #ae2900 solid;
-  color: #ae2900;
-}
 .Window h2 {
   color: #fff;
   text-shadow: 1px 1px 1px black;

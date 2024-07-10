@@ -328,6 +328,11 @@ const games={
       "url": "https://games.crazygames.com/en_US/riddle-transfer-2/index.html",
       "id": "riddleschool7",
       "type": "OpenInGL"
+    },
+    "Granny": {
+      "url": "https://sz-games.github.io/Games8/GRANNY/",
+      "id": "granny",
+      "type": "OpenInGL"
     }
 };
 export default games;
