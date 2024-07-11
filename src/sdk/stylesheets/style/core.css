@@ -150,7 +150,6 @@
   user-select: none;
 }
 #taskbar .tbicon:hover {
-  transform: scale(103.5%);
   filter: brightness(125%);
 }
 #taskbar .tbicon .tbi_icon {

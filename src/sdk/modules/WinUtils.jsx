@@ -32,6 +32,8 @@ export const WinUtils={
           await timeout(750);
           document.getElementById(`win_${win_id}`).style.display="none";
           document.getElementById(`${win_id}_tbi`).style.display="none";
+          document.getElementById(`win_${win_id}`).style.transition=".5s";
+          document.getElementById(`${win_id}_tbi`).style.transition=".35s";
         } else {
           document.getElementById(`win_${win_id}`).style.display="none";
           document.getElementById(`${win_id}_tbi`).style.display="none";
@@ -58,6 +60,7 @@ export const WinUtils={
       document.getElementById(`${win_id}_tbi`).style.transform="translateY(0px)";
       await timeout(1000);
       document.getElementById(`win_${win_id}`).style.transition=".5s";
+      document.getElementById(`${win_id}_tbi`).style.transition=".35s";
     } else {
       console.warn(`[SDK_ERROR] > REFRENCE_ERROR\n${win_id} does not exist`);
     }

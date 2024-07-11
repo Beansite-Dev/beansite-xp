@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style/style.css";
 import games from "./assets/games";
+import { WinUtils } from "../sdk/sdk";
 const BeanpoweredGui=(props)=>{
     const [res,setRes]=useState(games);
     const [selectedGame,setSelectedGame]=useState({
@@ -11,6 +12,12 @@ const BeanpoweredGui=(props)=>{
             "type": "OpenInGL"
         }
     });
+    const OpenGame=({ url, id, type })=>{
+        if(url){
+            document.getElementById("gl_frame").setAttribute("src",url);
+            WinUtils.openWindow("gameloader");
+        }
+    }
     const SidebarItem=({ title, url, id, type, index })=>{
         return(<div className="bpsb_item" 
             onClick={()=>{setSelectedGame({
@@ -44,7 +51,7 @@ const BeanpoweredGui=(props)=>{
             <div className="banner" style={{"backgroundImage": `url("/assets/bp_assets/gbanner/${selectedGame.gdata.id}.png")`,}}></div>
             <div className="actionbar">
                 <h1>{selectedGame.title}</h1>
-                <button className="playButton">Play ▶</button>
+                <button className="playButton" onClick={()=>{OpenGame(selectedGame.gdata);}}>Play ▶</button>
             </div>
             <h2>System Requirements</h2>
             <ul>

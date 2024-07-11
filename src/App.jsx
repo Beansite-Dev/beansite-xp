@@ -14,16 +14,16 @@ const release_data={
   "games_added":[],
   "games_removed":[]
 };
-
 const App=()=>{
   const dispatch=useDispatch();
   useEffect(()=>{
+    WinUtils.hideWindow("gameloader");
     // WinUtils.hideWindow("beanpowered");
     // dispatch(createNotification({
     //   "title": "test01",
     //   "id": generateId(10),
     // }));
-  },[])
+  },[]);
   return(<>
     <BeansiteXP>
       <Window 
@@ -125,6 +125,32 @@ const App=()=>{
         title="Beanpowered"
         icon="/icons/bp.png">
           <BeanpoweredGui />
+      </Window>
+      <Window 
+        size={{
+          "height": "50dvh",
+          "width": "50dvw"}} 
+        pos={{
+          "x":["left","calc(50dvw - (50dvw / 2))"],
+          "y":["top","calc(50dvh - (50dvh / 2))"],}}
+        includeTitlebarOptions={{
+          "min": true,
+          "max": true,
+          "close": true,}}
+        callbacks={{
+          beforeWindowClose:()=>{
+            document.getElementById("gl_frame").setAttribute("src","");},
+          beforeWindowMinimize:()=>{
+            console.log("minmizing window");},
+          beforeWindowMaximize:()=>{
+            console.log("maximizing window");},
+          beforeWindowUnmaximize:()=>{
+            console.log("unmaximizing window");},
+        }}
+        id="gameloader"
+        title="Gameloader"
+        icon="/icons/bp.png">
+          <iframe id="gl_frame" />
       </Window>
     </BeansiteXP>
   </>);

@@ -61,6 +61,7 @@
   font-weight: 200;
   cursor: pointer;
   transition: 0.35s;
+  user-select: none;
 }
 #bp_gui .bp_sidebar .bpsb_item:hover {
   padding-left: 1.5vmin;
@@ -134,4 +135,17 @@
 }
 #bp_gui #bp_contents .actionbar .playButton:hover {
   transform: translateY(-0.35vmin);
+}
+
+#gl_frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: none;
+  padding: none;
 }/*# sourceMappingURL=style.css.map */
