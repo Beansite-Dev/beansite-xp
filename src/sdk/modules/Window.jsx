@@ -37,22 +37,23 @@ export const Window=(props)=>{
   }
   const nb_actions={
     destroy:(e)=>{ //! dangerous
-      e.preventDefault();
+      e?e.preventDefault():null;
       props.callbacks.beforeWindowClose();
       document.getElementById(`win_${props.id}`).remove();
       dispatch(destroyWindow(win_id));
       dispatch(destoryTBI(win_id));
     },
     close:(e)=>{
-      e.preventDefault();
+      e?e.preventDefault():null;
+      props.callbacks.beforeWindowClose();
       WinUtils.hideWindow(props.id,true);
     },
     open:(e)=>{
-      e.preventDefault();
+      e?e.preventDefault():null;
       WinUtils.openWindow(props.id);
     },
     min:(e)=>{
-      e.preventDefault();
+      e?e.preventDefault():null;
       props.callbacks.beforeWindowMinimize();
       const isMin=document.getElementById(`win_${props.id}_isMin?`);
       document.getElementById(`win_${props.id}`).style.display="none";
@@ -72,7 +73,7 @@ export const Window=(props)=>{
       win.style.width=window_state.size;
     },
     maxToggle:(e)=>{
-      e.preventDefault();
+      e?e.preventDefault():null;
       const isMax=document.getElementById(`win_${props.id}_isMax?`);
       const maxBtn=document.getElementById(`win_${props.id}_max`);
       const win=document.getElementById(`win_${props.id}`);
@@ -153,6 +154,9 @@ export const Window=(props)=>{
       updateState(e);
     }).observe(e);
     e.style.opacity="1";
+    if(props.closed){
+      nb_actions.close();
+    }
   },[]);
   return(<div 
     className="Window"

@@ -27,4 +27,11 @@
 }
 #win_debugMenu .button1 {
   width: 50%;
+}
+
+#win_changelog h1 {
+  font-size: 3.5vmin;
+}
+#win_changelog ul {
+  padding-left: 3vmin;
 }/*# sourceMappingURL=App.css.map */

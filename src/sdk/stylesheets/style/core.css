@@ -316,6 +316,37 @@
   bottom: 0;
   width: 100%;
   height: 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1vmin;
+  padding-right: 2vmin;
+  padding-top: 1.5vmin;
+  flex-direction: row-reverse;
+}
+#startmenu #footer .action {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1vmin;
+  transition: 0.35s;
+  user-select: none;
+}
+#startmenu #footer .action:hover {
+  transform: translateY(-0.5vmin);
+}
+#startmenu #footer .action h1 {
+  font-size: 2.5vmin;
+  color: #fff;
+}
+#startmenu #footer .action .icon {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #startmenu .contents {
   position: absolute;
@@ -323,11 +354,45 @@
   height: 72%;
   width: 100%;
 }
+#startmenu .contents .startmenuIcon {
+  width: 100%;
+  height: 5vmin;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 1vmin;
+  user-select: none;
+  transition: 0.35s;
+}
+#startmenu .contents .startmenuIcon:hover {
+  padding-left: 1vmin;
+}
+#startmenu .contents .startmenuIcon h1 {
+  font-size: 3vmin;
+  vertical-align: middle;
+  text-align: left;
+  display: flex;
+  height: 100%;
+  margin-bottom: 0.75vmin;
+}
+#startmenu .contents .startmenuIcon .icon {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 #startmenu .contents .left {
   position: absolute;
   height: 100%;
   width: 50%;
   left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1vmin;
+  gap: 1vmin;
 }
 #startmenu .contents .right {
   position: absolute;
@@ -402,6 +467,10 @@
   transition: opacity 0.5s, transform 0.5s;
 }
 
+@font-face {
+  font-family: "Tahoma";
+  src: url("/fonts/tahoma.ttf");
+}
 #maximizePreview {
   height: calc(100dvh - 48px - 2vmin);
   width: calc(100dvw - 2vmin);
@@ -436,6 +505,180 @@
   box-sizing: border-box;
 }
 
+#shutdownScreen {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  z-index: 994;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vmin;
+  pointer-events: auto;
+  display: none;
+}
+#shutdownScreen #ssIcon {
+  height: 35vmin;
+  width: 100vmin;
+  background-image: url("/assets/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 2vmin rgba(255, 255, 255, 0.3960784314));
+}
+#shutdownScreen h1 {
+  width: 100vmin;
+  font-family: "Tahoma";
+  color: rgba(255, 255, 255, 0.8352941176);
+  font-size: 2.5vmin;
+  text-align: center;
+}
+
+.tv {
+  width: 100%;
+  height: 400px;
+  margin: 15px 0 0 0;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #231f20;
+  -webkit-box-shadow: 13px 13px rgba(0, 0, 0, 0.16);
+  box-shadow: 13px 13px rgba(0, 0, 0, 0.16);
+}
+
+.screen-inner {
+  width: 590px;
+  height: 330px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: black;
+  overflow: hidden;
+}
+
+.screen-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+
+.screen-content:after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  background: white;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.tv-panel {
+  height: 40px;
+  width: 100%;
+  background: #343434;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.tv-panel__indicators {
+  position: absolute;
+  left: 6px;
+  bottom: 5px;
+  font-size: 0;
+}
+
+.tv-panel__indicators SPAN {
+  background: #fa4c4c;
+  width: 3px;
+  height: 3px;
+  margin: 0 4px 0 0;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-transition: background 150ms ease;
+  transition: background 150ms ease;
+}
+
+.tv-panel__buttons {
+  position: absolute;
+  left: 50%;
+  margin: 0 0 0 -32px;
+  bottom: 16px;
+  font-size: 0;
+}
+
+.tv-panel__buttons SPAN {
+  background: #222222;
+  width: 14px;
+  height: 7px;
+  margin: 0 3px 0 0;
+  display: inline-block;
+  -webkit-transition: background 150ms ease;
+  transition: background 150ms ease;
+}
+
+.tv._off .screen-content {
+  -webkit-animation: shutdown 400ms linear;
+  animation: shutdown 400ms linear;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.tv._off .screen-content:after {
+  -webkit-animation: shutdown-opa 400ms linear;
+  animation: shutdown-opa 400ms linear;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.tv._off .tv-panel__indicators SPAN {
+  background: #8f8875;
+}
+
+@keyframes shutdown {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  20% {
+    -webkit-transform: scale3d(1, 1.6, 1);
+    transform: scale3d(1, 1.6, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1, 0.005, 1);
+    transform: scale3d(1, 0.005, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+  }
+}
+@keyframes shutdown-opa {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @font-face {
   font-family: "Tahoma";
   src: url("/fonts/tahoma.ttf");

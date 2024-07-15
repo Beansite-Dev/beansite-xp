@@ -31,17 +31,83 @@
         bottom: 0;
         width: 100%;
         height: 10%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1vmin;
+        padding-right: 2vmin;
+        padding-top: 1.5vmin;
+        flex-direction: row-reverse;
+        .action {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 1vmin;
+            transition: .35s;
+            user-select: none;
+            &:hover {
+                transform: translateY(-.5vmin);
+            }
+            h1 {
+                font-size: 2.5vmin;
+                color: #fff;
+            }
+            .icon {
+                height: 100%;
+                aspect-ratio: 1 / 1;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
     }
     .contents {
         position: absolute;
         top: 18%;
         height: 72%;
         width: 100%;
+        .startmenuIcon {
+            // background: #000;
+            width: 100%;
+            height: 5vmin;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            gap: 1vmin;
+            user-select: none;
+            transition: .35s;
+            &:hover {
+                padding-left: 1vmin;
+            }
+            h1 {
+                font-size: 3vmin;
+                vertical-align: middle;
+                text-align: left;
+                display: flex;
+                height: 100%;
+                margin-bottom: .75vmin;
+            }
+            .icon {
+                height: 100%;
+                aspect-ratio: 1 / 1;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
         .left{
             position: absolute;
             height: 100%;
             width: 50%;
             left: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 1vmin;
+            gap: 1vmin;
         }
         .right{
             position: absolute;

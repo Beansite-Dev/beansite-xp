@@ -28,6 +28,37 @@
   bottom: 0;
   width: 100%;
   height: 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1vmin;
+  padding-right: 2vmin;
+  padding-top: 1.5vmin;
+  flex-direction: row-reverse;
+}
+#startmenu #footer .action {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1vmin;
+  transition: 0.35s;
+  user-select: none;
+}
+#startmenu #footer .action:hover {
+  transform: translateY(-0.5vmin);
+}
+#startmenu #footer .action h1 {
+  font-size: 2.5vmin;
+  color: #fff;
+}
+#startmenu #footer .action .icon {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #startmenu .contents {
   position: absolute;
@@ -35,11 +66,45 @@
   height: 72%;
   width: 100%;
 }
+#startmenu .contents .startmenuIcon {
+  width: 100%;
+  height: 5vmin;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 1vmin;
+  user-select: none;
+  transition: 0.35s;
+}
+#startmenu .contents .startmenuIcon:hover {
+  padding-left: 1vmin;
+}
+#startmenu .contents .startmenuIcon h1 {
+  font-size: 3vmin;
+  vertical-align: middle;
+  text-align: left;
+  display: flex;
+  height: 100%;
+  margin-bottom: 0.75vmin;
+}
+#startmenu .contents .startmenuIcon .icon {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 #startmenu .contents .left {
   position: absolute;
   height: 100%;
   width: 50%;
   left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1vmin;
+  gap: 1vmin;
 }
 #startmenu .contents .right {
   position: absolute;

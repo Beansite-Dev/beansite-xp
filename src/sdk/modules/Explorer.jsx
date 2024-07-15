@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import store from "../store/store";
+import { WinUtils } from "./WinUtils";
+import { debug } from "../../App";
 
 const TaskbarIcon=(tbi_props)=>{
     return(<div className="tbicon" id={`${tbi_props.eid}_tbi`} onClick={(e)=>{
@@ -25,6 +27,15 @@ const sm_actions={
 }
 const StartMenu=(props)=>{
     const userdata=useSelector((state)=>state.userdata);
+    const StartMenuIcon=({title,icon,win_id})=>{
+        return(<div className="startmenuIcon" onClick={(e)=>{
+            e.preventDefault();
+            WinUtils.openWindow(win_id);
+        }}>
+            <div className="icon" style={{"backgroundImage":`url("${icon}")`}}></div>
+            <h1>{title}</h1>
+        </div>)
+    }
     return(<div id="startmenu">
         <meta id="startMenuOpen?" content="false" />
         <div id="topbar">
@@ -32,11 +43,34 @@ const StartMenu=(props)=>{
         </div>
         <div className="contents">
             <div className="left">
+                <StartMenuIcon 
+                    title="Welcome"
+                    icon="/icons/xp/Information.png"
+                    win_id="welcome"/>
+                <StartMenuIcon 
+                    title="Beanpowered"
+                    icon="/icons/bp.png"
+                    win_id="beanpowered"/>
+                {debug?<>
+                    <StartMenuIcon 
+                        title="Debug Menu"
+                        icon="/icons/xp/Services.png"
+                        win_id="debugMenu"/>
+                </>:null}
             </div>
             <div className="right">
             </div>
         </div>
         <div id="footer">
+            <div 
+                className="action"
+                onClick={(e)=>{
+                    e.preventDefault();
+                    document.getElementById("shutdownScreen").style.display="flex";
+                }}>
+                <div className="icon" style={{"backgroundImage":`url("/icons/xp/Power.png")`}}></div>
+                <h1>Shut down</h1>
+            </div>
         </div>
     </div>);
 }
