@@ -5,19 +5,27 @@ import { WelcomeSrc, DebugMenuSrc } from './mdsrc';
 import BeanpoweredGui from './beanpowered/bpgui';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNotification } from './sdk/sdk';
+import { Explorer } from "./sdk/modules/Explorer"
 
 export const debug=true;
 const release_data={
-  "version":"v0.5.2",
+  "version":"v0.5.5",
   "date":"7/14/24",
   "comment":"idek",
   "features_added":[
-    "Added Shutdown"
+    "Added Shutdown",
+    "Improved SDK",
+    "Added default windows states to SDK",
+    "Started Work on File Explorer",
+    "Started Filesystem Creation",
   ],
   "games_added":[
-    "Granny"
+    "Granny",
+    "Suika Game",
   ],
-  "games_removed":[]
+  "games_removed":[
+    "Melon Sandbox",
+  ]
 };
 const App=()=>{
   const dispatch=useDispatch();
@@ -43,16 +51,6 @@ const App=()=>{
           "min": true,
           "max": true,
           "close": true,
-        }}
-        callbacks={{
-          beforeWindowClose:()=>{
-            console.log("closing window");},
-          beforeWindowMinimize:()=>{
-            console.log("minmizing window");},
-          beforeWindowMaximize:()=>{
-            console.log("maximizing window");},
-          beforeWindowUnmaximize:()=>{
-            console.log("unmaximizing window");},
         }}
         id="welcome"
         title="Welcome"
@@ -82,16 +80,6 @@ const App=()=>{
             "min": true,
             "max": true,
             "close": true,}}
-          callbacks={{
-            beforeWindowClose:()=>{
-              console.log("closing window");},
-            beforeWindowMinimize:()=>{
-              console.log("minmizing window");},
-            beforeWindowMaximize:()=>{
-              console.log("maximizing window");},
-            beforeWindowUnmaximize:()=>{
-              console.log("unmaximizing window");},
-          }}
           id="debugMenu"
           title="Debug Menu"
           icon="/icons/xp/Services.png"
@@ -117,20 +105,10 @@ const App=()=>{
           "min": true,
           "max": true,
           "close": true,}}
-        callbacks={{
-          beforeWindowClose:()=>{
-            console.log("closing window");},
-          beforeWindowMinimize:()=>{
-            console.log("minmizing window");},
-          beforeWindowMaximize:()=>{
-            console.log("maximizing window");},
-          beforeWindowUnmaximize:()=>{
-            console.log("unmaximizing window");},
-        }}
         id="changelog"
         title="Changelog"
         icon="/icons/xp/Services.png">
-          <h1>{`Changelog - ${release_data.version} - ${release_data.date}`}</h1>
+          <h1>{`What's New - ${release_data.version} - ${release_data.date}`}</h1>
           <p>{release_data.comment}</p>
           <ul>
             {release_data.features_added.map((data,index)=><li key={index}>{data}</li>)}
@@ -151,16 +129,6 @@ const App=()=>{
           "min": true,
           "max": true,
           "close": true,}}
-        callbacks={{
-          beforeWindowClose:()=>{
-            console.log("closing window");},
-          beforeWindowMinimize:()=>{
-            console.log("minmizing window");},
-          beforeWindowMaximize:()=>{
-            console.log("maximizing window");},
-          beforeWindowUnmaximize:()=>{
-            console.log("unmaximizing window");},
-        }}
         id="beanpowered"
         title="Beanpowered"
         icon="/icons/bp.png">
@@ -181,18 +149,13 @@ const App=()=>{
           beforeWindowClose:()=>{
             console.log("killing game process");
             document.getElementById("gl_frame").setAttribute("src","");},
-          beforeWindowMinimize:()=>{
-            console.log("minmizing window");},
-          beforeWindowMaximize:()=>{
-            console.log("maximizing window");},
-          beforeWindowUnmaximize:()=>{
-            console.log("unmaximizing window");},
         }}
         id="gameloader"
         title="Gameloader"
         icon="/icons/bp.png">
           <iframe id="gl_frame" />
       </Window>
+      <Explorer />
     </BeansiteXP>
   </>);
 }

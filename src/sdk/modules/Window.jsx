@@ -12,18 +12,32 @@ import { WinUtils, waitForElm } from "./WinUtils";
 export { WinUtils, waitForElm } from "./WinUtils";
 import { generateId, timeout } from "./lib";
 
-export const Window=(props)=>{
+export const Window=({
+    children,
+    size,
+    pos,
+    includeTitlebarOptions,
+    callbacks={},
+    id,
+    title,
+    icon,
+    customLayer,
+    markdownSource,
+    minimized,
+    maximized,
+    closed
+  })=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
   const[win_id,setWin_id]=useState(generateId(10));
   var [window_state,setWindowState]=useState({
-    "title": props.title,
+    "title": title,
     "win_id": win_id,
-    "eid": props.id,
-    "size": props.size,
-    "pos": props.pos,
-    "includeTitlebarOptions": props.includeTitlebarOptions,
-    "icon": props.icon,
+    "eid": id,
+    "size": size,
+    "pos": pos,
+    "includeTitlebarOptions": includeTitlebarOptions,
+    "icon": icon,
     "children":{}
   });
   const updateState=(win)=>{
@@ -38,34 +52,35 @@ export const Window=(props)=>{
   const nb_actions={
     destroy:(e)=>{ //! dangerous
       e?e.preventDefault():null;
-      props.callbacks.beforeWindowClose();
-      document.getElementById(`win_${props.id}`).remove();
+      (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
+      document.getElementById(`win_${id}`).remove();
       dispatch(destroyWindow(win_id));
       dispatch(destoryTBI(win_id));
     },
-    close:(e)=>{
+    close:(e,ani=true)=>{
       e?e.preventDefault():null;
-      props.callbacks.beforeWindowClose();
-      WinUtils.hideWindow(props.id,true);
+      (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
+      WinUtils.hideWindow(id,ani);
     },
     open:(e)=>{
       e?e.preventDefault():null;
-      WinUtils.openWindow(props.id);
+      (callbacks.beforeWindowOpen)?callbacks.beforeWindowOpen():null;
+      WinUtils.openWindow(id);
     },
     min:(e)=>{
       e?e.preventDefault():null;
-      props.callbacks.beforeWindowMinimize();
-      const isMin=document.getElementById(`win_${props.id}_isMin?`);
-      document.getElementById(`win_${props.id}`).style.display="none";
+      (callbacks.beforeWindowMinimize)?callbacks.beforeWindowMinimize():null;
+      const isMin=document.getElementById(`win_${id}_isMin?`);
+      document.getElementById(`win_${id}`).style.display="none";
       isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
     },
     maximize:(maxBtn,win)=>{
       updateState(win);
-      props.callbacks.beforeWindowMaximize();
+      (callbacks.beforeWindowMaximize)?callbacks.beforeWindowMaximize():null;
       win.classList.add("maximized");
     },
     unmaximize:(maxBtn,win)=>{
-      props.callbacks.beforeWindowUnmaximize();
+      (callbacks.beforeWindowUnmaximize)?callbacks.beforeWindowUnmaximize():null;
       win.classList.remove("maximized");
       win.style.top=window_state.pos;
       win.style.left=window_state.pos;
@@ -74,9 +89,9 @@ export const Window=(props)=>{
     },
     maxToggle:(e)=>{
       e?e.preventDefault():null;
-      const isMax=document.getElementById(`win_${props.id}_isMax?`);
-      const maxBtn=document.getElementById(`win_${props.id}_max`);
-      const win=document.getElementById(`win_${props.id}`);
+      const isMax=document.getElementById(`win_${id}_isMax?`);
+      const maxBtn=document.getElementById(`win_${id}_max`);
+      const win=document.getElementById(`win_${id}`);
       // maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
       maxBtn.style.backgroundImage=`url("/icons/xp/${(isMax.getAttribute("content")==="false")?"Restore":"Maximize"}.png")`;
       nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
@@ -84,7 +99,7 @@ export const Window=(props)=>{
     },
   }
   const dragElement=(elmnt)=>{
-    if(document.getElementById(`win_${props.id}_isMax?`).getAttribute("content")=="false"){
+    if(document.getElementById(`win_${id}_isMax?`).getAttribute("content")=="false"){
       var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
       updateState(elmnt);
       const dragMouseDown=(e)=>{
@@ -117,9 +132,9 @@ export const Window=(props)=>{
         document.onmousemove = null;
         elmnt.style.transition=".5s";
         if(pos4<=60){
-          // document.getElementById(`win_${props.id}_max`).innerHTML="";
-          document.getElementById(`win_${props.id}_max`).style.backgroundImage=`url("/icons/xp/Restore.png")`;
-          document.getElementById(`win_${props.id}_isMax?`).setAttribute("content","true");
+          // document.getElementById(`win_${id}_max`).innerHTML="";
+          document.getElementById(`win_${id}_max`).style.backgroundImage=`url("/icons/xp/Restore.png")`;
+          document.getElementById(`win_${id}_isMax?`).setAttribute("content","true");
           document.getElementById("maximizePreview").style.opacity=0;
           nb_actions.maximize(null,elmnt);}else{updateState(elmnt);}
       }
@@ -135,11 +150,11 @@ export const Window=(props)=>{
     }
   }
   const _onFocus=()=>{
-    document.getElementById(`win_${props.id}`).style.zIndex="567";};
+    document.getElementById(`win_${id}`).style.zIndex="567";};
   const _onBlur=()=>{
-    document.getElementById(`win_${props.id}`).style.zIndex="auto";};
+    document.getElementById(`win_${id}`).style.zIndex="auto";};
   useEffect(()=>{
-    const e=document.getElementById(`win_${props.id}`);
+    const e=document.getElementById(`win_${id}`);
     // console.log(`created window with data: ${JSON.stringify(window_state)}`);
     dragElement(e);
     dispatch(createTBI({"win_id":win_id,"windata":window_state }));
@@ -154,39 +169,42 @@ export const Window=(props)=>{
       updateState(e);
     }).observe(e);
     e.style.opacity="1";
-    if(props.closed){
-      nb_actions.close();
-    }
+    if(closed)nb_actions.close();
+    if(minimized){
+      document.getElementById(`win_${id}`).style.display="none";
+      document.getElementById(`win_${id}_isMin?`).setAttribute("content",false);
+    };
+    if(maximized)nb_actions.maximize(null,false);
   },[]);
   return(<div 
     className="Window"
     style={{
-      "height":props.size.height,
-      "width":props.size.width,
-      // [props.pos.x[0]]:[props.pos.x[1]],
-      // [props.pos.y[0]]:[props.pos.y[1]],
-      "top": props.pos.y[1],
-      "left": props.pos.x[1],
-      "zIndex":props.customLayer?props.customLayer:"auto",
+      "height":size.height,
+      "width":size.width,
+      // [pos.x[0]]:[pos.x[1]],
+      // [pos.y[0]]:[pos.y[1]],
+      "top": pos.y[1],
+      "left": pos.x[1],
+      "zIndex":customLayer?customLayer:"auto",
     }} 
     tabIndex={Object.keys(windows).indexOf(win_id)}
-    id={`win_${props.id}`}>
-    <header id={`win_${props.id}_header`}>
-      <meta id={`win_${props.id}_isMin?`} content="false"/>
-      <meta id={`win_${props.id}_isMax?`} content="false"/>
-      <div className="icon" style={{"backgroundImage":`url("${props.icon}")`}}></div>
-      <h2>{props.title}</h2>
-      {props.includeTitlebarOptions.min?<button className="min" id={`win_${props.id}_min`} onClick={(e)=>nb_actions.min(e)}></button>:null}
-      {props.includeTitlebarOptions.max?<button className="max" id={`win_${props.id}_max`} onClick={(e)=>nb_actions.maxToggle(e)}></button>:null} {/* 🗗 for unmaximize */}
-      {props.includeTitlebarOptions.close?<button className="close" id={`win_${props.id}_close`} onClick={(e)=>nb_actions.close(e)}></button>:null}
+    id={`win_${id}`}>
+    <header id={`win_${id}_header`}>
+      <meta id={`win_${id}_isMin?`} content="false"/>
+      <meta id={`win_${id}_isMax?`} content="false"/>
+      <div className="icon" style={{"backgroundImage":`url("${icon}")`}}></div>
+      <h2>{title}</h2>
+      {includeTitlebarOptions.min?<button className="min" id={`win_${id}_min`} onClick={(e)=>nb_actions.min(e)}></button>:null}
+      {includeTitlebarOptions.max?<button className="max" id={`win_${id}_max`} onClick={(e)=>nb_actions.maxToggle(e)}></button>:null} {/* 🗗 for unmaximize */}
+      {includeTitlebarOptions.close?<button className="close" id={`win_${id}_close`} onClick={(e)=>nb_actions.close(e)}></button>:null}
     </header>
     <div className="content">
       <Markdown remarkPlugins={[
         remarkGfm,
         remarkBreaks]}
         className="md">
-        {props.markdownSource===undefined?"":String(props.markdownSource)}</Markdown>
-      {props.children}
+        {markdownSource===undefined?"":String(markdownSource)}</Markdown>
+      {children}
     </div>
   </div>)
 }

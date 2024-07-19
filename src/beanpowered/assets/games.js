@@ -330,9 +330,19 @@ const games={
       "type": "OpenInGL"
     },
     "Granny": {
-      "url": "https://sz-games.github.io/Games8/GRANNY/",
+      "url": "https://gnhustgames.org/granny-source/",
       "id": "granny",
       "type": "OpenInGL"
-    }
+    },
+    "Suika Game": {
+      "url": "https://suikagame.com",
+      "id": "suika",
+      "type": "OpenInGL"
+    },
+    // "Melon Sandbox": {
+      // "url": "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",
+      // "id": "melon",
+      // "type": "OpenInGL"
+    // },
 };
 export default games;

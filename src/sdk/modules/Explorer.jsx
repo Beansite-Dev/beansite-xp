@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import store from "../store/store";
 import { WinUtils } from "./WinUtils";
+import { Window } from "./Window";
 import { debug } from "../../App";
+import FileSystem from "../../beanpowered/assets/fs";
 
 const TaskbarIcon=(tbi_props)=>{
     return(<div className="tbicon" id={`${tbi_props.eid}_tbi`} onClick={(e)=>{
@@ -51,6 +53,10 @@ const StartMenu=(props)=>{
                     title="Beanpowered"
                     icon="/icons/bp.png"
                     win_id="beanpowered"/>
+                <StartMenuIcon 
+                    title="Explorer"
+                    icon="/icons/xp/Explorer.png"
+                    win_id="explorer"/>
                 {debug?<>
                     <StartMenuIcon 
                         title="Debug Menu"
@@ -87,8 +93,38 @@ const Taskbar=(tb_props)=>{
         }}>Start</button>
     </div>);
 }
+const Explorer=()=>{
+    const[currentDirectory,setCurrentDirectory]=useState([]);
+    return(<Window
+    size={{
+      "height": "38vmin",
+      "width": "58vmin"}} 
+    pos={{
+      "x":["left","10vmin"],
+      "y":["top","10vmin"],}}
+    includeTitlebarOptions={{
+      "min": true,
+      "max": true,
+      "close": true,}}
+    callbacks={{
+      beforeWindowClose:()=>{
+        console.log("killing game process");
+        document.getElementById("gl_frame").setAttribute("src","");},
+    }}
+    closed
+    id="explorer"
+    title="Explorer"
+    icon="/icons/xp/Explorer.png">
+        <div id="ex_topbar">
+            {FileSystem.map(file=>{
+                <h1>{file.name}</h1>
+            })}
+        </div>
+    </Window>)
+}
 export {
     Taskbar,
     StartMenu,
-    TaskbarIcon
+    TaskbarIcon,
+    Explorer
 }
