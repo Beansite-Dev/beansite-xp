@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Lucida Console";
+    src: url("/fonts/lucon.ttf");
+}
+$font-size: 2.35vmin;
+$font: "Lucida Console";
+#cmd {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: black;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {display: none;}
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-size: $font-size;
+    line-height: calc($font-size + .5vmin);
+    font-family: $font;
+    padding: 1vmin;
+    ::selection{
+        background: white;
+        color: black;
+    }
+    p {
+        display: inline-block;
+    }
+    .error{
+        color: red;
+    }
+    input {
+        font-family: $font;
+        display: inline-block;
+        font-size: $font-size;
+        outline: none;
+        border: none;
+        background: rgba(0,0,0,0);
+        color: white;
+    }
+}

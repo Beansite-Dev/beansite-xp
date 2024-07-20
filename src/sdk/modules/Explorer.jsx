@@ -57,6 +57,10 @@ const StartMenu=(props)=>{
                     title="Explorer"
                     icon="/icons/xp/Explorer.png"
                     win_id="explorer"/>
+                <StartMenuIcon 
+                    title="Beanshell"
+                    icon="/icons/xp/Command Prompt.png"
+                    win_id="beanshell"/>
                 {debug?<>
                     <StartMenuIcon 
                         title="Debug Menu"

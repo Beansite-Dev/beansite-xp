@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Lucida Console";
+  src: url("/fonts/lucon.ttf");
+}
+#cmd {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  font-size: 2.35vmin;
+  line-height: 2.85vmin;
+  font-family: "Lucida Console";
+  padding: 1vmin;
+}
+#cmd::-webkit-scrollbar {
+  display: none;
+}
+#cmd ::selection {
+  background: white;
+  color: black;
+}
+#cmd p {
+  display: inline-block;
+}
+#cmd .error {
+  color: red;
+}
+#cmd input {
+  font-family: "Lucida Console";
+  display: inline-block;
+  font-size: 2.35vmin;
+  outline: none;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}/*# sourceMappingURL=beanshell.css.map */

@@ -6,6 +6,7 @@ import BeanpoweredGui from './beanpowered/bpgui';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNotification } from './sdk/sdk';
 import { Explorer } from "./sdk/modules/Explorer"
+import BeanShell from './sdk/modules/BeanShell';
 
 export const debug=true;
 const release_data={
@@ -156,6 +157,22 @@ const App=()=>{
           <iframe id="gl_frame" />
       </Window>
       <Explorer />
+      <Window 
+        size={{
+          "height": "38vmin",
+          "width": "58vmin"}} 
+        pos={{
+          "x":["left","15vmin"],
+          "y":["top","15vmin"],}}
+        includeTitlebarOptions={{
+          "min": true,
+          "max": true,
+          "close": true,}}
+        id="beanshell"
+        title="Beanshell"
+        icon="/icons/xp/Command Prompt.png">
+          <BeanShell />
+      </Window>
     </BeansiteXP>
   </>);
 }
