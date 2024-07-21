@@ -10,8 +10,8 @@ import BeanShell from './sdk/modules/Beanshell';
 
 export const debug=true;
 const release_data={
-  "version":"v0.5.5",
-  "date":"7/14/24",
+  "version":"v0.5.7",
+  "date":"7/21/24",
   "comment":"idek",
   "features_added":[
     "Added Shutdown",
@@ -19,6 +19,7 @@ const release_data={
     "Added default windows states to SDK",
     "Started Work on File Explorer",
     "Started Filesystem Creation",
+    "Added Commands to Beanshell: help, echo",
   ],
   "games_added":[
     "Granny",
