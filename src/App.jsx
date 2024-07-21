@@ -6,7 +6,7 @@ import BeanpoweredGui from './beanpowered/bpgui';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNotification } from './sdk/sdk';
 import { Explorer } from "./sdk/modules/Explorer"
-import BeanShell from './sdk/modules/BeanShell';
+import BeanShell from './sdk/modules/Beanshell';
 
 export const debug=true;
 const release_data={
