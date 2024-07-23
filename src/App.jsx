@@ -63,12 +63,11 @@ const App=()=>{
             className='button1'
             onClick={()=>WinUtils.openWindow("beanpowered")}>
               Play games on Beanpowered</button><br/>
- 
-            <br/><hr/>
-            <footer>
-              M1dnightDev (c) 2024 | Made with {`<3`} in NJ<br/>
-              <a href="https://github.com/Beansite-Dev">Github</a> | <a href="https://github.com/m1dnight-ofcl">Personal Github</a> | <a href="https://youtube.com/@m1dnightdev">Youtube</a> | <a href="https://twitter.com/@m1dnightdev">Twitter</a> | <a href="https://tiktok.com/@m1dnightdev">TikTok</a>
-            </footer>
+          <br/><hr/>
+          <footer>
+            M1dnightDev (c) 2024 | Made with {`<3`} in NJ<br/>
+            <a href="https://github.com/Beansite-Dev">Github</a> | <a href="https://github.com/m1dnight-ofcl">Personal Github</a> | <a href="https://youtube.com/@m1dnightdev">Youtube</a> | <a href="https://twitter.com/@m1dnightdev">Twitter</a> | <a href="https://tiktok.com/@m1dnightdev">TikTok</a>
+          </footer>
       </Window>
       {debug?<>
         <Window
