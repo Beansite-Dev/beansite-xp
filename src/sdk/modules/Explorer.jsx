@@ -5,6 +5,7 @@ import { WinUtils } from "./WinUtils";
 import { Window } from "./Window";
 import { debug } from "../../App";
 import FileSystem from "../../beanpowered/assets/fs";
+import { current } from "@reduxjs/toolkit";
 
 const TaskbarIcon=(tbi_props)=>{
     return(<div className="tbicon" id={`${tbi_props.eid}_tbi`} onClick={(e)=>{
@@ -98,7 +99,36 @@ const Taskbar=(tb_props)=>{
     </div>);
 }
 const Explorer=()=>{
-    const[currentDirectory,setCurrentDirectory]=useState([]);
+    const[currentDirectory,setCurrentDirectory]=useState(["root"]);
+    const[dirContents,setDirContents]=useState(FileSystem);
+    const File=({ fileData })=>{
+        return(<div className="file" onClick={(e)=>{
+            e.preventDefault();
+            setCurrentDirectory([...currentDirectory,fileData.name])
+        }}>
+            <div 
+            className="icon"
+            style={{"backgroundImage":
+                `url("/icons/xp/${fileData.type==="dir"?
+                "Folder Closed":
+                "Generic Text Document"}.png")`}}></div>
+            <h1>{fileData.name}</h1>
+        </div>)
+    }
+    useEffect(()=>{
+        document.getElementById("ex_urlBar").scrollLeft=document.getElementById("ex_urlBar").scrollWidth;
+        // let dirDataTemp,scope=dirContents;
+        // for(let i=0;i<=currentDirectory.length;i++){
+            // if(scope.children.findIndex(obj=>obj.name==currentDirectory[i])){
+                // scope=dirContents.children[currentDirectory[i]];
+            // }
+        // }
+        // dirDataTemp=scope;
+        // setDirContents(dirDataTemp);
+        // console.log(
+            // `${dirContents.findIndex(obj=>obj.name==currentDirectory[currentDirectory.length])}
+            // ${JSON.stringify(dirContents[0])}`);
+    },[currentDirectory]);
     return(<Window
     size={{
       "height": "38vmin",
@@ -110,19 +140,22 @@ const Explorer=()=>{
       "min": true,
       "max": true,
       "close": true,}}
-    callbacks={{
-      beforeWindowClose:()=>{
-        console.log("killing game process");
-        document.getElementById("gl_frame").setAttribute("src","");},
-    }}
     closed
     id="explorer"
     title="Explorer"
     icon="/icons/xp/Explorer.png">
         <div id="ex_topbar">
-            {FileSystem.map(file=>{
-                <h1>{file.name}</h1>
-            })}
+            <div id="ex_urlBar">
+                <h1>C:</h1><pre>{` > `}</pre>
+                {currentDirectory.map((path,index)=><><h1 key={path}>{path}</h1><pre key={`${btoa(path)}${index}`}>{` > `}</pre></>)}
+            </div>
+        </div>
+        <div id="ex_sidebar">
+
+        </div>
+        <div id="ex_files">
+            {dirContents.map((file,index)=>
+                <File fileData={file} key={index}></File>)}
         </div>
     </Window>)
 }

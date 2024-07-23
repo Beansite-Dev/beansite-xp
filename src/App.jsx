@@ -171,7 +171,8 @@ const App=()=>{
           "close": true,}}
         id="beanshell"
         title="Beanshell"
-        icon="/icons/xp/Command Prompt.png">
+        icon="/icons/xp/Command Prompt.png"
+        closed>
           <BeanShell />
       </Window>
     </BeansiteXP>
