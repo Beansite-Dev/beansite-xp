@@ -13,6 +13,7 @@ There are many things different with beansite 95 and beansite xp. The most notab
 ## Assets Used:
 - [Windows XP HD Icons by MarchMountain](https://www.deviantart.com/marchmountain/art/Windows-XP-High-Resolution-Icon-Pack-916042853)
 - [Tahoma Font (downloaded from font.download)](https://font.download/font/tahoma)
+- [Lucida Console Font (downloaded from font.download)](https://font.download/font/lucida-console)
 
 ## Technology used:
 - [React](https://react.dev)
