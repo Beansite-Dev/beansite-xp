@@ -11,16 +11,11 @@ import FireBean from './firebean/firebean';
 
 export const debug=true;
 const release_data={
-  "version":"v0.5.7",
-  "date":"7/21/24",
+  "version":"v0.7.2",
+  "date":"7/24/24",
   "comment":"idek",
   "features_added":[
-    "Added Shutdown",
-    "Improved SDK",
-    "Added default windows states to SDK",
-    "Started Work on File Explorer",
-    "Started Filesystem Creation",
-    "Added Commands to Beanshell: help, echo",
+    "Started work on FireBean",
   ],
   "games_added":[
     "Granny",
