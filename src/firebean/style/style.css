@@ -1,0 +1,149 @@
+#firebean {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+}
+#firebean #fb_contents {
+  height: calc(100% - 7.5vmin);
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+}
+#firebean #fb_contents .fb_url {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#firebean #fb_urlbar {
+  height: 4vmin;
+  position: absolute;
+  top: 3.5vmin;
+  width: 100%;
+  left: 0%;
+  background: #afafaf;
+  display: flex;
+  flex-direction: row;
+  gap: 0.25vmin;
+}
+#firebean #fb_urlbar button {
+  aspect-ratio: 1/1;
+  height: calc(100% - 1vmin);
+  display: flex;
+  background: #d3d3d3;
+  border: #9c9c9c 1px solid;
+  outline: none;
+  cursor: pointer;
+  transition: 0.35s;
+}
+#firebean #fb_urlbar button:hover {
+  background: #ededed;
+  transform: scale(105%);
+}
+#firebean #fb_urlbar input {
+  height: calc(100% - 1vmin);
+  width: calc(100% - 1vmin - 10vmin);
+  background: #d3d3d3;
+  padding: 0 0.5vmin;
+  border: #9c9c9c 1px solid;
+  outline: none;
+  transition: 0.35s;
+}
+#firebean #fb_urlbar input:hover {
+  background: #ededed;
+  transform: scale(101%);
+}
+#firebean #fb_createNewTab {
+  height: 2.5vmin;
+  aspect-ratio: 1/1;
+  box-shadow: 0 0 0.5vmin rgba(34, 34, 34, 0.7529411765);
+  background: #afafaf;
+  position: absolute;
+  right: 0.5vmin;
+  top: 0.5vmin;
+  border: none;
+  outline: none;
+  z-index: 576;
+  cursor: pointer;
+  transition: 0.35s;
+}
+#firebean #fb_createNewTab:hover {
+  background: #bfbfbf;
+  transform: scale(105%);
+}
+#firebean #fb_tab_bar {
+  background: #d3d3d3;
+  height: 3.5vmin;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.5vmin;
+  padding-bottom: 0;
+  gap: 0.5vmin;
+  -ms-overflow-style: none;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-right: 3.5vmin;
+}
+#firebean #fb_tab_bar::-webkit-scrollbar {
+  display: none;
+}
+#firebean #fb_tab_bar .tab {
+  width: 25vmin;
+  background: #afafaf;
+  padding: 0.5vmin;
+  height: 3vmin;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5vmin;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.35s;
+}
+#firebean #fb_tab_bar .tab .close {
+  height: calc(100% - 0.5vmin);
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.25vmin;
+  box-shadow: 0 0 0.5vmin rgba(34, 34, 34, 0.7529411765);
+  background: #afafaf;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.35s;
+}
+#firebean #fb_tab_bar .tab .close:hover {
+  background: #d3d3d3;
+  transform: scale(105%) translateY(-50%);
+}
+#firebean #fb_tab_bar .tab:hover {
+  background: #bfbfbf;
+}
+#firebean #fb_tab_bar .tab .icon {
+  height: calc(100% - 0.5vmin);
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  object-fit: contain;
+}
+#firebean #fb_tab_bar .tab h1 {
+  font-size: 2vmin;
+  height: 100%;
+  vertical-align: middle;
+}/*# sourceMappingURL=style.css.map */

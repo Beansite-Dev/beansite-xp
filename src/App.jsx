@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createNotification } from './sdk/sdk';
 import { Explorer } from "./sdk/modules/Explorer"
 import BeanShell from './sdk/modules/Beanshell';
+import FireBean from './firebean/firebean';
 
 export const debug=true;
 const release_data={
@@ -57,7 +58,6 @@ const App=()=>{
         id="welcome"
         title="Welcome"
         icon="/icons/xp/Information.png"
-        markdownMode
         markdownSource={WelcomeSrc}>
           <button 
             className='button1'
@@ -174,6 +174,7 @@ const App=()=>{
         closed>
           <BeanShell />
       </Window>
+      <FireBean />
     </BeansiteXP>
   </>);
 }
