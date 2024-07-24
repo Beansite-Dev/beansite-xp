@@ -10,6 +10,22 @@
   background: #1a1a1a;
   z-index: 23;
 }
+#renderImages #export {
+  padding: 1.5vmin 12.5vmin;
+  font-size: 2.5vmin;
+  border-radius: 1.5vmin;
+  border: none;
+  background: #fff;
+  color: #111111;
+  position: fixed;
+  bottom: 2.5vmin;
+  left: 2.5vmin;
+  cursor: pointer;
+  transition: 0.35s;
+}
+#renderImages #export:hover {
+  transform: translateY(-0.5vmin);
+}
 #renderImages #ri_params {
   background: #111111;
   height: 65vmin;

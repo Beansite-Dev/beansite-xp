@@ -339,6 +339,16 @@ const games={
       "id": "suika",
       "type": "OpenInGL"
     },
+    "Tetris": {
+      "url": "https://tetr.io",
+      "id": "tetris",
+      "type": "OpenInGL"
+    },
+    "Snake": {
+      "url": "https://playsnake.org",
+      "id": "snake",
+      "type": "OpenInGL"
+    },
     // "Melon Sandbox": {
       // "url": "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",
       // "id": "melon",

@@ -12,8 +12,9 @@ const BeanpoweredGui=(props)=>{
             "type": "OpenInGL"
         }
     });
-    const OpenGame=({ url, id, type })=>{
+    const OpenGame=({ url, id, type }, title)=>{
         if(url){
+            props.setGlTitle(title);
             document.getElementById("gl_frame").setAttribute("src",url);
             WinUtils.openWindow("gameloader");
         }
@@ -51,7 +52,7 @@ const BeanpoweredGui=(props)=>{
             <div className="banner" style={{"backgroundImage": `url("/assets/bp_assets/gbanner/${selectedGame.gdata.id}.png")`,}}></div>
             <div className="actionbar">
                 <h1>{selectedGame.title}</h1>
-                <button className="playButton" onClick={()=>{OpenGame(selectedGame.gdata);}}>Play ▶</button>
+                <button className="playButton" onClick={()=>{OpenGame(selectedGame.gdata, selectedGame.title);}}>Play ▶</button>
             </div>
             <h2>System Requirements</h2>
             <ul>

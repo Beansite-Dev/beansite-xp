@@ -16,10 +16,14 @@ const release_data={
   "comment":"idek",
   "features_added":[
     "Started work on FireBean",
+    "Allowed Beanpowered to set Gameloader Title",
+    "Created Simple window renderer",
   ],
   "games_added":[
     "Granny",
     "Suika Game",
+    "Tetris",
+    "Snake",
   ],
   "games_removed":[
     "Melon Sandbox",
@@ -35,6 +39,7 @@ const App=()=>{
     //   "id": generateId(10),
     // }));
   },[]);
+  const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
     <BeansiteXP>
       <Window 
@@ -128,7 +133,7 @@ const App=()=>{
         id="beanpowered"
         title="Beanpowered"
         icon="/icons/bp.png">
-          <BeanpoweredGui />
+          <BeanpoweredGui  setGlTitle={setGlTitle} />
       </Window>
       <Window 
         size={{
@@ -147,8 +152,8 @@ const App=()=>{
             document.getElementById("gl_frame").setAttribute("src","");},
         }}
         id="gameloader"
-        title="Gameloader"
-        icon="/icons/bp.png">
+        title={glTitle}
+        icon="/icons/xp/Game Controller.png">
           <iframe id="gl_frame" />
       </Window>
       <Explorer />

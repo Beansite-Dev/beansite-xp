@@ -4,7 +4,7 @@ import store from "../store/store";
 import { WinUtils } from "./WinUtils";
 import { Window } from "./Window";
 import { debug } from "../../App";
-import FileSystem from "../../beanpowered/assets/fs";
+import FileSystem from "../../assets/fs";
 import { current } from "@reduxjs/toolkit";
 
 const TaskbarIcon=(tbi_props)=>{

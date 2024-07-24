@@ -79,6 +79,7 @@ const FireBean=(props)=>{
             "close": true,}}
         id="firebean"
         title="FireBean"
+        closed
         icon="/icons/xp/Services.png">
             <div id="firebean">
                 <button id="fb_createNewTab" onClick={(e)=>{CreateNewTab(e)}}>+</button>

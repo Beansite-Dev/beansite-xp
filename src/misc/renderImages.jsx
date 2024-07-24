@@ -1,7 +1,7 @@
 import "./style/style.css";
 import { Window } from "../sdk/sdk";
 import { useState } from "react";
-
+import html2canvas from "html2canvas";
 
 const RenderImage=()=>{
     const[winData,setWinData]=useState({
@@ -50,11 +50,23 @@ const RenderImage=()=>{
               "close": true,
             }}
             customLayer="999"
-            id="welcome"
+            id="testwin"
             title={winData.title}
             icon={`/icons/xp/${winData.icon}.png`}
             markdownSource={winData.src}>
         </Window>
+        <button id="export" onClick={(e)=>{
+            e.preventDefault();
+            html2canvas(document.getElementById("win_testwin"),{
+                backgroundColor:null}).then(canvas=>{
+                // document.body.appendChild(canvas);
+                var image=canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+                var link=document.createElement('a');
+                link.setAttribute('download','BeansiteXP_Window.png');
+                link.setAttribute('href',image);
+                link.click();
+            });
+        }}>Export</button>
     </div>)
 };
 export default RenderImage;
