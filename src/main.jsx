@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root'))
   <BrowserRouter basename='/'>
     <Routes>
       <Route path="" element={<App/>}/>
-      <Route path="/render-images" element={<RenderImage/>}/>
+      <Route path="/render-window" element={<RenderImage/>}/>
     </Routes>
   </BrowserRouter>
 </BeanXPRouter>)
