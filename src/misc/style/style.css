@@ -1,0 +1,68 @@
+@import url("https://fonts.cdnfonts.com/css/br-cobane");
+@import url("https://fonts.cdnfonts.com/css/jetbrains-mono-2");
+#renderImages {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1a1a1a;
+  z-index: 23;
+}
+#renderImages #ri_params {
+  background: #111111;
+  height: 65vmin;
+  width: 45vmin;
+  position: fixed;
+  left: 2.5vmin;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  border-radius: 2vmin;
+  display: flex;
+  justify-content: flex-start;
+  padding: 5vmin;
+}
+#renderImages #ri_params, #renderImages #ri_params * {
+  font-family: "";
+}
+#renderImages #ri_params h1 {
+  color: #fff;
+  font-size: 6vmin;
+  width: 100%;
+}
+#renderImages #ri_params h2 {
+  color: #e8e8e8;
+  font-size: 3vmin;
+  width: 100%;
+  margin: 1vmin 0vmin;
+}
+#renderImages #ri_params hr {
+  width: 100%;
+  border: 0.1vmin solid #b3b3b3;
+  margin: 2vmin 0vmin;
+}
+#renderImages #ri_params textarea {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: none;
+  background: #1a1a1a;
+  border-radius: 1.5vmin;
+  padding: 1.5vmin;
+  color: #fff;
+  font-size: 2vmin;
+  font-family: "JetBrains Mono", sans-serif !important;
+}
+#renderImages #ri_params input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background: #1a1a1a;
+  border-radius: 1.5vmin;
+  padding: 1vmin 1.5vmin;
+  color: #fff;
+  font-size: 2vmin;
+  font-family: "JetBrains Mono", sans-serif !important;
+}/*# sourceMappingURL=style.css.map */

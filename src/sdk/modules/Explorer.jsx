@@ -99,7 +99,7 @@ const Taskbar=(tb_props)=>{
     </div>);
 }
 const Explorer=()=>{
-    const[currentDirectory,setCurrentDirectory]=useState(["root"]);
+    const[currentDirectory,setCurrentDirectory]=useState([]);
     const[dirContents,setDirContents]=useState(FileSystem);
     const File=({ fileData })=>{
         return(<div className="file" onClick={(e)=>{

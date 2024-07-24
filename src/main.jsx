@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import "./stylesheets/style/default.css";
 import BeanXPRouter from './sdk/router.jsx';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RenderImage from './misc/renderImages.jsx';
 
 ReactDOM.createRoot(document.getElementById('root'))
-  .render(<BeanXPRouter><App/></BeanXPRouter>)
+.render(<BeanXPRouter>
+  <BrowserRouter basename='/'>
+    <Routes>
+      <Route path="" element={<App/>}/>
+      <Route path="/render-images" element={<RenderImage/>}/>
+    </Routes>
+  </BrowserRouter>
+</BeanXPRouter>)

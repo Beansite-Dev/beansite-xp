@@ -26,72 +26,56 @@ const template=`
         ]
 },`;
 const FileSystem=[
-    {   
-        "name":"root",
-        "type":"dir",
-        "attribs":{
-            "lastModified":"7/17",
-            "readOnly":false,
-            "hidden":false,
-        },
-        "children":[
-            {
-                "name":"BeanOs",
-                "type":"dir",
-                "attribs":{
-                    "lastModified":"7/17",
-                    "readOnly":false,
-                    "hidden":false,
-                },
-                "children":[ 
-
-                ]
-            },{
-                "name":"Program Files",
-                "type":"dir",
-                "attribs":{
-                    "lastModified":"7/17",
-                    "readOnly":false,
-                    "hidden":false,
-                },
-                "children":[ 
-
-                ]
-            },{
-                "name":"Program Files (x86)",
-                "type":"dir",
-                "attribs":{
-                    "lastModified":"7/17",
-                    "readOnly":false,
-                    "hidden":false,
-                },
-                "children":[ 
-
-                ]
-            },{
-                "name":"Program Data",
-                "type":"dir",
-                "attribs":{
-                    "lastModified":"7/17",
-                    "readOnly":false,
-                    "hidden":false,
-                },
-                "children":[ 
-
-                ]
-            },{
-                "name":"temp",
-                "type":"dir",
-                "attribs":{
-                    "lastModified":"7/17",
-                    "readOnly":false,
-                    "hidden":false,
-                },
-                "children":[ 
-
-                ]
+        {
+            "name":"BeanOs",
+            "type":"dir",
+            "attribs":{
+                "lastModified":"7/17",
+                "readOnly":false,
+                "hidden":false,
             },
-        ]
-    },
+            "children":[ 
+            ]
+        },{
+            "name":"Program Files",
+            "type":"dir",
+            "attribs":{
+                "lastModified":"7/17",
+                "readOnly":false,
+                "hidden":false,
+            },
+            "children":[ 
+            ]
+        },{
+            "name":"Program Files (x86)",
+            "type":"dir",
+            "attribs":{
+                "lastModified":"7/17",
+                "readOnly":false,
+                "hidden":false,
+            },
+            "children":[ 
+            ]
+        },{
+            "name":"Program Data",
+            "type":"dir",
+            "attribs":{
+                "lastModified":"7/17",
+                "readOnly":false,
+                "hidden":false,
+            },
+            "children":[ 
+            ]
+        },{
+            "name":"temp",
+            "type":"dir",
+            "attribs":{
+                "lastModified":"7/17",
+                "readOnly":false,
+                "hidden":false,
+            },
+            "children":[ 
+            ]
+        },
 ];
 export default FileSystem;
