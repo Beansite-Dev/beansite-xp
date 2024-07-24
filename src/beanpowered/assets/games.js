@@ -340,12 +340,12 @@ const games={
       "type": "OpenInGL"
     },
     "Tetris": {
-      "url": "https://tetr.io",
+      "url": "https://www.lumpty.com/amusements/Games/Tetris/tetris.html",
       "id": "tetris",
       "type": "OpenInGL"
     },
     "Snake": {
-      "url": "https://playsnake.org",
+      "url": "https://patorjk.com/games/snake/",
       "id": "snake",
       "type": "OpenInGL"
     },
