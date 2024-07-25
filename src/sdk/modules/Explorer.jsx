@@ -133,12 +133,15 @@ const Explorer=()=>{
             // `${dirContents.findIndex(obj=>obj.name==currentDirectory[currentDirectory.length])}
             // ${JSON.stringify(dirContents[0])}`);
         var dct;
-        try{
-            dct=dirContents.children[
-                dirContents.children.findIndex(
-                    obj=>obj.name==currentDirectory[currentDirectory.length-1])];
-        }catch{dct=fs;}
-        if(!dct)dct=fs;
+        //---
+        //! problem located:
+        //! this code works relatively, so it only check the current dir, 
+        //! meaning it breaks. it takes 2 arrays, even if duplicates, if back
+        //! to back, while join them. ex:["1","2"],["1","2"] tries ["1","2","1","2"]
+        //---
+        dct=currentDirectory.length>0?dirContents.children[
+            dirContents.children.findIndex(
+                obj=>obj.name==currentDirectory[currentDirectory.length-1])]:fs;
         // console.log(dct);
         setDirContents(dct);
     },[currentDirectory]);
@@ -153,7 +156,7 @@ const Explorer=()=>{
         "min": true,
         "max": true,
         "close": true,}}
-    // closed
+    closed={!debug}
     id="explorer"
     title="Explorer"
     icon="/icons/xp/Explorer.png">
@@ -173,8 +176,10 @@ const Explorer=()=>{
 
         </div>
         <div id="ex_files">
-            {dirContents.children.map((file,index)=>
-                <File fileData={file} key={index}></File>)}
+            {dirContents&&dirContents.children?
+            dirContents.children.map((file,index)=>
+                <File fileData={file} key={index}></File>):
+            <p>Empty...</p>}
         </div>
     </Window>);
 }

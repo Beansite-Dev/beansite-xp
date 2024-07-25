@@ -8,8 +8,9 @@ import { createNotification } from './sdk/sdk';
 import { Explorer } from "./sdk/modules/Explorer"
 import BeanShell from './sdk/modules/Beanshell';
 import FireBean from './firebean/firebean';
+import config from './sdk/beansite.config';
 
-export const debug=true;
+export const debug=config.debugMode;
 const release_data={
   "version":"v0.7.2",
   "date":"7/24/24",
@@ -44,7 +45,7 @@ const App=()=>{
   },[]);
   const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
-    <BeansiteXP>
+    <BeansiteXP config={config}>
       <Window 
         // customLayer="549"
         size={{
