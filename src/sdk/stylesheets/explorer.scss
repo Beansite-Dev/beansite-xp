@@ -18,7 +18,7 @@
         align-items: center;
         flex-direction: row;
         padding: .5vmin 1vmin;
-        text-overflow: ellipsis;
+        // text-overflow: ellipsis;
         white-space: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
@@ -31,11 +31,19 @@
             font-size: 2vmin;
             display: inline-block;
             flex: none;
+            user-select: none;
+            cursor: pointer;
+            transition: .35s;
+            &:hover {
+                transform: scale(105%);
+            }
         }
         pre {
             font-size: 1.75vmin;
             display: inline-block;
             flex: none;
+            user-select: none;
+            cursor: pointer;
         }
     }
 }

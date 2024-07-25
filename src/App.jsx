@@ -18,6 +18,9 @@ const release_data={
     "Started work on FireBean",
     "Allowed Beanpowered to set Gameloader Title",
     "Created Simple window renderer",
+    "Fixed explorer literally just not working",
+    "Fixed explorer path bar issues",
+    "Made shutdown screen lead to os selector",
   ],
   "games_added":[
     "Granny",

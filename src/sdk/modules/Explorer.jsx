@@ -4,8 +4,9 @@ import store from "../store/store";
 import { WinUtils } from "./WinUtils";
 import { Window } from "./Window";
 import { debug } from "../../App";
-import FileSystem from "../../assets/fs";
+import fs from "../../assets/fs";
 import { current } from "@reduxjs/toolkit";
+import { generateId } from "./lib";
 
 const TaskbarIcon=(tbi_props)=>{
     return(<div className="tbicon" id={`${tbi_props.eid}_tbi`} onClick={(e)=>{
@@ -100,7 +101,8 @@ const Taskbar=(tb_props)=>{
 }
 const Explorer=()=>{
     const[currentDirectory,setCurrentDirectory]=useState([]);
-    const[dirContents,setDirContents]=useState(FileSystem);
+    // console.log(fs);
+    const[dirContents,setDirContents]=useState(fs);
     const File=({ fileData })=>{
         return(<div className="file" onClick={(e)=>{
             e.preventDefault();
@@ -117,6 +119,8 @@ const Explorer=()=>{
     }
     useEffect(()=>{
         document.getElementById("ex_urlBar").scrollLeft=document.getElementById("ex_urlBar").scrollWidth;
+        console.log(currentDirectory);
+        //! old shit
         // let dirDataTemp,scope=dirContents;
         // for(let i=0;i<=currentDirectory.length;i++){
             // if(scope.children.findIndex(obj=>obj.name==currentDirectory[i])){
@@ -128,36 +132,51 @@ const Explorer=()=>{
         // console.log(
             // `${dirContents.findIndex(obj=>obj.name==currentDirectory[currentDirectory.length])}
             // ${JSON.stringify(dirContents[0])}`);
+        var dct;
+        try{
+            dct=dirContents.children[
+                dirContents.children.findIndex(
+                    obj=>obj.name==currentDirectory[currentDirectory.length-1])];
+        }catch{dct=fs;}
+        if(!dct)dct=fs;
+        // console.log(dct);
+        setDirContents(dct);
     },[currentDirectory]);
     return(<Window
     size={{
-      "height": "38vmin",
-      "width": "58vmin"}} 
+        "height": "38vmin",
+        "width": "58vmin"}} 
     pos={{
-      "x":["left","10vmin"],
-      "y":["top","10vmin"],}}
+        "x":["left","10vmin"],
+        "y":["top","10vmin"],}}
     includeTitlebarOptions={{
-      "min": true,
-      "max": true,
-      "close": true,}}
-    closed
+        "min": true,
+        "max": true,
+        "close": true,}}
+    // closed
     id="explorer"
     title="Explorer"
     icon="/icons/xp/Explorer.png">
         <div id="ex_topbar">
             <div id="ex_urlBar">
-                <h1>C:</h1><pre>{` > `}</pre>
-                {currentDirectory.map((path,index)=><><h1 key={path}>{path}</h1><pre key={`${btoa(path)}${index}`}>{` > `}</pre></>)}
+                <h1 key={generateId(10)} onClick={()=>{setCurrentDirectory([])}}>C:</h1><pre>{` > `}</pre>
+                {currentDirectory.map((path,index)=><>
+                <h1 
+                    key={`${btoa(path)}_${generateId(10)}`} 
+                    onClick={()=>{
+                        setCurrentDirectory(currentDirectory.slice(0,currentDirectory.indexOf(path)+1));
+                    }}>{path}</h1>
+                <pre key={`${btoa(path)}_${generateId(10)}_arrow`}>{` > `}</pre></>)}
             </div>
         </div>
         <div id="ex_sidebar">
 
         </div>
         <div id="ex_files">
-            {dirContents.map((file,index)=>
+            {dirContents.children.map((file,index)=>
                 <File fileData={file} key={index}></File>)}
         </div>
-    </Window>)
+    </Window>);
 }
 export {
     Taskbar,

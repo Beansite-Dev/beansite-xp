@@ -770,11 +770,13 @@
   font-size: 2vmin;
   display: inline-block;
   flex: none;
+  user-select: none;
 }
 #ex_topbar #ex_urlBar pre {
   font-size: 1.75vmin;
   display: inline-block;
   flex: none;
+  user-select: none;
 }
 
 #ex_files {

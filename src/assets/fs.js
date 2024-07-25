@@ -25,7 +25,15 @@ const template=`
             contains more files like above
         ]
 },`;
-const FileSystem=[
+const FileSystem={
+    "name":"root",
+    "type":"dir",
+    "attribs":{
+        "lastModified":"7/17",
+        "readOnly":false,
+        "hidden":false,
+    },
+    "children":[ 
         {
             "name":"BeanOs",
             "type":"dir",
@@ -35,6 +43,17 @@ const FileSystem=[
                 "hidden":false,
             },
             "children":[ 
+                {
+                    "name":"Bean32",
+                    "type":"dir",
+                    "attribs":{
+                        "lastModified":"7/17",
+                        "readOnly":false,
+                        "hidden":false,
+                    },
+                    "children":[
+                    ]
+                },
             ]
         },{
             "name":"Program Files",
@@ -44,7 +63,28 @@ const FileSystem=[
                 "readOnly":false,
                 "hidden":false,
             },
-            "children":[ 
+            "children":[
+                {
+                    "name":"FireBean",
+                    "type":"dir",
+                    "attribs":{
+                        "lastModified":"7/17",
+                        "readOnly":false,
+                        "hidden":false,
+                    },
+                    "children":[
+                    ]
+                },{
+                    "name":"Beanpowered",
+                    "type":"dir",
+                    "attribs":{
+                        "lastModified":"7/17",
+                        "readOnly":false,
+                        "hidden":false,
+                    },
+                    "children":[
+                    ]
+                },
             ]
         },{
             "name":"Program Files (x86)",
@@ -55,6 +95,17 @@ const FileSystem=[
                 "hidden":false,
             },
             "children":[ 
+                {
+                    "name":"Beanpowered",
+                    "type":"dir",
+                    "attribs":{
+                        "lastModified":"7/17",
+                        "readOnly":false,
+                        "hidden":false,
+                    },
+                    "children":[
+                    ]
+                },
             ]
         },{
             "name":"Program Data",
@@ -65,6 +116,27 @@ const FileSystem=[
                 "hidden":false,
             },
             "children":[ 
+                {
+                    "name":"FireBean",
+                    "type":"dir",
+                    "attribs":{
+                        "lastModified":"7/17",
+                        "readOnly":false,
+                        "hidden":false,
+                    },
+                    "children":[
+                    ]
+                },{
+                    "name":"Beanpowered",
+                    "type":"dir",
+                    "attribs":{
+                        "lastModified":"7/17",
+                        "readOnly":false,
+                        "hidden":false,
+                    },
+                    "children":[
+                    ]
+                },
             ]
         },{
             "name":"temp",
@@ -77,5 +149,6 @@ const FileSystem=[
             "children":[ 
             ]
         },
-];
+    ]
+};
 export default FileSystem;
