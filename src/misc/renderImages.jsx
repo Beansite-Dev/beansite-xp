@@ -1,7 +1,8 @@
 import "./style/style.css";
 import { Window } from "../sdk/sdk";
 import { useState } from "react";
-import html2canvas from "html2canvas";
+// import html2canvas from "html2canvas";
+import domtoimage from 'dom-to-image';
 
 const RenderImage=()=>{
     const[winData,setWinData]=useState({
@@ -57,15 +58,25 @@ const RenderImage=()=>{
         </Window>
         <button id="export" onClick={(e)=>{
             e.preventDefault();
-            html2canvas(document.getElementById("win_testwin"),{
-                backgroundColor:null}).then(canvas=>{
-                // document.body.appendChild(canvas);
-                var image=canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
-                var link=document.createElement('a');
-                link.setAttribute('download','BeansiteXP_Window.png');
-                link.setAttribute('href',image);
+            var win=document.getElementById("win_testwin");
+            //! depricated but working
+            // html2canvas(win,{
+                // backgroundColor:null}).then(canvas=>{
+                // // document.body.appendChild(canvas);
+                // var image=canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+                // var link=document.createElement('a');
+                // link.setAttribute('download','BeansiteXP_Window.png');
+                // link.setAttribute('href',image);
+                // link.click();
+            // });
+            // domtoimage.toSvg(win)
+            domtoimage.toPng(win)
+            .then((dataUrl)=>{
+                var link=document.createElement("a");
+                link.href=dataUrl;
+                link.download="Window";
                 link.click();
-            });
+            }).catch(()=>{console.error("failed to export")});
         }}>Export</button>
     </div>)
 };
