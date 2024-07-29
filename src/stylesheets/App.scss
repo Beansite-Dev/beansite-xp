@@ -40,3 +40,39 @@
         padding-left: 3vmin;
     }
 }
+#win_settings {
+    h3 {
+        font-size: 3vmin;
+    }
+    label {
+        font-size: 2vmin;
+        margin: .5vmin 0;
+    }
+    input[type="file"] {
+        display: none;
+    }
+    .imageUpload {
+        display: inline-block;
+        padding: .5vmin;
+        cursor: pointer;
+        padding: .5vmin 3.5vmin;
+        color: #fff;
+        background: linear-gradient(165deg, lightgreen,green, darkgreen);
+        cursor: pointer;
+        transition: .35s;
+        border: 1px lightgreen solid;
+        box-shadow: 
+            0px 0px 3px #00620325,
+            0px 0px 5px #00620350 inset,
+            2px 2px 2px #00620335;
+        &:hover{
+            transform: translateY(-.5vmin);
+        }
+        &:active{
+            border: 1px green solid;
+            background: #fff;
+            color: green;
+            transition: .2s;
+        }
+    }
+}

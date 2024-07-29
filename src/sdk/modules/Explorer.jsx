@@ -76,12 +76,23 @@ const StartMenu=(props)=>{
         <div id="footer">
             <div 
                 className="action"
+                id="shutdown_btn"
                 onClick={(e)=>{
                     e.preventDefault();
                     document.getElementById("shutdownScreen").style.display="flex";
                 }}>
                 <div className="icon" style={{"backgroundImage":`url("/icons/xp/Power.png")`}}></div>
                 <h1>Shut down</h1>
+            </div>
+            <div 
+                className="action"
+                id="restart_btn"
+                onClick={(e)=>{
+                    e.preventDefault();
+                    window.location.reload();
+                }}>
+                <div className="icon" style={{"backgroundImage":`url("/icons/xp/Restart.png")`}}></div>
+                <h1>Restart</h1>
             </div>
         </div>
     </div>);
@@ -156,7 +167,7 @@ const Explorer=()=>{
         "min": true,
         "max": true,
         "close": true,}}
-    closed={!debug}
+    closed
     id="explorer"
     title="Explorer"
     icon="/icons/xp/Explorer.png">

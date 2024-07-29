@@ -8,7 +8,7 @@ export const notiSlice=createSlice({
     createNotification:(state,action)=>{
       state.value=Object.assign(
         {[action.payload.title]:{
-          "id":action.payload.id,}},state.value)
+          "id":action.payload.id,}},state.value);
       // console.log(state.value);
     },
   },

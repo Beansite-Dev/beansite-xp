@@ -9,28 +9,24 @@ import { Explorer } from "./sdk/modules/Explorer"
 import BeanShell from './sdk/modules/Beanshell';
 import FireBean from './firebean/firebean';
 import config from './sdk/beansite.config';
+import Settings from './sdk/modules/Settings';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.7.2",
-  "date":"7/24/24",
-  "comment":"idek",
+  "version":"v0.8.2",
+  "date":"7/29/24",
+  "comment":"LOTS of stuff",
   "features_added":[
-    "Started work on FireBean",
-    "Allowed Beanpowered to set Gameloader Title",
-    "Created Simple window renderer",
-    "Fixed explorer literally just not working",
-    "Fixed explorer path bar issues",
-    "Made shutdown screen lead to os selector",
+    "Added Settings Menu",
+    "Added Safe Graphics Mode",
+    "Added advanced theme system",
+    "Added global settings state",
+    "Added dark theme",
+    "Fixed Animations",
   ],
   "games_added":[
-    "Granny",
-    "Suika Game",
-    "Tetris",
-    "Snake",
   ],
   "games_removed":[
-    "Melon Sandbox",
   ]
 };
 const App=()=>{
@@ -179,6 +175,7 @@ const App=()=>{
           <BeanShell />
       </Window>
       <FireBean />
+      <Settings />
     </BeansiteXP>
   </>);
 }

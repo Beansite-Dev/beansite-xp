@@ -19,13 +19,6 @@ const LoadingScreen=()=>{
                 document.getElementById("loading").classList.add("fadeout");
                 setTimeout(()=>{document.getElementById("loading").style.display="none";},1000);
             }
-            if(!document.getElementById("theme")){
-                let theme=document.createElement("link");
-                theme.id="theme";
-                theme.rel="stylesheet";
-                theme.href="/themes/style/classic.css"; //default
-                document.head.appendChild(theme);
-            }
         };
         if(document.readyState === 'complete'){onPageLoad();}else{
             window.addEventListener('load', onPageLoad, false);

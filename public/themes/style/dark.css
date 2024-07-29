@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Tahoma";
+  src: url("/fonts/tahoma.ttf");
+}
+::-webkit-scrollbar {
+  width: 1vmin;
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid #2e2e2e;
+  box-sizing: border-box;
+  background: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #353535;
+  border-radius: 5vmin;
+  border: 1px solid #2e2e2e;
+  box-sizing: border-box;
+}
+
+#taskbar {
+  border: 1px #2e2e2e solid;
+  background: #121212;
+}
+#taskbar, #taskbar * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+#taskbar .tbicon {
+  font-family: "Tahoma";
+  color: #fff;
+  border: 1px #2e2e2e solid;
+  background: #202020;
+}
+#taskbar #startbtn {
+  border-right: 1px #2e2e2e solid;
+  font-family: "Tahoma";
+  color: #fff;
+  background: #202020;
+}
+#taskbar #startbtn:active {
+  background: #fff;
+  border-right: 1px #dedede solid;
+  color: #202020;
+}
+
+.Window {
+  border: 1px #2e2e2e solid;
+  font-family: "Tahoma";
+  background: #202020;
+  border-radius: 1vmin !important;
+}
+.Window header {
+  background: #202020;
+}
+.Window h2 {
+  color: #fff;
+}
+.Window .content {
+  background: #0b0b0b;
+  color: #fff;
+  border-radius: 1vmin;
+}
+.Window button {
+  box-shadow: none !important;
+  border: #2e2e2e solid 1px !important;
+  border-radius: 0.5vmin;
+}
+.Window .close {
+  background-image: url("/icons/dark_icons/Close.png");
+}
+.Window .min {
+  background-image: url("/icons/dark_icons/Minimize.png");
+}
+.Window .max {
+  background-image: url("/icons/dark_icons/Maximize.png");
+}
+
+#startmenu {
+  background: #fff;
+  font-family: "Tahoma";
+  border-right: #2e2e2e 1px solid;
+}
+#startmenu #topbar {
+  color: #fff;
+  background: #202020;
+}
+#startmenu #footer {
+  background: #202020;
+}
+#startmenu #footer .action .icon {
+  box-shadow: none !important;
+  border: #2e2e2e solid 1px !important;
+  border-radius: 0.5vmin;
+}
+#startmenu #footer #shutdown_btn .icon {
+  background-image: url("/icons/dark_icons/shutdown.png") !important;
+}
+#startmenu #footer #restart_btn .icon {
+  background-image: url("/icons/dark_icons/restart.png") !important;
+}
+#startmenu .contents .left {
+  background: #303030;
+  color: #fff;
+  border-right: #2e2e2e 1px solid;
+}
+#startmenu .contents .right {
+  background: #252525;
+  color: #fff;
+}
+
+#notiwrapper .notification {
+  border: 1px #2e2e2e solid;
+  color: #fff;
+  background: #202020;
+}
+
+select {
+  border-radius: 1vmin;
+  background: #202020;
+  border: 1px #2e2e2e solid;
+  color: #fff;
+}/*# sourceMappingURL=dark.css.map */

@@ -1,0 +1,126 @@
+@font-face {
+    font-family: "Tahoma";
+    src: url("/fonts/tahoma.ttf");
+}
+// @import url('https://fonts.cdnfonts.com/css/br-cobane');
+$border: #2e2e2e;
+$border-l: #dedede;
+$bg1: #202020;
+$bg2: #121212;
+$bg3: #0b0b0b;
+$bg4: #252525;
+$bg5: #303030;
+$bg6: #353535;
+$bg1-l: #fff;
+// scrollbar ---
+::-webkit-scrollbar {
+    width: 1vmin;
+}
+::-webkit-scrollbar-track {
+    border: 1px solid $border;
+    box-sizing: border-box;
+    background: $bg4;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $bg6;
+    border-radius: 5vmin;
+    border: 1px solid $border;
+    box-sizing: border-box;
+}
+#taskbar {
+    &,* {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    border: 1px $border solid;
+    background: $bg2;
+    .tbicon {
+        font-family: "Tahoma";
+        color: $bg1-l;
+        border: 1px $border solid;
+        background: $bg1;
+    }
+    #startbtn {
+        border-right: 1px $border solid;
+        font-family: "Tahoma";
+        color: $bg1-l;
+        background: $bg1;
+        &:active{
+            background: $bg1-l;
+            border-right: 1px $border-l solid;
+            color: $bg1;
+        }
+    }
+}
+.Window {
+    border: 1px $border solid;
+    font-family: "Tahoma";
+    background: $bg1;
+    border-radius: 1vmin !important;
+    header {
+        background: $bg1;
+    }
+    h2 {
+        color: $bg1-l;
+    }
+    .content{
+        background: $bg3;
+        color: $bg1-l;
+        border-radius: 1vmin;
+    }
+    button {
+        box-shadow: none !important;
+        border: $border solid 1px !important;
+        border-radius: .5vmin;
+    }
+    .close{background-image: url("/icons/dark_icons/Close.png");}
+    .min{background-image: url("/icons/dark_icons/Minimize.png");}
+    .max{background-image: url("/icons/dark_icons/Maximize.png");}
+}
+#startmenu {
+    background: $bg1-l;
+    font-family: "Tahoma";
+    border-right: $border 1px solid;
+    #topbar{
+        color: $bg1-l;
+        background: $bg1;
+    }
+    #footer {
+        background: $bg1;
+        .action {
+            .icon {
+                box-shadow: none !important;
+                border: $border solid 1px !important;
+                border-radius: .5vmin;
+            }
+        }
+        #shutdown_btn{.icon{
+            background-image: url("/icons/dark_icons/shutdown.png") !important;}}
+        #restart_btn{.icon{
+            background-image: url("/icons/dark_icons/restart.png") !important;}}
+    }
+    .contents {
+        .left{
+            background: $bg5;
+            color: $bg1-l;
+            border-right: $border 1px solid;
+        }
+        .right {
+            background: $bg4;
+            color: $bg1-l;
+        }
+    }
+}
+#notiwrapper {
+    .notification {
+        border: 1px $border solid;
+        color: $bg1-l;
+        background: $bg1;
+    }
+}
+select {
+    border-radius: 1vmin;
+    background: $bg1;
+    border: 1px $border solid;
+    color: $bg1-l;
+}

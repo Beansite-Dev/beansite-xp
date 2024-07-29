@@ -1,5 +1,5 @@
 const config={
-    "debugMode": false,
+    "debugMode": true,
     "beansitePlugins":[], // for future feature
 };
 export default config;

@@ -34,4 +34,36 @@
 }
 #win_changelog ul {
   padding-left: 3vmin;
+}
+
+#win_settings h3 {
+  font-size: 3vmin;
+}
+#win_settings label {
+  font-size: 2vmin;
+  margin: 0.5vmin 0;
+}
+#win_settings input[type=file] {
+  display: none;
+}
+#win_settings .imageUpload {
+  display: inline-block;
+  padding: 0.5vmin;
+  cursor: pointer;
+  padding: 0.5vmin 3.5vmin;
+  color: #fff;
+  background: linear-gradient(165deg, lightgreen, green, darkgreen);
+  cursor: pointer;
+  transition: 0.35s;
+  border: 1px lightgreen solid;
+  box-shadow: 0px 0px 3px rgba(0, 98, 3, 0.1450980392), 0px 0px 5px rgba(0, 98, 3, 0.3137254902) inset, 2px 2px 2px rgba(0, 98, 3, 0.2078431373);
+}
+#win_settings .imageUpload:hover {
+  transform: translateY(-0.5vmin);
+}
+#win_settings .imageUpload:active {
+  border: 1px green solid;
+  background: #fff;
+  color: green;
+  transition: 0.2s;
 }/*# sourceMappingURL=App.css.map */

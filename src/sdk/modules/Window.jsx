@@ -27,11 +27,12 @@ export const Window=({
     maximized,
     closed,
     safeGraphics,
-    closable,
-    maximizable,
-    minimizable,
+    closable=true,
+    maximizable=true,
+    minimizable=true,
   })=>{
   const windows=useSelector((state)=>state.windows.value);
+  const settings=useSelector((state)=>state.settings.value);
   const dispatch=useDispatch();
   const[win_id,setWin_id]=useState(generateId(10));
   var [window_state,setWindowState]=useState({
@@ -84,10 +85,18 @@ export const Window=({
         isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
       }
     },
-    maximize:(maxBtn,win)=>{
+    maximize:(maxBtn,win,setIcon=false)=>{
       if(maximizable){
         updateState(win);
         (callbacks.beforeWindowMaximize)?callbacks.beforeWindowMaximize():null;
+        if(setIcon){
+          var theme;
+          switch(settings.theme){
+            case "dark":theme="dark_icons";break;
+            case "classic":default:theme="xp";break;
+          }
+          maxBtn.style.backgroundImage=`url("/icons/${theme}/Restore.png")`;
+        }
         win.classList.add("maximized");
       }
     },
@@ -106,7 +115,12 @@ export const Window=({
         const maxBtn=document.getElementById(`win_${id}_max`);
         const win=document.getElementById(`win_${id}`);
         // maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
-        maxBtn.style.backgroundImage=`url("/icons/xp/${(isMax.getAttribute("content")==="false")?"Restore":"Maximize"}.png")`;
+        var theme;
+        switch(settings.theme){
+          case "dark":theme="dark_icons";break;
+          case "classic":default:theme="xp";break;
+        }
+        maxBtn.style.backgroundImage=`url("/icons/${theme}/${(isMax.getAttribute("content")==="false")?"Restore":"Maximize"}.png")`;
         nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
         isMax.setAttribute("content",!(isMax.getAttribute("content")==="true"));
       }
@@ -135,7 +149,8 @@ export const Window=({
         pos2 = pos4 - e.clientY;
         pos3 = e.clientX;
         pos4 = e.clientY;
-        document.getElementById("maximizePreview").style.opacity=(pos4<=60)?1:0;
+        //! buggy with new themes
+        // document.getElementById("maximizePreview").style.opacity=(pos4<=60)?1:0;
         // set the element's new position:
         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -145,12 +160,10 @@ export const Window=({
         document.onmouseup = null;
         document.onmousemove = null;
         elmnt.style.transition=".5s";
-        if(pos4<=60){
-          // document.getElementById(`win_${id}_max`).innerHTML="";
-          document.getElementById(`win_${id}_max`).style.backgroundImage=`url("/icons/xp/Restore.png")`;
-          document.getElementById(`win_${id}_isMax?`).setAttribute("content","true");
-          document.getElementById("maximizePreview").style.opacity=0;
-          nb_actions.maximize(null,elmnt);}else{updateState(elmnt);}
+        //! buggy with new theme system
+        // if(pos4<=60){
+          // document.getElementById("maximizePreview").style.opacity=0;
+          // nb_actions.maxToggle();}else{updateState(elmnt);}
       }
       if (document.getElementById(elmnt.id + "_header")) {
         // if present, the header is where you move the DIV from:
