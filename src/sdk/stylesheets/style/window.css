@@ -106,4 +106,10 @@
   top: 0 !important;
   left: 0 !important;
   border-radius: 0 !important;
+}
+
+.Win_SafeGraphics, .Win_SafeGraphics * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
 }/*# sourceMappingURL=window.css.map */

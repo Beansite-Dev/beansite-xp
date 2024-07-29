@@ -108,6 +108,12 @@
   border-radius: 0 !important;
 }
 
+.Win_SafeGraphics, .Win_SafeGraphics * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
 #taskbar {
   height: 48px;
   width: 100dvw;

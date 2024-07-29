@@ -25,7 +25,8 @@ export const Window=({
     markdownSource,
     minimized,
     maximized,
-    closed
+    closed,
+    safeGraphics,
   })=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
@@ -177,7 +178,7 @@ export const Window=({
     if(maximized)nb_actions.maximize(null,false);
   },[]);
   return(<div 
-    className="Window"
+    className={`Window ${safeGraphics?"Win_SafeGraphics":null}`}
     style={{
       "height":size.height,
       "width":size.width,
