@@ -54,9 +54,9 @@
   border-bottom-right-radius: 15px;
   height: 100%;
   width: 10vmin;
-  padding: 0 2vmin;
+  padding: 2vmin 6.5vmin;
   border: none;
-  font-size: 2.65vmin;
+  font-size: 1.5vw;
   letter-spacing: 0.165vmin;
   font-style: italic;
   font-weight: bold;

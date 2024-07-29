@@ -27,6 +27,9 @@ export const Window=({
     maximized,
     closed,
     safeGraphics,
+    closable,
+    maximizable,
+    minimizable,
   })=>{
   const windows=useSelector((state)=>state.windows.value);
   const dispatch=useDispatch();
@@ -52,16 +55,20 @@ export const Window=({
   }
   const nb_actions={
     destroy:(e)=>{ //! dangerous
-      e?e.preventDefault():null;
-      (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
-      document.getElementById(`win_${id}`).remove();
-      dispatch(destroyWindow(win_id));
-      dispatch(destoryTBI(win_id));
+      if(closable){
+        e?e.preventDefault():null;
+        (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
+        document.getElementById(`win_${id}`).remove();
+        dispatch(destroyWindow(win_id));
+        dispatch(destoryTBI(win_id));
+      }
     },
     close:(e,ani=true)=>{
-      e?e.preventDefault():null;
-      (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
-      WinUtils.hideWindow(id,ani);
+      if(closable){
+        e?e.preventDefault():null;
+        (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
+        WinUtils.hideWindow(id,ani);
+      }
     },
     open:(e)=>{
       e?e.preventDefault():null;
@@ -69,16 +76,20 @@ export const Window=({
       WinUtils.openWindow(id);
     },
     min:(e)=>{
-      e?e.preventDefault():null;
-      (callbacks.beforeWindowMinimize)?callbacks.beforeWindowMinimize():null;
-      const isMin=document.getElementById(`win_${id}_isMin?`);
-      document.getElementById(`win_${id}`).style.display="none";
-      isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
+      if(minimizable){
+        e?e.preventDefault():null;
+        (callbacks.beforeWindowMinimize)?callbacks.beforeWindowMinimize():null;
+        const isMin=document.getElementById(`win_${id}_isMin?`);
+        document.getElementById(`win_${id}`).style.display="none";
+        isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
+      }
     },
     maximize:(maxBtn,win)=>{
-      updateState(win);
-      (callbacks.beforeWindowMaximize)?callbacks.beforeWindowMaximize():null;
-      win.classList.add("maximized");
+      if(maximizable){
+        updateState(win);
+        (callbacks.beforeWindowMaximize)?callbacks.beforeWindowMaximize():null;
+        win.classList.add("maximized");
+      }
     },
     unmaximize:(maxBtn,win)=>{
       (callbacks.beforeWindowUnmaximize)?callbacks.beforeWindowUnmaximize():null;
@@ -89,14 +100,16 @@ export const Window=({
       win.style.width=window_state.size;
     },
     maxToggle:(e)=>{
-      e?e.preventDefault():null;
-      const isMax=document.getElementById(`win_${id}_isMax?`);
-      const maxBtn=document.getElementById(`win_${id}_max`);
-      const win=document.getElementById(`win_${id}`);
-      // maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
-      maxBtn.style.backgroundImage=`url("/icons/xp/${(isMax.getAttribute("content")==="false")?"Restore":"Maximize"}.png")`;
-      nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
-      isMax.setAttribute("content",!(isMax.getAttribute("content")==="true"));
+      if(maximizable){
+        e?e.preventDefault():null;
+        const isMax=document.getElementById(`win_${id}_isMax?`);
+        const maxBtn=document.getElementById(`win_${id}_max`);
+        const win=document.getElementById(`win_${id}`);
+        // maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
+        maxBtn.style.backgroundImage=`url("/icons/xp/${(isMax.getAttribute("content")==="false")?"Restore":"Maximize"}.png")`;
+        nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
+        isMax.setAttribute("content",!(isMax.getAttribute("content")==="true"));
+      }
     },
   }
   const dragElement=(elmnt)=>{

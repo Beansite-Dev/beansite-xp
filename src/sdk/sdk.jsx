@@ -13,6 +13,7 @@ import { Taskbar, TaskbarIcon, StartMenu } from "./modules/Explorer";
 import NotificationSystem, { Notification } from "./modules/Notification";
 import { createNotification } from "./store/notificationslice";
 export { createNotification } from "./store/notificationslice";
+import html2canvas from "html2canvas";
 
 const BeansiteXPGui=({ config, children })=>{
   const windows=useSelector((state)=>state.windows.value);
@@ -24,6 +25,22 @@ const BeansiteXPGui=({ config, children })=>{
   Icon.href="/assets/beanxp_logo.png";
   useEffect(()=>{
     dispatch(setUsername("Guest"));
+    window.addEventListener("keydown",(e)=>{
+      if(e.repeat)return;
+      // if (e.ctrlKey && e.key === 's') {
+        // e.preventDefault();
+        // html2canvas(document.body,{
+          // backgroundColor:null}).then(canvas=>{
+          // // document.body.appendChild(canvas);
+          // var image=canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+          // var link=document.createElement('a');
+          // var currentDate=new Date();
+          // link.setAttribute('download',`screenshot-${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}.png`);
+          // link.setAttribute('href',image);
+          // link.click();
+        // });
+      // }
+    })
   },[]);
   return (<>
     <div id="bxpgui">

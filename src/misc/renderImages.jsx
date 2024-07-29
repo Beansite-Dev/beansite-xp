@@ -56,6 +56,9 @@ const RenderImage=()=>{
             customLayer="999"
             id="testwin"
             safeGraphics
+            closable={false}
+            maximizable={false}
+            minimizable={false}
             title={winData.title}
             icon={`/icons/xp/${winData.icon}.png`}
             markdownSource={winData.src}>
