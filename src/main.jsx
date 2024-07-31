@@ -12,6 +12,8 @@ ReactDOM.createRoot(document.getElementById('root'))
     <Routes>
       <Route path="" element={<App/>}/>
       <Route path="/render-window" element={<RenderImage/>}/>
+      <Route path="/privacy-policy" />
+      <Route path="/terms" />
     </Routes>
   </BrowserRouter>
 </BeanXPRouter>)

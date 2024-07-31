@@ -1,5 +1,5 @@
 import { Component, useEffect, useState } from 'react';
-import { BeansiteXP, Window, WinUtils, waitForElm, generateId } from './sdk/sdk';
+import BeansiteXP, { Window, WinUtils, waitForElm, generateId } from './sdk/sdk';
 import "./stylesheets/style/App.css";
 import { WelcomeSrc, DebugMenuSrc } from './mdsrc';
 import BeanpoweredGui from './beanpowered/bpgui';
@@ -13,16 +13,20 @@ import Settings from './sdk/modules/Settings';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.8.2",
-  "date":"7/29/24",
+  "version":"v0.8.5",
+  "date":"7/30/24",
   "comment":"LOTS of stuff",
   "features_added":[
     "Added Settings Menu",
+    "Closed Beta",
     "Added Safe Graphics Mode",
     "Added advanced theme system",
     "Added global settings state",
     "Added dark theme",
     "Fixed Animations",
+    "Added start menu shortcuts as array map property to gui",
+    "Removed depricated wrapper (reminent from class component)",
+    "Allowed windows to disallow actions",
   ],
   "games_added":[
   ],
@@ -41,7 +45,27 @@ const App=()=>{
   },[]);
   const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
-    <BeansiteXP config={config}>
+    <BeansiteXP 
+      config={config}
+      startMenuShortcuts={[
+        {
+          "title":"Welcome",
+          "icon":"/icons/xp/Information.png",
+          "win_id":"welcome",
+        },{
+          "title":"Beanpowered",
+          "icon":"/icons/bp.png",
+          "win_id":"beanpowered",
+        },{
+          "title":"Explorer",
+          "icon":"/icons/xp/Explorer.png",
+          "win_id":"explorer",
+        },{
+          "title":"Beanshell",
+          "icon":"/icons/xp/Command Prompt.png",
+          "win_id":"beanshell",
+        },
+      ]}>
       <Window 
         // customLayer="549"
         size={{

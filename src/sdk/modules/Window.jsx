@@ -30,6 +30,8 @@ export const Window=({
     closable=true,
     maximizable=true,
     minimizable=true,
+    draggable=true,
+    customStyle,
   })=>{
   const windows=useSelector((state)=>state.windows.value);
   const settings=useSelector((state)=>state.settings.value);
@@ -183,7 +185,7 @@ export const Window=({
   useEffect(()=>{
     const e=document.getElementById(`win_${id}`);
     // console.log(`created window with data: ${JSON.stringify(window_state)}`);
-    dragElement(e);
+    if(draggable)dragElement(e);
     dispatch(createTBI({"win_id":win_id,"windata":window_state }));
     dispatch(createWindow({"win_id":win_id,"windata":window_state }));
     $("Window").on("click",function() {
@@ -206,6 +208,7 @@ export const Window=({
   return(<div 
     className={`Window ${safeGraphics?"Win_SafeGraphics":null}`}
     style={{
+      ...customStyle,
       "height":size.height,
       "width":size.width,
       // [pos.x[0]]:[pos.x[1]],
@@ -213,7 +216,7 @@ export const Window=({
       "top": pos.y[1],
       "left": pos.x[1],
       "zIndex":customLayer?customLayer:"auto",
-    }} 
+    }}
     tabIndex={Object.keys(windows).indexOf(win_id)}
     id={`win_${id}`}>
     <header id={`win_${id}_header`}>

@@ -1,0 +1,64 @@
+@import url('https://fonts.cdnfonts.com/css/br-cobane');
+#ClosedBetaLogin {
+    height: 100dvh;
+    width: 100dvw;
+    z-index: 990;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #151515d0;
+    backdrop-filter: blur(2.5vmin);
+    display: flex;
+    font-family: '' !important;
+    #cbl_contentWrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .5vmin;
+        width: 75vmin;
+        padding: 5vmin;
+        background: #202020;
+        border-radius: 5vmin;
+        border: 1px solid #404040;
+        filter: drop-shadow(0 0 15vmin #4f1ae1);
+        hr {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #848484;
+            margin: 1vmin 0;
+        }
+        h1 {
+            color: #fff;
+            width: 100%;
+        }
+        label {
+            color: #d0d0d0;
+        }
+        input {
+            padding: 1vmin 1.5vmin;
+            background: #303030;
+            border-radius: 5vmin;
+            border: 1px solid #5c5c5c;
+            outline: none;
+            color: #fff;
+        }
+        button {
+            color: #fff;
+            background: #303030;
+            border-radius: 5vmin;
+            border: 1px solid #5c5c5c;
+            padding: 1vmin 5vmin;
+            cursor: pointer;
+            transition: .35s;
+            &:hover {
+                transform: translateY(-.5vmin);
+                background: #4f1ae1;
+                border-color: #3c1c95;
+            }
+        }
+        #cbl_tac_invalid {
+            color: #c82929;
+        }
+    }
+}

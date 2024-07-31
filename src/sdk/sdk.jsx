@@ -14,8 +14,9 @@ import NotificationSystem, { Notification } from "./modules/Notification";
 import { createNotification } from "./store/notificationslice";
 export { createNotification } from "./store/notificationslice";
 import html2canvas from "html2canvas";
+import ClosedBetaLogin from "./modules/closedBetaLogin";
 
-const BeansiteXPGui=({ config, children })=>{
+const BeansiteXP=({ startMenuShortcuts, children, config={} })=>{
   const windows=useSelector((state)=>state.windows.value);
   const userdata=useSelector((state)=>state.userdata);
   const tbi=useSelector((state)=>state.tbi.value);
@@ -43,14 +44,13 @@ const BeansiteXPGui=({ config, children })=>{
     })
   },[]);
   return (<>
+    {config.closedBeta&&!config.debugMode?<ClosedBetaLogin/>:null}
     <div id="bxpgui">
       <div id="winWrapper">
         {children}
       </div>
       <div id="maximizePreview"></div>
-      <StartMenu>
-
-      </StartMenu>
+      <StartMenu shortcuts={startMenuShortcuts} />
       <NotificationSystem />
       <Taskbar>
         {Object.keys(tbi).map((win_id)=>
@@ -64,6 +64,4 @@ const BeansiteXPGui=({ config, children })=>{
     </div>
   </>);
 }
-export const BeansiteXP=({ children, config })=>{
-  return (<BeansiteXPGui config={config}>{children}</BeansiteXPGui>);}
 export default BeansiteXP;

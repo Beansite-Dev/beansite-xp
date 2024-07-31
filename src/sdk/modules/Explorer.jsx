@@ -47,22 +47,13 @@ const StartMenu=(props)=>{
         </div>
         <div className="contents">
             <div className="left">
-                <StartMenuIcon 
-                    title="Welcome"
-                    icon="/icons/xp/Information.png"
-                    win_id="welcome"/>
-                <StartMenuIcon 
-                    title="Beanpowered"
-                    icon="/icons/bp.png"
-                    win_id="beanpowered"/>
-                <StartMenuIcon 
-                    title="Explorer"
-                    icon="/icons/xp/Explorer.png"
-                    win_id="explorer"/>
-                <StartMenuIcon 
-                    title="Beanshell"
-                    icon="/icons/xp/Command Prompt.png"
-                    win_id="beanshell"/>
+                {props.shortcuts.map((data,index)=>
+                    <StartMenuIcon 
+                        title={data.title}
+                        icon={data.icon}
+                        win_id={data.win_id}
+                        key={index}
+                    />)}
                 {debug?<>
                     <StartMenuIcon 
                         title="Debug Menu"
