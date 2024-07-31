@@ -4,7 +4,10 @@ const ClosedBetaLogin=()=>{
     // char md5 hash with prefix "mbxp_ac_"
     // use https://www.md5hashgenerator.com
     const ValidAccessCodes=[
-        "mbxp_ac_39139c401c",
+        "mbxp_ac_39139c401c", //tyle_vaz (me :>)
+        "mbxp_ac_cdda47e4f3", //ethan_guantez
+        "mbxp_ac_326dc5988d", //isa_aleman
+        "mbxp_ac_f7cbcd7cf8", //rajeh_jbara
     ];
     return(<div id="ClosedBetaLogin">
         <div id="cbl_contentWrapper">
