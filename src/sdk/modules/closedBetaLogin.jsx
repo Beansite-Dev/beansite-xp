@@ -8,6 +8,7 @@ const ClosedBetaLogin=()=>{
         "mbxp_ac_cdda47e4f3", //ethan_guantez
         "mbxp_ac_326dc5988d", //isa_aleman
         "mbxp_ac_f7cbcd7cf8", //rajeh_jbara
+        "mbxp_ac_e66de607e2", //nick_gencs
     ];
     return(<div id="ClosedBetaLogin">
         <div id="cbl_contentWrapper">
