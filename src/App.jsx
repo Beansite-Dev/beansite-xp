@@ -13,8 +13,8 @@ import Settings from './sdk/modules/Settings';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.8.5",
-  "date":"7/30/24",
+  "version":"v0.8.7",
+  "date":"7/31/24",
   "comment":"LOTS of stuff",
   "features_added":[
     "Added Settings Menu",
@@ -27,6 +27,7 @@ const release_data={
     "Added start menu shortcuts as array map property to gui",
     "Removed depricated wrapper (reminent from class component)",
     "Allowed windows to disallow actions",
+    "Added start menu shortcut for settings",
   ],
   "games_added":[
   ],
@@ -64,6 +65,10 @@ const App=()=>{
           "title":"Beanshell",
           "icon":"/icons/xp/Command Prompt.png",
           "win_id":"beanshell",
+        },{
+          "title":"Settings",
+          "icon":"/icons/xp/Additional Settings.png",
+          "win_id":"settings",
         },
       ]}>
       <Window 
