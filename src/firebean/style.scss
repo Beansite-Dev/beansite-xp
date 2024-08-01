@@ -12,7 +12,7 @@
         bottom: 0%;
         left: 0%;
         // padding: 2vmin;
-        .fb_url {
+        #fb_url {
             height: 100%;
             width: 100%;
             border: none;
@@ -37,8 +37,8 @@
             flex-direction: column;
             .fb_logo {
                 height: 45%;
-                width: 75%;
-                max-width: 100vmin;
+                width: 45%;
+                max-width: 50vmin;
                 max-height: 25vmin;
                 background-image: url("/assets/firebean/logo_full.png");
                 background-position: center;

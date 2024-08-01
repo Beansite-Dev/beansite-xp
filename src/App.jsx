@@ -13,8 +13,8 @@ import Settings from './sdk/modules/Settings';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.8.7",
-  "date":"7/31/24",
+  "version":"v0.8.8",
+  "date":"8/1/24",
   "comment":"LOTS of stuff",
   "features_added":[
     "Added Settings Menu",
@@ -29,6 +29,7 @@ const release_data={
     "Allowed windows to disallow actions",
     "Added start menu shortcut for settings",
     "Started working on Firebean New Tab",
+    "FIREBEANS BEING RETARDED",
   ],
   "games_added":[
   ],
