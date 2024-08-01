@@ -31,41 +31,22 @@ const FireBean=(props)=>{
         });
         setTabs(updatedTabs);
     }
-    const NewTabGui=(props)=>{
-        // return(<div className="fb_newtab">
-        //     <div className="fb_logo"></div>
-        //     <input type="text" id="fb_ntsearch" onKeyDown={(e)=>{
-                // if(e.key=="Enter"){
-                    // if((e.target.value).includes("http://")||
-                    // (e.target.value).includes("https://")){
-                    // setContents(<iframe 
-                        // className="fb_url" 
-                        // src={e.target.value} />);}
-                    // else{
-                        // setContents(<iframe 
-                            // className="fb_url" 
-                            // src={``} />)
-                    // }
-                // }
-        //   }} />
-        // </div>)
-        return(<iframe id="fb_url" src="https://www.google.com/webhp?igu=1" />)
-    }
-    const[contents,setContents]=useState({"content":<NewTabGui/>});
+    const[contents,setContents]=useState("https://www.google.com/webhp?igu=1");
     const NewTab={
         "title":"New Tab",
         "icons":"",
         "id":null,
         "url":"https://www.google.com/",
         "type": "component",
-        "content":<NewTabGui />
+        "content": "https://www.google.com/webhp?igu=1",
     };
+    const[selectedTab,setSelectedTab]=useState({});
     const CreateNewTab=(e)=>{
         e?e.preventDefault():null;
         setTabs([
-            ...tabs,
             {...NewTab,"id":generateId(10)},
         ]);
+        setSelectedTab(tabs[0]);
     }
     useEffect(()=>{
         CreateNewTab();
@@ -77,18 +58,19 @@ const FireBean=(props)=>{
         const SwitchTab=(e)=>{  
             e.preventDefault();
             document.getElementById("fb_urlinput").value=tabData.url;
-            switch(tabData.type){
-                case "component":{
-                    setContents(tabData);}break;
-                case "url":{
-                    setContents({"content":<>
-                        <iframe className="fb_url" src={tabData.content} />
-                    </>});}break;
-                default:{
-                    setContents({"content":<>
-                        <h1 style={{color:"red"}}>TypeError: Content Type invalid</h1>
-                    </>});}
-            }
+            setContents(tabData.content);
+            // switch(tabData.type){
+                // case "component":{
+                    // setContents(tabData);}break;
+                // case "url":{
+                    // setContents({"content":<>
+                        {/* <iframe className="fb_url" src={tabData.content} /> */}
+                    {/* </>});}break; */}
+                // default:{
+                    // setContents({"content":<>
+                        {/* <h1 style={{color:"red"}}>TypeError: Content Type invalid</h1> */}
+                    {/* </>});} */}
+            // }
         }
         return(<div className="tab" onClick={(e)=>{SwitchTab(e);}}>
             <div className="icon"></div>
@@ -122,19 +104,38 @@ const FireBean=(props)=>{
                 <div id="fb_urlbar">
                     <button onClick={(e)=>{
                         e.preventDefault();
-                        alert("dont work yet :<");
+                        // alert("dont work yet :<");
                         // document.getElementById("fb_url")
-                    }}>{`<`}</button>
-                    <button onClick={(e)=>{
+                    }}>{`⌂`}</button>
+                    {/* <button onClick={(e)=>{
                         e.preventDefault();
                         alert("dont work yet :<");
                         // document.getElementById("fb_url")
-                    }}>{`>`}</button>
+                    }}>{`>`}</button> */}
                     <input id="fb_urlinput" />
-                    <button>{`🔎︎`}</button>
+                    <button onClick={(e)=>{
+                        e.preventDefault();
+                        var inputval=document.getElementById("fb_urlinput").value;
+                        if(inputval||
+                            inputval.includes("https://")||
+                            inputval.includes("http://")){
+                            document.getElementById("fb_url").setAttribute("src",inputval);
+                        }
+                    }}>{`🔎︎`}</button>
                 </div>
                 <div id="fb_contents">
-                    {contents.content}
+                    {/* {contents} */}
+                    <iframe id="fb_url" src={contents} onLoad={(e)=>{
+                        var oldSelectedTab=selectedTab;
+                        setSelectedTab({...tabs[tabs.indexOf(selectedTab)],"contents":e.target.src});
+                        setTabs(tabs.map((item,index)=>{
+                            if(oldSelectedTab===item){
+                                return selectedTab;
+                            }else{
+                                return item;
+                            }
+                        }));
+                    }}/>
                 </div>
             </div>
     </Window>)
