@@ -1,5 +1,5 @@
 const config={
-    "debugMode": false,
+    "debugMode": true,
     "closedBeta": true,
     "beansitePlugins":[], // for future feature
 };

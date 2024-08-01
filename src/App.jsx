@@ -28,6 +28,7 @@ const release_data={
     "Removed depricated wrapper (reminent from class component)",
     "Allowed windows to disallow actions",
     "Added start menu shortcut for settings",
+    "Started working on Firebean New Tab",
   ],
   "games_added":[
   ],
@@ -69,6 +70,10 @@ const App=()=>{
           "title":"Settings",
           "icon":"/icons/xp/Additional Settings.png",
           "win_id":"settings",
+        },{
+          "title":"FireBean",
+          "icon":"/assets/firebean/firebean.png",
+          "win_id":"firebean",
         },
       ]}>
       <Window 

@@ -5,38 +5,41 @@ const FireBean=(props)=>{
     const NewTab={
         "title":"New Tab",
         "icons":"",
-        "id":generateId(10),
+        "id":null,
         "url":"",
         "type": "component",
-        "content":<>
-            <h1>Hello!</h1>
-        </>
+        "content":<div className="fb_newtab">
+            <div className="fb_logo"></div>
+            <input type="text" id="fb_ntsearch" />
+        </div>
     };
     const[tabs,setTabs]=useState([
-        NewTab,
-        {
-            "title":"New Tab 2",
-            "icons":"",
-            "id":generateId(10),
-            "url":"https://example.com",
-            "type": "url",
-            "content":`https://example.com`
-        },
-        {
-            "title":"Fallback Test",
-            "icons":"",
-            "id":generateId(10),
-            "url":"https://example.com",
-            "type": "this will error",
-            "content":`https://example.com`
-        },
+        // new tab example
+        {...NewTab,"id":generateId(10)},
+        // url tab example
+        // {
+            // "title":"New Tab 2",
+            // "icons":"",
+            // "id":generateId(10),
+            // "url":"https://example.com",
+            // "type": "url",
+            // "content":`https://example.com`
+        // fallback test
+        // },{
+            // "title":"Fallback Test",
+            // "icons":"",
+            // "id":generateId(10),
+            // "url":"https://example.com",
+            // "type": "this will error",
+            // "content":`https://example.com`
+        // },
     ]);
     const[contents,setContents]=useState(tabs[0]);
     const CreateNewTab=(e)=>{
         e.preventDefault();
         setTabs([
             ...tabs,
-            NewTab
+            {...NewTab,"id":generateId(10)},
         ]);
     }
     const Tab=({ tabData })=>{
@@ -79,12 +82,12 @@ const FireBean=(props)=>{
             "close": true,}}
         id="firebean"
         title="FireBean"
-        closed
-        icon="/icons/xp/Services.png">
+        // closed
+        icon="/assets/firebean/firebean.png">
             <div id="firebean">
                 <button id="fb_createNewTab" onClick={(e)=>{CreateNewTab(e)}}>+</button>
                 <div id="fb_tab_bar">
-                    {tabs.map((data,index)=><Tab tabData={data} key={index} />)}
+                    {tabs.map((data,index)=><Tab tabData={data} key={data.id} />)}
                 </div>
                 <div id="fb_urlbar">
                     <button>{`<`}</button>
