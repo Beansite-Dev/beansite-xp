@@ -64,5 +64,15 @@ export const WinUtils={
     } else {
       console.warn(`[SDK_ERROR] > REFRENCE_ERROR\n${win_id} does not exist`);
     }
+  },
+  getTheme:(settings)=>{
+    var theme;
+    switch(settings.theme){
+      case "dark":theme="dark_icons";break;
+      case "pink":theme="pink";break;
+      case "green":theme="green";break;
+      case "classic":default:theme="xp";break;
+    }
+    return theme;
   }
-} 
+}

@@ -92,11 +92,7 @@ export const Window=({
         updateState(win);
         (callbacks.beforeWindowMaximize)?callbacks.beforeWindowMaximize():null;
         if(setIcon){
-          var theme;
-          switch(settings.theme){
-            case "dark":theme="dark_icons";break;
-            case "classic":default:theme="xp";break;
-          }
+          var theme=WinUtils.getTheme(settings);
           maxBtn.style.backgroundImage=`url("/icons/${theme}/Restore.png")`;
         }
         win.classList.add("maximized");
@@ -117,11 +113,7 @@ export const Window=({
         const maxBtn=document.getElementById(`win_${id}_max`);
         const win=document.getElementById(`win_${id}`);
         // maxBtn.innerHTML=(isMax.getAttribute("content")==="false")?"🗗":"🗖";
-        var theme;
-        switch(settings.theme){
-          case "dark":theme="dark_icons";break;
-          case "classic":default:theme="xp";break;
-        }
+        var theme=WinUtils.getTheme(settings);
         maxBtn.style.backgroundImage=`url("/icons/${theme}/${(isMax.getAttribute("content")==="false")?"Restore":"Maximize"}.png")`;
         nb_actions[(isMax.getAttribute("content")==="false")?"maximize":"unmaximize"](maxBtn,win);
         isMax.setAttribute("content",`${!(isMax.getAttribute("content")==="true")}`);

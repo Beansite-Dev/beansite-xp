@@ -13,24 +13,14 @@ import Settings from './sdk/modules/Settings';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.8.8",
-  "date":"8/1/24",
+  "version":"v0.9.2",
+  "date":"8/2/24",
   "comment":"LOTS of stuff",
   "features_added":[
-    "Added Settings Menu",
-    "Closed Beta",
-    "Added Safe Graphics Mode",
-    "Added advanced theme system",
-    "Added global settings state",
-    "Added dark theme",
-    "Fixed Animations",
-    "Added start menu shortcuts as array map property to gui",
-    "Removed depricated wrapper (reminent from class component)",
-    "Allowed windows to disallow actions",
-    "Added start menu shortcut for settings",
-    "Started working on Firebean New Tab",
-    "FIREBEANS BEING RETARDED",
-    "Reimplemented Drag to Maximize feature",
+    "Added Settings Savings",
+    "Added Settings Reset",
+    "Added Themes: Green, Pink",
+    "Added Custom CSS",
   ],
   "games_added":[
   ],
@@ -40,7 +30,7 @@ const release_data={
 const App=()=>{
   const dispatch=useDispatch();
   useEffect(()=>{
-    WinUtils.hideWindow("gameloader");
+    // WinUtils.hideWindow("gameloader"); //!depricated
     // WinUtils.hideWindow("beanpowered");
     // dispatch(createNotification({
     //   "title": "test01",
@@ -188,6 +178,7 @@ const App=()=>{
             document.getElementById("gl_frame").setAttribute("src","");},
         }}
         id="gameloader"
+        closed
         title={glTitle}
         icon="/icons/xp/Game Controller.png">
           <iframe id="gl_frame" />
