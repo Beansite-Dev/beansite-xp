@@ -1,4 +1,4 @@
-import { Component, createRef, useState, createContext, useEffect } from "react";
+import { Component, createRef, useState, createContext, useEffect, useRef } from "react";
 // import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import store from './store/store';
@@ -15,7 +15,6 @@ import { createNotification } from "./store/notificationslice";
 export { createNotification } from "./store/notificationslice";
 import html2canvas from "html2canvas";
 import ClosedBetaLogin from "./modules/closedBetaLogin";
-
 const BeansiteXP=({ startMenuShortcuts, children, config={} })=>{
   const windows=useSelector((state)=>state.windows.value);
   const userdata=useSelector((state)=>state.userdata);

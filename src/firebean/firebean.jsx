@@ -46,10 +46,10 @@ const FireBean=(props)=>{
         setTabs([
             {...NewTab,"id":generateId(10)},
         ]);
-        setSelectedTab(tabs[0]);
     }
     useEffect(()=>{
         CreateNewTab();
+        setSelectedTab(tabs[0]);
     },[]);
     const Tab=({ tabData, index })=>{
         const CloseTab=(tabData)=>{
@@ -94,7 +94,7 @@ const FireBean=(props)=>{
             "close": true,}}
         id="firebean"
         title="FireBean"
-        // closed
+        closed
         icon="/assets/firebean/favicon.png">
             <div id="firebean">
                 <button id="fb_createNewTab" onClick={(e)=>{CreateNewTab(e)}}>+</button>
@@ -126,15 +126,23 @@ const FireBean=(props)=>{
                 <div id="fb_contents">
                     {/* {contents} */}
                     <iframe id="fb_url" src={contents} onLoad={(e)=>{
-                        var oldSelectedTab=selectedTab;
-                        setSelectedTab({...tabs[tabs.indexOf(selectedTab)],"contents":e.target.src});
-                        setTabs(tabs.map((item,index)=>{
-                            if(oldSelectedTab===item){
-                                return selectedTab;
-                            }else{
-                                return item;
-                            }
-                        }));
+                        try{
+                            e.target.contentWindow.location.href;
+                            var oldSelectedTab=selectedTab;
+                            setSelectedTab({...tabs[tabs.indexOf(selectedTab)],"contents":e.target.src});
+                            setTabs(tabs.map((item,index)=>{
+                                if(oldSelectedTab===item){
+                                    return selectedTab;
+                                }else{
+                                    return item;
+                                }
+                            }));
+                            console.log(oldSelectedTab,selectedTab);
+                        }catch(error){
+                            // console.error(`failed to load content:\n${
+                                // (error.stack).split("\n")
+                                    // .map((line=>{return `    ${line}\n`}))}`);
+                        }
                     }}/>
                 </div>
             </div>

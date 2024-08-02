@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root'))
     <Routes>
       <Route path="" element={<App/>}/>
       <Route path="/render-window" element={<RenderImage/>}/>
-      {/* <Route path="/firebean-gui" element={<FireBean/>}/> */}
+      {/* <Route path="/firebean-gui" element={<FireBean/>}/>*/}{/*Why does this exist?*/}
       {/* <Route path="/privacy-policy" /> */}
       {/* <Route path="/terms" /> */}
     </Routes>

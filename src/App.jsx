@@ -30,6 +30,7 @@ const release_data={
     "Added start menu shortcut for settings",
     "Started working on Firebean New Tab",
     "FIREBEANS BEING RETARDED",
+    "Reimplemented Drag to Maximize feature",
   ],
   "games_added":[
   ],
