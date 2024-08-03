@@ -14,6 +14,11 @@ Sentry.init({
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
+    //? i need to implement a custom gui, so for now, this is not gonna run
+    // Sentry.feedbackIntegration({
+      // colorScheme: "system",
+      // isNameRequired: true,
+    // }),
   ],
   // Performance Monitoring
   tracesSampleRate: 1.0, //  Capture 100% of the transactions
