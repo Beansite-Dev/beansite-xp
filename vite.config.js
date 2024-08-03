@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), sentryVitePlugin({
-    org: "nexdev-tr",
+    org: "beansite-dev",
     project: "beansite",
     authToken: process.env.SENTRY_AUTH_TOKEN,
   })],
