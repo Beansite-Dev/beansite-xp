@@ -12,7 +12,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@sentry/react": "^8.22.0",
-    "@sentry/vite-plugin": "^2.21.1",
     "dom-to-image": "^2.6.0",
     "electron": "^31.3.1",
     "electron-builder": "^24.13.3",
@@ -33,6 +32,7 @@
     "vercel": "^35.2.3"
   },
   "devDependencies": {
+    "@sentry/vite-plugin": "^2.21.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
