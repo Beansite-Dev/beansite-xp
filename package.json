@@ -7,14 +7,18 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "desktop:start": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron ./desktop/index.js\"",
+    "desktop:build": "node utils/echo \"need to fix this >:\" --font-color 31"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@sentry/react": "^8.22.0",
+    "concurrently": "^8.2.2",
     "dom-to-image": "^2.6.0",
     "electron": "^31.3.1",
     "electron-builder": "^24.13.3",
+    "electron-util": "^0.18.1",
     "fluxxor": "^1.7.3",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
@@ -29,7 +33,8 @@
     "redux-saga": "^1.3.0",
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.0",
-    "vercel": "^35.2.3"
+    "vercel": "^35.2.3",
+    "wait-on": "^7.2.0"
   },
   "devDependencies": {
     "@sentry/vite-plugin": "^2.21.1",
