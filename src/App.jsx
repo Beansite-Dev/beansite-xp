@@ -23,6 +23,7 @@ const release_data={
     "Added Custom CSS",
     "Added Paint",
     "Added Desktop App (dev only for now)",
+    "Added Google Analytics",
   ],
   "games_added":[
   ],

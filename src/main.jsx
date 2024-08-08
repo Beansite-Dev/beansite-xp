@@ -6,9 +6,13 @@ import BeanXPRouter from './sdk/router.jsx';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RenderImage from './misc/renderImages.jsx';
 import FireBean from './firebean/firebean.jsx';
+import ReactGA from 'react-ga4';
+import { Analytics } from "@vercel/analytics/react";
 
+ReactGA.initialize('G-4EZVLPZ7RM');
 ReactDOM.createRoot(document.getElementById('root'))
 .render(<BeanXPRouter>
+  <Analytics/>
   <BrowserRouter basename='/'>
     <Routes>
       <Route path="" element={<App/>}/>
