@@ -13,7 +13,7 @@ import Settings from './sdk/modules/Settings';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.10.2",
+  "version":"v0.11.4",
   "date":"8/6/24",
   "comment":"LOTS of stuff",
   "features_added":[
@@ -22,6 +22,7 @@ const release_data={
     "Added Themes: Green, Pink",
     "Added Custom CSS",
     "Added Paint",
+    "Added Desktop App (dev only for now)",
   ],
   "games_added":[
   ],

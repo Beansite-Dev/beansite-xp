@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 const BSoD=(props)=>{
     // console.log(props);
-    return(<div id="bsod">
+    return(<div id="bsod" onClick={()=>{
+        if(globalThis.IN_DESKTOP_ENV)close();
+        else window.location.reload();
+    }}>
         <div id="bsodTextWrapper">
             A problem had been detected and Beansite has been shut down to prevent damages
             <br/><br/>

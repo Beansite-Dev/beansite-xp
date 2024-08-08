@@ -25,6 +25,9 @@ const BeansiteXP=({ startMenuShortcuts, children, config={} })=>{
   Icon.href="/assets/beanxp_logo.png";
   useEffect(()=>{
     dispatch(setUsername("Guest"));
+    if(globalThis.IN_DESKTOP_ENV){
+      console.log("running on desktop env");
+    }
     window.addEventListener("keydown",(e)=>{
       if(e.repeat)return;
       // if (e.ctrlKey && e.key === 's') {
