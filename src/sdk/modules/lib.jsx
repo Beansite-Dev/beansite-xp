@@ -1,3 +1,5 @@
+import { debug } from "../../App";
+import ReactGA4 from "react-ga4";
 export const generateId=(length)=>{
   let result='';
   const characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -29,3 +31,17 @@ export function dataURItoBlob(dataURI){
     ia[i] = byteString.charCodeAt(i);}
   return new Blob([ia], {type: mimeString});
 }
+export const TrackGoogleAnalyticsEvent=(
+  category,
+  event_name,
+  label,
+  data
+)=>{
+  if(debug)console.log("GA event:", category, ":", event_name, ":", label);
+  let event_params = {
+      category,
+      label,
+      ...data
+  };
+  ReactGA4.event(event_name, event_params);
+};

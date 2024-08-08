@@ -11,6 +11,7 @@ import FireBean from './firebean/firebean';
 import config from './sdk/beansite.config';
 import Settings from './sdk/modules/Settings';
 import ReactGA from 'react-ga4';
+import { TrackGoogleAnalyticsEvent } from './sdk/modules/lib';
 
 export const debug=config.debugMode;
 const release_data={
