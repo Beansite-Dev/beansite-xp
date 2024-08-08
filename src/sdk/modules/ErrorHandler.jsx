@@ -1,5 +1,6 @@
 import BSoD from "./BSoD";
 import React from "react";
+import { TrackGoogleAnalyticsEvent } from "../../analytics/anayltics";
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -8,6 +9,11 @@ class ErrorBoundary extends React.Component {
         return{hasError:true,errorData:error};}
     componentDidCatch(error,info) {
         console.error(`[SDK_ERR] ${error}\n${info.componentStack}`);
+        TrackGoogleAnalyticsEvent(
+            "crashed",
+            `Beansite XP Crashed: ${error}`,
+            {error,info}
+        );
         this.setState({
             hasError:true,
             errorData:[error,info]});
