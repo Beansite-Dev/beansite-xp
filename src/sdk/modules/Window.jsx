@@ -11,6 +11,7 @@ import { createTBI, destoryTBI, updateTBI } from "../store/tbislice";
 import { WinUtils, waitForElm } from "./WinUtils";
 export { WinUtils, waitForElm } from "./WinUtils";
 import { generateId, timeout } from "./lib";
+import { TrackGoogleAnalyticsEvent } from "../../analytics/anayltics";
 
 export const Window=({
     children,
@@ -71,6 +72,12 @@ export const Window=({
         e?e.preventDefault():null;
         (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
         WinUtils.hideWindow(id,ani);
+        TrackGoogleAnalyticsEvent(
+          "closed_window",
+          `Closed Window - ${id}`,
+          window.location.pathname + window.location.search,
+          {id,title}
+        );
       }
     },
     open:(e)=>{
@@ -85,6 +92,12 @@ export const Window=({
         const isMin=document.getElementById(`win_${id}_isMin?`);
         document.getElementById(`win_${id}`).style.display="none";
         isMin.setAttribute("content",!(isMin.getAttribute("content")==="true"));
+        TrackGoogleAnalyticsEvent(
+          "min_window",
+          `Minimized Window - ${id}`,
+          window.location.pathname + window.location.search,
+          {id,title}
+        );
       }
     },
     maximize:(maxBtn,win,setIcon=false)=>{
@@ -96,6 +109,12 @@ export const Window=({
           maxBtn.style.backgroundImage=`url("/icons/${theme}/Restore.png")`;
         }
         win.classList.add("maximized");
+        TrackGoogleAnalyticsEvent(
+          "max_window",
+          `Maximized Window - ${id}`,
+          window.location.pathname + window.location.search,
+          {id,title}
+        );
       }
     },
     unmaximize:(maxBtn,win)=>{
@@ -105,6 +124,12 @@ export const Window=({
       win.style.left=window_state.pos;
       win.style.height=window_state.size;
       win.style.width=window_state.size;
+      TrackGoogleAnalyticsEvent(
+        "unmax_window",
+        `Unmaximized Window - ${id}`,
+        window.location.pathname + window.location.search,
+        {id,title}
+      );
     },
     maxToggle:(e)=>{
       if(maximizable){

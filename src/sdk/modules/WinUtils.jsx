@@ -1,3 +1,4 @@
+import { TrackGoogleAnalyticsEvent } from "../../analytics/anayltics";
 export const waitForElm=(selector)=>{
   return new Promise(resolve => {
       if (document.querySelector(selector)) {
@@ -16,7 +17,7 @@ function timeout(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 export const WinUtils={
-  hideWindow:async(win_id,animate=false)=>{
+  hideWindow:async(win_id,animate=true)=>{
     await waitForElm(`#win_${win_id}`);
     await waitForElm(`#${win_id}_tbi`);
     if(document.getElementById(`win_${win_id}`)&&
@@ -45,6 +46,12 @@ export const WinUtils={
   openWindow:async(win_id)=>{
     await waitForElm(`#win_${win_id}`);
     await waitForElm(`#${win_id}_tbi`);
+    TrackGoogleAnalyticsEvent(
+      "opened_window",
+      `Opened Window ${win_id}`,
+      window.location.pathname+window.location.search,
+      {win_id}
+    );
     if(document.getElementById(`win_${win_id}`)&&
       document.getElementById(`${win_id}_tbi`)){
       document.getElementById(`win_${win_id}`).style.display="block";

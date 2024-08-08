@@ -31,9 +31,10 @@ const sm_actions={
 }
 const StartMenu=(props)=>{
     const userdata=useSelector((state)=>state.userdata);
-    const StartMenuIcon=({title,icon,win_id})=>{
+    const StartMenuIcon=({title,icon,win_id,beforeLaunch=()=>{}})=>{
         return(<div className="startmenuIcon" onClick={(e)=>{
             e.preventDefault();
+            beforeLaunch?beforeLaunch():null;
             WinUtils.openWindow(win_id);
         }}>
             <div className="icon" style={{"backgroundImage":`url("${icon}")`}}></div>
@@ -53,7 +54,7 @@ const StartMenu=(props)=>{
                         icon={data.icon}
                         win_id={data.win_id}
                         key={index}
-                    />)}
+                        beforeLaunch={data.beforeLaunch}/>)}
                 {debug?<>
                     <StartMenuIcon 
                         title="Debug Menu"
