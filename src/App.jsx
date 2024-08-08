@@ -33,9 +33,13 @@ const release_data={
 };
 const App=()=>{
   const dispatch=useDispatch();
-  /* useEffect(()=>{
-  },[]); */
-  ReactGA.pageview("/");
+  useEffect(()=>{
+    ReactGA.send({
+      hitType:"pageview",
+      page:"/",
+      title:"Beansite XP: Home"
+    });
+  },[]);
   const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
     <BeansiteXP 
