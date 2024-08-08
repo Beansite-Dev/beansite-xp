@@ -28,6 +28,9 @@ const BeansiteXP=({ startMenuShortcuts, children, config={} })=>{
     if(globalThis.IN_DESKTOP_ENV){
       console.log("running on desktop env");
     }
+    if(config.debugMode&&location.hostname=="localhost"){
+      console.log("[SDK] Debug mode is enabled by default in localhost")
+    }
     window.addEventListener("keydown",(e)=>{
       if(e.repeat)return;
       // if (e.ctrlKey && e.key === 's') {

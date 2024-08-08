@@ -6,11 +6,13 @@ import BeanXPRouter from './sdk/router.jsx';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RenderImage from './misc/renderImages.jsx';
 import FireBean from './firebean/firebean.jsx';
-import ReactGA from 'react-ga4';
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
-
-ReactGA.initialize('G-4EZVLPZ7RM');
+import { 
+  InitializeGoogleAnalytics, 
+  TrackGoogleAnalyticsEvent, 
+  Analytics, 
+  SpeedInsights 
+} from './analytics/anayltics.jsx';
+InitializeGoogleAnalytics();
 ReactDOM.createRoot(document.getElementById('root'))
 .render(<BeanXPRouter>
   <Analytics/>

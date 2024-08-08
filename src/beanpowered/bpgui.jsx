@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style/style.css";
 import games from "./assets/games";
 import { WinUtils } from "../sdk/sdk";
+import { TrackGoogleAnalyticsEvent } from "../analytics/anayltics";
 const BeanpoweredGui=(props)=>{
     const [res,setRes]=useState(games);
     const [selectedGame,setSelectedGame]=useState({
@@ -13,10 +14,21 @@ const BeanpoweredGui=(props)=>{
         }
     });
     const OpenGame=({ url, id, type }, title)=>{
+        TrackGoogleAnalyticsEvent(
+            "game_played",
+            `Beanpowered - Player Game "${title}"`,
+            window.location.pathname + window.location.search,
+            { url,id,type,title}
+        );
         if(url){
-            props.setGlTitle(title);
-            document.getElementById("gl_frame").setAttribute("src",url);
-            WinUtils.openWindow("gameloader");
+            switch(type){
+                case "OpenInGL":
+                    props.setGlTitle(title);
+                    document.getElementById("gl_frame").setAttribute("src",url);
+                    WinUtils.openWindow("gameloader");break;
+                case "OpenInNewTab":
+                    null;
+            }
         }
     }
     const SidebarItem=({ title, url, id, type, index })=>{
