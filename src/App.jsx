@@ -35,11 +35,7 @@ const App=()=>{
   const dispatch=useDispatch();
   /* useEffect(()=>{
   },[]); */
-  ReactGA.send({
-    hitType:"pageView",
-    page:"/",
-    title:"Beansite XP"
-  })
+  ReactGA.pageview("/");
   const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
     <BeansiteXP 
