@@ -31,12 +31,6 @@ const release_data={
 const App=()=>{
   const dispatch=useDispatch();
   useEffect(()=>{
-    // WinUtils.hideWindow("gameloader"); //!depricated
-    // WinUtils.hideWindow("beanpowered");
-    // dispatch(createNotification({
-    //   "title": "test01",
-    //   "id": generateId(10),
-    // }));
   },[]);
   const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
