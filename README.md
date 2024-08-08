@@ -1,6 +1,16 @@
 # Beansite XP
 This is the official repository for the up-and-coming predecessor to [Beansite 95](https://mb95.vercel.app). Naturally, both being themed after Windows OS versions, It came to name this "Beansite XP"
 
+## Get Access Early
+There are two wways to get early access to Beansite XP<br>
+**#1 - Request an Access Key**<br>
+You can request an access key from me via discord or snap and I will create one for you.<br>
+**#2 - Run Locally**<br>
+This will not work if you do not have a windows computer. You also have to be somewhat experienced with computers. All you need to do is clone the repository and run `_START.bat`. the app will automatically detect that its running locally and will allow you to access it with full debug utilities.
+
+## Stay Updated on Development Progress
+We have created a new project, which you can find in the projects tab of this repository or in the Github Orginization. Simply click the one labeled `release`. It will show all features/bugs and their current progress in being released. You can also see how the development is going.
+
 ## Why Start Anew?
 There were many flaws with the original beansite. For example, the original codebase had been entirely bee written in plain html on a chromebook when I was grounded to pass time during school and at home (This is evident in b95 1.x patches). I did port the codebase to react, but took shortcuts in order to avoid reqriting the entire codebase. I was also new to react, so was not as skillful as I now am. I decided upon using an in-browser babel tranformer, which would later become a hindrance in patches as early as 2.2. It was a challenge to try to work with the in-browser babel transformer, as I was more experienced with vite, even at the time. Modules and others were near imposible, further limiting the progress made. I had made several attempts to fix this (which can be seen in Beansite 98, the unreleased, original predecessor to Beansite95. I had attempted to rewrite the code using vite/react, but gave up after almost a week of constant bugs) but was not successful and had decided upon using the babel transformer for that reason. 
 
