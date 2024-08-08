@@ -13,14 +13,15 @@ import Settings from './sdk/modules/Settings';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.9.2",
-  "date":"8/2/24",
+  "version":"v0.10.2",
+  "date":"8/6/24",
   "comment":"LOTS of stuff",
   "features_added":[
     "Added Settings Savings",
     "Added Settings Reset",
     "Added Themes: Green, Pink",
     "Added Custom CSS",
+    "Added Paint",
   ],
   "games_added":[
   ],
@@ -66,6 +67,10 @@ const App=()=>{
           "title":"FireBean",
           "icon":"/assets/firebean/firebean.png",
           "win_id":"firebean",
+        },{
+          "title":"Paint",
+          "icon":"/icons/xp/Paint.png",
+          "win_id":"paint",
         },
       ]}>
       <Window 
@@ -203,6 +208,23 @@ const App=()=>{
       </Window>
       <FireBean />
       <Settings />
+      <Window 
+        size={{
+          "height": "38vmin",
+          "width": "58vmin"}} 
+        pos={{
+          "x":["left","30vmin"],
+          "y":["top","30vmin"],}}
+        includeTitlebarOptions={{
+          "min": true,
+          "max": true,
+          "close": true,}}
+        id="paint"
+        title="Paint"
+        icon="/icons/xp/Paint.png"
+        closed>
+          <iframe src="https://jspaint.app/"  />
+      </Window>
     </BeansiteXP>
   </>);
 }

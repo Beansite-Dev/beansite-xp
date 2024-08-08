@@ -95,6 +95,8 @@ const FireBean=(props)=>{
         id="firebean"
         title="FireBean"
         closed
+        callbacks={{
+            beforeWindowClose:()=>{setContents("https://www.google.com/webhp?igu=1");}}}
         icon="/assets/firebean/favicon.png">
             <div id="firebean">
                 <button id="fb_createNewTab" onClick={(e)=>{CreateNewTab(e)}}>+</button>
