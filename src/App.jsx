@@ -10,6 +10,7 @@ import BeanShell from './sdk/modules/Beanshell';
 import FireBean from './firebean/firebean';
 import config from './sdk/beansite.config';
 import Settings from './sdk/modules/Settings';
+import ReactGA from 'react-ga4';
 
 export const debug=config.debugMode;
 const release_data={
@@ -32,8 +33,13 @@ const release_data={
 };
 const App=()=>{
   const dispatch=useDispatch();
-  useEffect(()=>{
-  },[]);
+  /* useEffect(()=>{
+  },[]); */
+  ReactGA.send({
+    hitType:"pageView",
+    page:"/",
+    title:"Beansite XP"
+  })
   const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
     <BeansiteXP 
