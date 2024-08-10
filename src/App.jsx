@@ -14,9 +14,9 @@ import ReactGA from 'react-ga4';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.11.4",
-  "date":"8/6/24",
-  "comment":"LOTS of stuff",
+  "version":"v0.11.5",
+  "date":"8/9/24",
+  "comment":"Idek",
   "features_added":[
     "Added Settings Savings",
     "Added Settings Reset",
@@ -25,6 +25,7 @@ const release_data={
     "Added Paint",
     "Added Desktop App (dev only for now)",
     "Added Google Analytics",
+    "Fixed bug  where ga4 would report pointlessly",
   ],
   "games_added":[
   ],

@@ -67,17 +67,17 @@ export const Window=({
         dispatch(destoryTBI(win_id));
       }
     },
-    close:(e,ani=true)=>{
+    close:(e,ani=true,track=true)=>{
       if(closable){
         e?e.preventDefault():null;
         (callbacks.beforeWindowClose)?callbacks.beforeWindowClose():null;
         WinUtils.hideWindow(id,ani);
-        TrackGoogleAnalyticsEvent(
+        (track)?TrackGoogleAnalyticsEvent(
           "closed_window",
           `Closed Window - ${id}`,
           window.location.pathname + window.location.search,
           {id,title}
-        );
+        ):null;
       }
     },
     open:(e)=>{
@@ -218,7 +218,7 @@ export const Window=({
       updateState(e);
     }).observe(e);
     e.style.opacity="1";
-    if(closed)nb_actions.close();
+    if(closed)nb_actions.close({preventDefault:()=>{}},false,false);
     if(minimized){
       document.getElementById(`win_${id}`).style.display="none";
       document.getElementById(`win_${id}_isMin?`).setAttribute("content",false);
