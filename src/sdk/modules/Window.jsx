@@ -27,12 +27,13 @@ export const Window=({
     minimized,
     maximized,
     closed,
-    safeGraphics,
+    safeGraphics=false,
     closable=true,
     maximizable=true,
     minimizable=true,
     draggable=true,
     customStyle,
+    borderless=false,
   })=>{
   const windows=useSelector((state)=>state.windows.value);
   const settings=useSelector((state)=>state.settings.value);
@@ -226,7 +227,7 @@ export const Window=({
     if(maximized)nb_actions.maximize(null,false);
   },[]);
   return(<div 
-    className={`Window ${safeGraphics?"Win_SafeGraphics":null}`}
+    className={`Window${safeGraphics?" Win_SafeGraphics":""}${borderless?" Win_Borderless":""}`}
     style={{
       ...customStyle,
       "height":size.height,

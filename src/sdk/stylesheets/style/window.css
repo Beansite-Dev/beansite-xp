@@ -103,4 +103,22 @@
   box-shadow: none !important;
   text-shadow: none !important;
   filter: none !important;
+}
+
+.Win_Borderless {
+  background: none !important;
+  border: none !important;
+  box-shadow: none;
+  border-radius: 0 !important;
+}
+.Win_Borderless header {
+  display: none;
+}
+.Win_Borderless .content {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=window.css.map */

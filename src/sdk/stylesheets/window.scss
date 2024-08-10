@@ -150,3 +150,20 @@
         filter: none !important;
     }
 }
+.Win_Borderless {
+    header {
+        display: none;
+    }
+    background: none !important;
+    border: none !important;
+    box-shadow: none;
+    border-radius: 0 !important;
+    .content {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
