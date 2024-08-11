@@ -5,13 +5,12 @@ import "./stylesheets/style/default.css";
 import BeanXPRouter from './sdk/router.jsx';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RenderImage from './misc/renderImages.jsx';
-import FireBean from './firebean/firebean.jsx';
 import { 
   InitializeGoogleAnalytics, 
-  TrackGoogleAnalyticsEvent, 
-  Analytics, 
-  SpeedInsights 
-} from './analytics/anayltics.jsx';
+  TrackGoogleAnalyticsEvent
+} from './sdk/sdk.jsx';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 InitializeGoogleAnalytics();
 ReactDOM.createRoot(document.getElementById('root'))
 .render(<BeanXPRouter>
@@ -26,4 +25,4 @@ ReactDOM.createRoot(document.getElementById('root'))
       {/* <Route path="/terms" /> */}
     </Routes>
   </BrowserRouter>
-</BeanXPRouter>)
+</BeanXPRouter>);

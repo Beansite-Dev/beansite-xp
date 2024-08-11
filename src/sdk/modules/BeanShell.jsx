@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import { debug } from "../../App";
 import { useDispatch, useSelector } from 'react-redux';
 import { createCommand } from "../store/cmdccslice";
+import { Window } from "./Window";
 const BeanShell=()=>{
     const bs_v="1.4";
     const[log,setLog]=useState([
@@ -86,10 +87,26 @@ const BeanShell=()=>{
         e.scrollTop=e.scrollHeight;
         EvalInput(command);
     }
-    return(<div id="cmd">
-        {log.map((data,index)=><Log key={index} data={data}/>)}
-        <p>C:\ <input id="cmd_input" onKeyDown={(e)=>{
-            if(e.key=="Enter"){runCommand(e.target,e.target.value)}}}></input></p><br/>
-    </div>)
+    return(<Window 
+        size={{
+            "height": "38vmin",
+            "width": "58vmin"}} 
+        pos={{
+            "x":["left","15vmin"],
+            "y":["top","15vmin"],}}
+        includeTitlebarOptions={{
+            "min": true,
+            "max": true,
+            "close": true,}}
+        id="beanshell"
+        title="Beanshell"
+        icon="/icons/xp/Command Prompt.png"
+        closed>
+        <div id="cmd">
+            {log.map((data,index)=><Log key={index} data={data}/>)}
+            <p>C:\ <input id="cmd_input" onKeyDown={(e)=>{
+                if(e.key=="Enter"){runCommand(e.target,e.target.value)}}}></input></p><br/>
+        </div>
+    </Window>)
 }
 export default BeanShell;

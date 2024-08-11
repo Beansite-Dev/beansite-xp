@@ -1,15 +1,11 @@
 import { Component, useEffect, useState } from 'react';
 import BeansiteXP, { Window, WinUtils, waitForElm, generateId } from './sdk/sdk';
 import "./stylesheets/style/App.css";
-import { WelcomeSrc, DebugMenuSrc } from './mdsrc';
+import { WelcomeSrc } from './mdsrc';
 import BeanpoweredGui from './beanpowered/bpgui';
 import { useDispatch, useSelector } from 'react-redux';
-import { createNotification } from './sdk/sdk';
-import { Explorer } from "./sdk/modules/Explorer"
-import BeanShell from './sdk/modules/Beanshell';
 import FireBean from './firebean/firebean';
 import config from './sdk/beansite.config';
-import Settings from './sdk/modules/Settings';
 import ReactGA from 'react-ga4';
 
 export const debug=config.debugMode;
@@ -30,9 +26,11 @@ const release_data={
     "Added borderless windows",
   ],
   "games_added":[
+
   ],
   "games_removed":[
-  ]
+    
+  ],
 };
 const App=()=>{
   const dispatch=useDispatch();
@@ -105,32 +103,6 @@ const App=()=>{
             <a href="https://github.com/Beansite-Dev">Github</a> | <a href="https://github.com/m1dnight-ofcl">Personal Github</a> | <a href="https://youtube.com/@m1dnightdev">Youtube</a> | <a href="https://twitter.com/@m1dnightdev">Twitter</a> | <a href="https://tiktok.com/@m1dnightdev">TikTok</a>
           </footer>
       </Window>
-      {debug?<>
-        <Window
-          size={{
-            "height": "38vmin",
-            "width": "58vmin"}} 
-          pos={{
-            "x":["left","5vmin"],
-            "y":["top","calc(100% - (5vmin + 48px + 38vmin))"],}}
-          includeTitlebarOptions={{
-            "min": true,
-            "max": true,
-            "close": true,}}
-          id="debugMenu"
-          title="Debug Menu"
-          icon="/icons/xp/Services.png"
-          closed
-          markdownSource={DebugMenuSrc}>
-            <button 
-              className='button1'
-              onClick={()=>
-                dispatch(createNotification({
-                  "title": generateId(5),
-                  "id": generateId(10),
-                }))}>createNotification</button>
-        </Window>
-      </>:null}
       <Window
         size={{
           "height": "38vmin",
@@ -193,43 +165,7 @@ const App=()=>{
         icon="/icons/xp/Game Controller.png">
           <iframe id="gl_frame" />
       </Window>
-      <Explorer />
-      <Window 
-        size={{
-          "height": "38vmin",
-          "width": "58vmin"}} 
-        pos={{
-          "x":["left","15vmin"],
-          "y":["top","15vmin"],}}
-        includeTitlebarOptions={{
-          "min": true,
-          "max": true,
-          "close": true,}}
-        id="beanshell"
-        title="Beanshell"
-        icon="/icons/xp/Command Prompt.png"
-        closed>
-          <BeanShell />
-      </Window>
       <FireBean />
-      <Settings />
-      <Window 
-        size={{
-          "height": "38vmin",
-          "width": "58vmin"}} 
-        pos={{
-          "x":["left","30vmin"],
-          "y":["top","30vmin"],}}
-        includeTitlebarOptions={{
-          "min": true,
-          "max": true,
-          "close": true,}}
-        id="paint"
-        title="Paint"
-        icon="/icons/xp/Paint.png"
-        closed>
-          <iframe src="https://jspaint.app/"  />
-      </Window>
     </BeansiteXP>
   </>);
 }

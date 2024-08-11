@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "desktop:start": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron ./desktop/index.js\"",
     "desktop:build": "node utils/echo \"need to fix this >:\" --font-color 31"

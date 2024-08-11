@@ -1,6 +1,6 @@
 import BSoD from "./BSoD";
 import React from "react";
-import { TrackGoogleAnalyticsEvent } from "../../analytics/anayltics";
+import { TrackGoogleAnalyticsEvent } from "./Analytics";
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);

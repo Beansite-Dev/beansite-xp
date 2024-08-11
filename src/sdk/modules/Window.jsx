@@ -11,7 +11,7 @@ import { createTBI, destoryTBI, updateTBI } from "../store/tbislice";
 import { WinUtils, waitForElm } from "./WinUtils";
 export { WinUtils, waitForElm } from "./WinUtils";
 import { generateId, timeout } from "./lib";
-import { TrackGoogleAnalyticsEvent } from "../../analytics/anayltics";
+import { TrackGoogleAnalyticsEvent } from "./Analytics";
 
 export const Window=({
     children,

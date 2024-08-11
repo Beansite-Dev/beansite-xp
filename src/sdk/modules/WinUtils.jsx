@@ -1,4 +1,4 @@
-import { TrackGoogleAnalyticsEvent } from "../../analytics/anayltics";
+import { TrackGoogleAnalyticsEvent } from "./Analytics";
 export const waitForElm=(selector)=>{
   return new Promise(resolve => {
       if (document.querySelector(selector)) {

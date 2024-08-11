@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style/style.css";
 import games from "./assets/games";
-import { WinUtils } from "../sdk/sdk";
-import { TrackGoogleAnalyticsEvent } from "../analytics/anayltics";
+import { WinUtils, TrackGoogleAnalyticsEvent } from "../sdk/sdk";
 const BeanpoweredGui=(props)=>{
     const [res,setRes]=useState(games);
     const [selectedGame,setSelectedGame]=useState({
