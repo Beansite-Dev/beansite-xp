@@ -11,7 +11,9 @@ import {
 } from './sdk/sdk.jsx';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+
 InitializeGoogleAnalytics();
+
 ReactDOM.createRoot(document.getElementById('root'))
 .render(<BeanXPRouter>
   <Analytics/>
