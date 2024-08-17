@@ -15,13 +15,21 @@ import { TrackGoogleAnalyticsEvent } from "./Analytics";
 
 export const Window=({
     children,
-    size,
-    pos,
-    includeTitlebarOptions,
+    size={
+      "height": "38vmin",
+      "width": "58vmin"},
+    pos={
+      "x":["left","5vmin"],
+      "y":["top","5vmin"],},
+    includeTitlebarOptions={
+      "min": true,
+      "max": true,
+      "close": true,
+    },
     callbacks={},
     id,
-    title,
-    icon,
+    title="Window",
+    icon="./icon/xp/Command Prompt.png",
     customLayer,
     markdownSource,
     minimized,

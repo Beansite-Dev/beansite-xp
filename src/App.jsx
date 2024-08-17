@@ -5,7 +5,7 @@ import { WelcomeSrc } from './mdsrc';
 import BeanpoweredGui from './beanpowered/bpgui';
 import { useDispatch, useSelector } from 'react-redux';
 import FireBean from './firebean/firebean';
-import config from './sdk/beansite.config';
+import config from './beansite.config';
 import ReactGA from 'react-ga4';
 
 export const debug=config.debugMode;

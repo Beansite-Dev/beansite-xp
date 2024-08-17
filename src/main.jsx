@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import "./stylesheets/style/default.css";
-import BeanXPRouter from './sdk/router.jsx';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RenderImage from './misc/renderImages.jsx';
 import { 
   InitializeGoogleAnalytics, 
-  TrackGoogleAnalyticsEvent
+  TrackGoogleAnalyticsEvent,
+  BeanXPRouter
 } from './sdk/sdk.jsx';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";

@@ -17,7 +17,15 @@ import BeanShell from './modules/Beanshell';
 import Settings from './modules/Settings';
 import ClosedBetaLogin from "./modules/closedBetaLogin";
 import BeanXPRouter from "./router";
-const BeansiteXP=({ startMenuShortcuts, children, config={} })=>{
+const BeansiteXP=({ 
+  startMenuShortcuts=[],
+  children, 
+  config={
+    "debugMode": location.hostname=="localhost"?true:false,
+    "closedBeta": true,
+    "beansitePlugins":[], // for future feature
+  }
+})=>{
   const windows=useSelector((state)=>state.windows.value);
   const userdata=useSelector((state)=>state.userdata);
   const tbi=useSelector((state)=>state.tbi.value);
@@ -129,5 +137,5 @@ export {
   InitializeGoogleAnalytics,
   TrackGoogleAnalyticsEvent, 
 } from "./modules/Analytics";
-// export { BeanXPRouter } from "./router"
+export { BeanXPRouter };
 export default BeansiteXP;
