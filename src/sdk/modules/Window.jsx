@@ -42,6 +42,7 @@ export const Window=({
     draggable=true,
     customStyle,
     borderless=false,
+    useFallbackCss=false,
   })=>{
   const windows=useSelector((state)=>state.windows.value);
   const settings=useSelector((state)=>state.settings.value);
@@ -236,7 +237,12 @@ export const Window=({
   },[]);
   return(<div 
     className={`Window${safeGraphics?" Win_SafeGraphics":""}${borderless?" Win_Borderless":""}`}
-    style={{
+    style={Object.assign(
+    useFallbackCss?{
+      "border":"#2432b2 1px solid",
+      "background":"#2939cf",
+      "fontFamily":'"Tahoma", sans-serif'
+    }:{},{
       ...customStyle,
       "height":size.height,
       "width":size.width,
@@ -245,19 +251,34 @@ export const Window=({
       "top": pos.y[1],
       "left": pos.x[1],
       "zIndex":customLayer?customLayer:"auto",
-    }}
+    })}
     tabIndex={Object.keys(windows).indexOf(win_id)}
     id={`win_${id}`}>
-    <header id={`win_${id}_header`}>
+    <header id={`win_${id}_header`} className="WindowHeader" style={useFallbackCss?{
+      "background":"linear-gradient(0deg, #2939cf 0%, #2d4ce4 35%, #2d4ce4 75%, #4c90ff 100%)"
+    }:{}}>
       <meta id={`win_${id}_isMin?`} content="false"/>
       <meta id={`win_${id}_isMax?`} content="false"/>
       <div className="icon" style={{"backgroundImage":`url("${icon}")`}}></div>
-      <h2>{title}</h2>
-      {includeTitlebarOptions.min?<button className="min" id={`win_${id}_min`} onClick={(e)=>nb_actions.min(e)}></button>:null}
-      {includeTitlebarOptions.max?<button className="max" id={`win_${id}_max`} onClick={(e)=>nb_actions.maxToggle(e)}></button>:null} {/* 🗗 for unmaximize */}
-      {includeTitlebarOptions.close?<button className="close" id={`win_${id}_close`} onClick={(e)=>nb_actions.close(e)}></button>:null}
+      <h2 style={useFallbackCss?{
+        "color":"#fff"
+      }:{}}>{title}</h2>
+      {includeTitlebarOptions.min?<button 
+      className="min" id={`win_${id}_min`} 
+      onClick={(e)=>nb_actions.min(e)} 
+      style={useFallbackCss?{"backgroundImage":"url('/icons/xp/Minimize.png')"}:{}}></button>:null}
+      {includeTitlebarOptions.max?<button 
+      className="max" id={`win_${id}_max`} 
+      onClick={(e)=>nb_actions.maxToggle(e)}
+      style={useFallbackCss?{"backgroundImage":"url('/icons/xp/Maximize.png')"}:{}}></button>:null} {/* 🗗 for unmaximize */}
+      {includeTitlebarOptions.close?<button 
+      className="close" id={`win_${id}_close`} 
+      onClick={(e)=>nb_actions.close(e)}
+      style={useFallbackCss?{"backgroundImage":"url('/icons/xp/Exit.png')"}:{}}></button>:null}
     </header>
-    <div className="content">
+    <div className="content" style={useFallbackCss?{
+      "background":"#fff"
+    }:{}}>
       <Markdown remarkPlugins={[
         remarkGfm,
         remarkBreaks]}

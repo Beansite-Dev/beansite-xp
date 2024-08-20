@@ -124,3 +124,32 @@ select {
     border: 1px $border solid;
     color: $bg1-l;
 }
+:root {
+    // context menu style
+    --contexify-zIndex: 666;
+    --contexify-menu-minWidth: 25vmin;
+    --contexify-menu-padding: .5vmin;
+    --contexify-menu-radius: 1vmin;
+    --contexify-menu-bgColor: #202020;
+    --contexify-menu-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1),
+    2px 4px 4px rgba(0, 0, 0, 0.1),
+    3px 6px 6px rgba(0, 0, 0, 0.1);
+    --contexify-menu-negatePadding: var(--contexify-menu-padding);
+  
+    --contexify-separator-color: rgba(255,255,255, 0.2);
+    --contexify-separator-margin: 2px;
+    --contexify-itemContent-padding: 2px;
+    --contexify-activeItem-radius: 1vmin;
+    --contexify-item-color: white;
+    --contexify-activeItem-color: white;
+    --contexify-activeItem-bgColor: #303030;
+    --contexify-rightSlot-color: white;
+    --contexify-activeRightSlot-color: white;
+    --contexify-arrow-color: white;
+    --contexify-activeArrow-color: white;
+    .contexify {
+        text-align: left !important;
+        font-size: 1.85vmin;
+        border: 1px solid #2e2e2e;
+    }
+}

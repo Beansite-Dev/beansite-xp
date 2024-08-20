@@ -122,3 +122,56 @@ $sm_right: #d3bef1;
         background: $gradient;
     }
 }
+:root {
+    // context menu style
+    --contexify-zIndex: 666;
+    --contexify-menu-minWidth: 25vmin;
+    --contexify-menu-padding: 1px;
+    --contexify-menu-radius: 0px;
+    --contexify-menu-bgColor: #f3e2fc;
+    --contexify-menu-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1),
+    2px 4px 4px rgba(0, 0, 0, 0.1),
+    3px 6px 6px rgba(0, 0, 0, 0.1);
+    --contexify-menu-negatePadding: var(--contexify-menu-padding);
+  
+    --contexify-separator-color: rgba(0, 0, 0, 0.2);
+    --contexify-separator-margin: 2px;
+    --contexify-itemContent-padding: 2px;
+    --contexify-activeItem-radius: 0px;
+    --contexify-item-color: black;
+    --contexify-activeItem-color: #f3e2fc;
+    --contexify-activeItem-bgColor: #316ac5;
+    --contexify-rightSlot-color: black;
+    --contexify-activeRightSlot-color: #f3e2fc;
+    --contexify-arrow-color: black;
+    --contexify-activeArrow-color: #f3e2fc;
+    .contexify {
+        text-align: left !important;
+        font-size: 1.85vmin;
+        border: 1px ridge lightgray;
+    }
+    
+    // notification styling
+    --toastify-color-dark: linear-gradient(
+        0deg,
+        #d036e8 0%,
+        #f74af4 35%,
+        #ff4fff 75%,
+        #e36df8 100%);
+    .Toastify__toast {
+        border: 1px #ffb9fa solid;
+        color: #f3e2fc;
+    }
+
+    --toastify-toast-width: 50vmin;
+    --toastify-toast-background: #f3e2fc;
+    --toastify-toast-min-height: 64px;
+    --toastify-toast-max-height: 800px;
+    --toastify-font-family: "Tahoma", sans-serif;
+    --toastify-z-index: 675;
+
+    --toastify-text-color-light: #757575;
+    --toastify-text-color-dark: #f3e2fc;
+
+    --toastify-toast-bd-radius: 10px;
+}

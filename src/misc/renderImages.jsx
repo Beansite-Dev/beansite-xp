@@ -52,6 +52,7 @@ const RenderImage=()=>{
               "max": true,
               "close": true,
             }}
+            useFallbackCss
             refs={Ref}
             customLayer="999"
             id="testwin"

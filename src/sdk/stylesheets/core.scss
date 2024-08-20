@@ -28,4 +28,7 @@
     background-image: url("/assets/bg.png");
     background-color: #000;
     #winWrapper{z-index:176;}
+    font-family: "Tahoma", sans-serif;
+    --toastify-toast-bottom: 48px;
+    --toastify-toast-right: 5px;
 }

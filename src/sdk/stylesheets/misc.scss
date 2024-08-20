@@ -194,3 +194,11 @@
         50% {opacity: 1;}
         100% {opacity: 1;}
 }
+.Toastify__close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.Toastify__toast {
+    margin-bottom: 5px !important;
+}

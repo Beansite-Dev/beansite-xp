@@ -9,14 +9,20 @@ import { generateId, timeout } from "./modules/lib";
 import { Provider } from 'react-redux';
 import "./stylesheets/style/core.css";
 import { Taskbar, TaskbarIcon, StartMenu } from "./modules/Explorer";
-import NotificationSystem, { Notification } from "./modules/Notification";
-import { createNotification } from "./store/notificationslice";
+// import NotificationSystem, { Notification } from "./modules/Notification";
+// import { createNotification } from "./store/notificationslice";
 import html2canvas from "html2canvas";
 import { Explorer } from "./modules/Explorer"
 import BeanShell from './modules/Beanshell';
 import Settings from './modules/Settings';
 import ClosedBetaLogin from "./modules/closedBetaLogin";
 import BeanXPRouter from "./router";
+import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
+import 'react-contexify/ReactContexify.css';
+import { toast, ToastContainer, Slide } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { CreateNotification } from './modules/Notification';
+
 const BeansiteXP=({ 
   startMenuShortcuts=[],
   children, 
@@ -33,6 +39,43 @@ const BeansiteXP=({
   const Icon=document.getElementById("icon");
   document.title="Beansite XP";
   Icon.href="/assets/beanxp_logo.png";
+
+  // content menu stuff
+  const MENU_ID='mbxp_contextmenu';
+  const{show}=useContextMenu({
+    id: MENU_ID,
+  });
+  const[contextMenuProps,setContextMenuProps]=useState({
+    element:document,
+    elementType:document.tagName
+  });
+  async function paste(input) {
+    const text=await navigator.clipboard.readText();
+    input.value=`${input.value}${text}`;
+  }
+  const handleContextMenu=(event)=>{
+    show({
+      event,
+      props: {
+        element:event.target,
+        elementType:event.target.tagName
+      }
+    });
+  }
+  const handleItemClick=({id,event,props})=>{
+    if(config.debugMode)console.log(event,props);
+    setContextMenuProps(props);
+    switch(id.slice(8)){
+      case "refresh":location.reload();break;
+      case "copy":document.execCommand('copy');break;
+      case "cut":document.execCommand('cut');break;
+      case "paste":
+        if(props.elementType=="TEXTAREA"||(props.elementType=="INPUT"&&props.element.type=="text"))paste(props.element);break;
+      default:
+        if(config.debugMode)console.log(`[SDK] context menu item "${id}" has no action`);
+    }
+  }
+
   useEffect(()=>{
     dispatch(setUsername("Guest"));
     if(globalThis.IN_DESKTOP_ENV){
@@ -60,7 +103,17 @@ const BeansiteXP=({
   },[]);
   return (<>
     {config.closedBeta&&!config.debugMode?<ClosedBetaLogin/>:null}
-    <div id="bxpgui">
+    <div id="bxpgui" onContextMenu={handleContextMenu}>
+      <Menu id={MENU_ID}>
+        <Item id="mbxpccm_refresh" onClick={handleItemClick}>Refresh</Item>
+        <Separator />
+        <Item id="mbxpccm_cut" onClick={handleItemClick}>Cut</Item>
+        <Item id="mbxpccm_copy" onClick={handleItemClick}>Copy</Item>
+        <Item id="mbxpccm_paste" onClick={handleItemClick}>Paste</Item>
+        <Separator />
+        <Item id="mbxpccm_del" onClick={handleItemClick}>Delete</Item>
+        <Item id="mbxpccm_rename" onClick={handleItemClick}>Rename</Item>
+      </Menu>
       <div id="winWrapper">
         {children}
         <Explorer />
@@ -107,17 +160,20 @@ this menu contains debug options to test beansites functionality
 ### All Debug Tools:`}>
             <button 
               className='button1'
-              onClick={()=>
-                dispatch(createNotification({
+              onClick={()=>{
+                //! old notification script
+                /* dispatch(createNotification({
                   "title": generateId(5),
-                  "id": generateId(10),
-                }))}>createNotification</button>
+                  "id": generateId(10),})); */
+                CreateNotification("Test Notification")
+              }}>createNotification</button>
         </Window>
       </>:null}
       </div>
       <div id="maximizePreview"></div>
       <StartMenu shortcuts={startMenuShortcuts} />
-      <NotificationSystem />
+      {/* <NotificationSystem /> */}
+      <ToastContainer />
       <Taskbar>
         {Object.keys(tbi).map((win_id)=>
           <TaskbarIcon 
@@ -130,7 +186,7 @@ this menu contains debug options to test beansites functionality
     </div>
   </>);
 }
-export { createNotification } from "./store/notificationslice";
+export { CreateNotification } from './modules/Notification';
 export { generateId, timeout } from "./modules/lib";
 export { Window, WinUtils, waitForElm } from "./modules/Window";
 export { 

@@ -91,8 +91,49 @@
   background: #d3e5fa;
 }
 
-#notiwrapper .notification {
-  color: #fff;
+:root {
+  --contexify-zIndex: 666;
+  --contexify-menu-minWidth: 25vmin;
+  --contexify-menu-padding: 1px;
+  --contexify-menu-radius: 0px;
+  --contexify-menu-bgColor: white;
+  --contexify-menu-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1),
+  2px 4px 4px rgba(0, 0, 0, 0.1),
+  3px 6px 6px rgba(0, 0, 0, 0.1);
+  --contexify-menu-negatePadding: var(--contexify-menu-padding);
+  --contexify-separator-color: rgba(0, 0, 0, 0.2);
+  --contexify-separator-margin: 2px;
+  --contexify-itemContent-padding: 2px;
+  --contexify-activeItem-radius: 0px;
+  --contexify-item-color: black;
+  --contexify-activeItem-color: white;
+  --contexify-activeItem-bgColor: #316ac5;
+  --contexify-rightSlot-color: black;
+  --contexify-activeRightSlot-color: white;
+  --contexify-arrow-color: black;
+  --contexify-activeArrow-color: white;
+  --toastify-color-dark: linear-gradient(
+      0deg,
+      #2939cf 0%,
+      #2d4ce4 35%,
+      #2d4ce4 75%,
+      #4c90ff 100%);
+  --toastify-toast-width: 50vmin;
+  --toastify-toast-background: #fff;
+  --toastify-toast-min-height: 64px;
+  --toastify-toast-max-height: 800px;
+  --toastify-font-family: "Tahoma", sans-serif;
+  --toastify-z-index: 675;
+  --toastify-text-color-light: #757575;
+  --toastify-text-color-dark: #fff;
+  --toastify-toast-bd-radius: 10px;
+}
+:root .contexify {
+  text-align: left !important;
+  font-size: 1.85vmin;
+  border: 1px ridge lightgray;
+}
+:root .Toastify__toast {
   border: 1px #4c90ff solid;
-  background: linear-gradient(0deg, #3150eb 0%, #4c90ff 35%, #4c90ff 75%, #649dfb 100%);
+  color: #fff;
 }/*# sourceMappingURL=classic.css.map */

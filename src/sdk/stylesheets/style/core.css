@@ -690,6 +690,16 @@
     opacity: 1;
   }
 }
+.Toastify__close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.Toastify__toast {
+  margin-bottom: 5px !important;
+}
+
 @font-face {
   font-family: "Lucida Console";
   src: url("/fonts/lucon.ttf");
@@ -925,6 +935,9 @@
   background-repeat: no-repeat;
   background-image: url("/assets/bg.png");
   background-color: #000;
+  font-family: "Tahoma", sans-serif;
+  --toastify-toast-bottom: 48px;
+  --toastify-toast-right: 5px;
 }
 #bxpgui #winWrapper {
   z-index: 176;

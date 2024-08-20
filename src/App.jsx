@@ -10,8 +10,8 @@ import ReactGA from 'react-ga4';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.11.6",
-  "date":"8/9/24",
+  "version":"v0.13.5",
+  "date":"8/19/24",
   "comment":"Idek",
   "features_added":[
     "Added Settings Savings",
@@ -24,6 +24,10 @@ const release_data={
     "Fixed bug where ga4 would report pointlessly",
     "Some tweaks",
     "Added borderless windows",
+    "Added Notifications (using Toastify)",
+    "Added Context Menu (using Contexify)",
+    "Added Notification and Context Menu styling to all themes",
+    "Added theme fallback for image renderer",
   ],
   "games_added":[
 
