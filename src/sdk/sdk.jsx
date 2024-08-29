@@ -36,9 +36,6 @@ const BeansiteXP=({
   const userdata=useSelector((state)=>state.userdata);
   const tbi=useSelector((state)=>state.tbi.value);
   const dispatch=useDispatch();
-  const Icon=document.getElementById("icon");
-  document.title="Beansite XP";
-  Icon.href="/assets/beanxp_logo.png";
 
   // content menu stuff
   const MENU_ID='mbxp_contextmenu';
@@ -104,6 +101,15 @@ const BeansiteXP=({
   return (<>
     {config.closedBeta&&!config.debugMode?<ClosedBetaLogin/>:null}
     <div id="bxpgui" onContextMenu={handleContextMenu}>
+      <div id="hueFilter" className="screen_filter"></div>
+      <div id="blurFilter" className="screen_filter"></div>
+      <div id="brightnessFilter" className="screen_filter"></div>
+      <div id="contrastFilter" className="screen_filter"></div>
+      <div id="saturateFilter" className="screen_filter"></div>
+      <div id="invertFilter" className="screen_filter"></div>
+      <div id="lsdFilter1" className="screen_filter"></div>
+      <div id="lsdFilter2" className="screen_filter"></div>
+      <div id="lsdFilter3" className="screen_filter"></div>
       <Menu id={MENU_ID}>
         <Item id="mbxpccm_refresh" onClick={handleItemClick}>Refresh</Item>
         <Separator />

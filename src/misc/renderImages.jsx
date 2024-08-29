@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 // import domtoimage from 'dom-to-image';
 // import { toPng } from 'html-to-image';
+import ReactGA from 'react-ga4';
+import { Helmet } from 'react-helmet-async';
 
 const RenderImage=()=>{
     const[winData,setWinData]=useState({
@@ -11,8 +13,20 @@ const RenderImage=()=>{
         icon:"Information",
         src:`# Hello!`,
     });
+    useEffect(()=>{
+      ReactGA.send({
+        hitType:"pageview",
+        page:"/",
+        title:"Beansite XP: Window Render"
+      });
+    },[]);
     const Ref=useRef(null);
-    return(<div id="renderImages">
+    return(<>
+    <Helmet>
+      <title>Beansite XP: Window Renderer</title>
+      <link id="icon" rel="icon" type="image/svg+xml" href="/assets/favicon_modern.png" />
+    </Helmet>
+    <div id="renderImages">
         <div id="ri_params">
             <h1>Window Parameters</h1>
             <hr />{/*--------------------*/}
@@ -97,6 +111,7 @@ const RenderImage=()=>{
                 // console.error(err);
             // });
         }}>Export</button>
-    </div>)
+    </div>
+    </>);
 };
 export default RenderImage;

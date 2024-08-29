@@ -54,11 +54,33 @@ const BeanShell=()=>{
                     ["log","All Commands:"],
                     ["log","- help"],
                     ["log","- echo -msg:str -type:LogType"],
+                    ["log","- help:fun"],
                     ["newline"]
                 ]);break;
             case "echo":
                 bs_io[command[2]&&bs_io.valid.includes(command[2])?
                     command[2]:"log"](command[1].substring(1,command[1].length-1));break;
+            case "help:fun":
+                bs_io.logml([
+                    ["log","All Commands"],
+                    ["log","- lsd"],
+                    ["newline"]
+                ]);break;
+            case "lsd":
+                bs_io.logml([
+                    ["newline"],
+                    ["log","lsd mode enabled"],
+                    ["newline"],
+                ]);
+                /* var bxpguis=document.getElementById("root").style;
+                bxpguis.setProperty('--rand1', Math.random());
+                bxpguis.setProperty('--rand2', Math.random());
+                bxpguis.setProperty('--rand3', Math.random());
+                bxpguis.setProperty('--rand4', Math.random()); */
+                document.getElementById("lsdFilter1").classList.add("lsd");
+                document.getElementById("lsdFilter2").classList.add("lsd-s");
+                document.getElementById("lsdFilter3").classList.add("lsd-l");
+                break;
             default:
                 //! depricated: breaks error detection
                 // customCommands.map((customCommandData)=>{

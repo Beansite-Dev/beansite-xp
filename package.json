@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "host": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "desktop:start": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron ./desktop/index.js\"",
@@ -30,6 +31,7 @@
     "react-dom": "^18.3.1",
     "react-ga4": "^2.1.0",
     "react-helmet": "^6.1.0",
+    "react-helmet-async": "^2.0.5",
     "react-markdown": "^9.0.1",
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.24.1",

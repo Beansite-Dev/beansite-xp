@@ -1,0 +1,74 @@
+.rangeWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vmin;
+}
+.rangeWrapper label {
+  font-size: 2vmin;
+}
+.rangeWrapper input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1vmin;
+  background: gray;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.rangeWrapper input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2vmin;
+  aspect-ratio: 1/1;
+  background: lightgray;
+  cursor: pointer;
+}
+
+.screen_filter {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+  background: transparent;
+  z-index: 9999;
+}
+
+.lsd-l {
+  animation: lsd_ani 2s linear infinite;
+}
+
+.lsd {
+  animation: lsd_ani 5s linear infinite;
+}
+
+.lsd-s {
+  animation: lsd_ani 2s linear infinite;
+}
+
+@keyframes lsd_ani {
+  0% {
+    backdrop-filter: blur(1px) brightness(150%) hue-rotate(125deg) saturate(175%) contrast(150%);
+  }
+  20% {
+    backdrop-filter: blur(5px) brightness(167%) hue-rotate(-75deg) saturate(135%) contrast(250%);
+  }
+  50% {
+    backdrop-filter: blur(2px) brightness(59%) hue-rotate(-180deg) saturate(300%) contrast(75%);
+  }
+  90% {
+    backdrop-filter: blur(10px) brightness(250%) hue-rotate(180deg) saturate(400%) contrast(400%);
+  }
+  95% {
+    backdrop-filter: blur(1px) brightness(150%) hue-rotate(20deg) saturate(85%) contrast(200%);
+  }
+  100% {
+    backdrop-filter: blur(1px) brightness(150%) hue-rotate(125deg) saturate(175%) contrast(150%);
+  }
+}/*# sourceMappingURL=lib.css.map */

@@ -7,6 +7,7 @@ import {
     setBackgroundFit,
     setSettings,
     setCustomCss,
+    setExperimentalMode,
 } from "../store/settingsslice";
 import { getBase64, dataURItoBlob } from "./lib";
 import { useEffect } from "react";
@@ -53,6 +54,8 @@ const Settings=(props)=>{
             document.head.appendChild(cc);
         }
         document.getElementById("customcss").innerHTML=settings.customCss;
+        // experimental mode
+        // nun
     },[settings]);
     return(<Window
         size={{
@@ -73,7 +76,157 @@ const Settings=(props)=>{
             <label>Use Safe Graphics:<span>&nbsp;</span>
                 <input type="checkbox" onChange={(e)=>{
                     dispatch(setSafeGraphics(e.target.checked));}}
-                    defaultChecked={settings.safeGraphics}></input></label><br/><br/>
+                    defaultChecked={settings.safeGraphics}></input></label><br/>
+            <label>Experimental Mode (Unstable):<span>&nbsp;</span>
+                <input type="checkbox" onChange={(e)=>{
+                    dispatch(setExperimentalMode(e.target.checked));}}
+                    defaultChecked={settings.experimentalMode}></input></label><br/>
+            <br/>
+            {settings.experimentalMode?<>
+                <h3>Experimental Settings:</h3>
+
+                <h4>Filters:</h4>
+                <div className="rangeWrapper">
+                  <label htmlFor="hueSlider_label">Hue:</label>
+                  <label htmlFor="hueSlider_min">-180deg</label>
+                  <input 
+                    className="slider1" 
+                    id="hueSlider" 
+                    type="range" 
+                    min="-180" 
+                    max="180" 
+                    defaultValue="0" 
+                    onChange={(e)=>{
+                        document.getElementById("hueFilter").style.backdropFilter=`hue-rotate(${e.target.value}deg)`;
+                    }}/>
+                  <label htmlFor="hueSlider_max">180deg</label>
+                  <label 
+                    style={{color:"red",cursor:"pointer"}}
+                    onClick={()=>{
+                        document.getElementById("hueSlider").value=0;
+                        document.getElementById("hueFilter").style.backdropFilter=null;
+                    }}>Reset</label>
+                </div>
+
+                <div className="rangeWrapper">
+                  <label htmlFor="blurSlider_label">Blur:</label>
+                  <label htmlFor="blurSlider_min">0px</label>
+                  <input 
+                    className="slider1" 
+                    id="blurSlider" 
+                    type="range" 
+                    min="0" 
+                    max="10" 
+                    defaultValue="0" 
+                    onChange={(e)=>{
+                        document.getElementById("blurFilter").style.backdropFilter=`blur(${e.target.value}px)`;
+                    }}/>
+                  <label htmlFor="blurSlider_max">10px</label>
+                  <label 
+                    style={{color:"red",cursor:"pointer"}}
+                    onClick={()=>{
+                        document.getElementById("blurSlider").value=0;
+                        document.getElementById("blurFilter").style.backdropFilter=null;
+                    }}>Reset</label>
+                </div>
+
+                <div className="rangeWrapper">
+                  <label htmlFor="brightnessSlider_label">Brightness:</label>
+                  <label htmlFor="brightnessSlider_min">0%</label>
+                  <input 
+                    className="slider1" 
+                    id="brightnessSlider" 
+                    type="range" 
+                    min="0" 
+                    max="200" 
+                    defaultValue="100" 
+                    onChange={(e)=>{
+                        document.getElementById("brightnessFilter").style.backdropFilter=`brightness(${e.target.value}%)`;
+                    }}/>
+                  <label htmlFor="brightnessSlider_max">200%</label>
+                  <label 
+                    style={{color:"red",cursor:"pointer"}}
+                    onClick={()=>{
+                        document.getElementById("brightnessSlider").value=100;
+                        document.getElementById("brightnessFilter").style.backdropFilter=null;
+                    }}>Reset</label>
+                </div>
+
+                <div className="rangeWrapper">
+                  <label htmlFor="contrastSlider_label">Contrast:</label>
+                  <label htmlFor="contrastSlider_min">0%</label>
+                  <input 
+                    className="slider1" 
+                    id="contrastSlider" 
+                    type="range" 
+                    min="0" 
+                    max="200" 
+                    defaultValue="100" 
+                    onChange={(e)=>{
+                        document.getElementById("contrastFilter").style.backdropFilter=`contrast(${e.target.value}%)`;
+                    }}/>
+                  <label htmlFor="contrastSlider_max">200%</label>
+                  <label 
+                    style={{color:"red",cursor:"pointer"}}
+                    onClick={()=>{
+                        document.getElementById("contrastSlider").value=100;
+                        document.getElementById("contrastFilter").style.backdropFilter=null;
+                    }}>Reset</label>
+                </div>
+
+                <div className="rangeWrapper">
+                  <label htmlFor="saturateSlider_label">Saturate:</label>
+                  <label htmlFor="saturateSlider_min">0%</label>
+                  <input 
+                    className="slider1" 
+                    id="saturateSlider" 
+                    type="range" 
+                    min="0" 
+                    max="200" 
+                    defaultValue="100" 
+                    onChange={(e)=>{
+                        document.getElementById("saturateFilter").style.backdropFilter=`saturate(${e.target.value}%)`;
+                    }}/>
+                  <label htmlFor="saturateSlider_max">200%</label>
+                  <label 
+                    style={{color:"red",cursor:"pointer"}}
+                    onClick={()=>{
+                        document.getElementById("saturateSlider").value=100;
+                        document.getElementById("saturateFilter").style.backdropFilter=null;
+                    }}>Reset</label>
+                </div>
+
+                <div className="rangeWrapper">
+                  <label htmlFor="invertSlider_label">Invert:</label>
+                  <label htmlFor="invertSlider_min">0%</label>
+                  <input 
+                    className="slider1" 
+                    id="invertSlider" 
+                    type="range" 
+                    min="0" 
+                    max="100" 
+                    defaultValue="0" 
+                    onChange={(e)=>{
+                        document.getElementById("invertFilter").style.backdropFilter=`invert(${e.target.value}%)`;
+                    }}/>
+                  <label htmlFor="invertSlider_max">100%</label>
+                  <label 
+                    style={{color:"red",cursor:"pointer"}}
+                    onClick={()=>{
+                        document.getElementById("invertSlider").value=0;
+                        document.getElementById("invertFilter").style.backdropFilter=null;
+                    }}>Reset</label>
+                </div>
+                
+                {/* <h4>Other Experimental Settings</h4> */}
+
+                <br/><p className="caption">
+                    These settings don't save. They're purely experiments. Also, 
+                    adding the save functionality would probably takes me months 
+                    and a ton of code, so im js not gonna do it lmao<br/>
+                    I mean, if they prove useful, maybe ill add em ;)
+                </p><br/>
+            </>:null}
             <h3>Personalization:</h3>
             <label>Theme:<span>&nbsp;</span>
                 <select onChange={(e)=>{

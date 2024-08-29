@@ -1,6 +1,6 @@
 const config={
     "debugMode": location.hostname=="localhost"?true:false,
-    "closedBeta": true,
+    "closedBeta": false,
     "beansitePlugins":[], // for future feature
 };
 export default config;

@@ -7,10 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import FireBean from './firebean/firebean';
 import config from './beansite.config';
 import ReactGA from 'react-ga4';
+import { Helmet } from 'react-helmet-async';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v0.13.5",
+  "version":"v1.0.0",
   "date":"8/19/24",
   "comment":"Idek",
   "features_added":[
@@ -28,9 +29,22 @@ const release_data={
     "Added Context Menu (using Contexify)",
     "Added Notification and Context Menu styling to all themes",
     "Added theme fallback for image renderer",
+    "fun things",
+    "Added Ruffle Loader",
+    "Implemented React Helmet",
   ],
   "games_added":[
-
+    "Super Smash Flash",
+    "Super Smash Flash 2",
+    "Super Mario 63",
+    "Happy Wheels",
+    "FPA World 1",
+    "FPA World 2",
+    "FPA World 3",
+    "Duck Life",
+    "Duck Life 2",
+    "Duck Life 3",
+    "Duck Life 4",
   ],
   "games_removed":[
     
@@ -47,6 +61,10 @@ const App=()=>{
   },[]);
   const[glTitle,setGlTitle]=useState(`Gameloader`);
   return(<>
+    <Helmet>
+      <title>Beansite XP</title>
+      <link id="icon" rel="icon" type="image/svg+xml" href="/assets/beanxp_logo.png" />
+    </Helmet>
     <BeansiteXP 
       config={config}
       startMenuShortcuts={[

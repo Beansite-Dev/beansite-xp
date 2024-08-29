@@ -297,37 +297,44 @@ const games={
     "Riddle School": {
       "url": "https://riddle-school.github.io/file/",
       "id": "riddleschool1",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 2": {
       "url": "https://games.crazygames.com/en_US/riddle-school-2/index.html",
       "id": "riddleschool2",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 3": {
       "url": "https://games.crazygames.com/en_US/riddle-school-3/index.html",
       "id": "riddleschool3",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 4": {
       "url": "https://games.crazygames.com/en_US/riddle-school-4/index.html",
       "id": "riddleschool4",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 5": {
       "url": "https://games.crazygames.com/en_US/riddle-school-5/index.html",
       "id": "riddleschool5",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle Transfer": {  
       "url": "https://games.crazygames.com/en_US/riddle-transfer/index.html",
       "id": "riddleschool6",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle Transfer 2": {
       "url": "https://games.crazygames.com/en_US/riddle-transfer-2/index.html",
       "id": "riddleschool7",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Granny": {
       "url": "https://gnhustgames.org/granny-source/",
@@ -337,7 +344,8 @@ const games={
     "Suika Game": {
       "url": "https://suikagame.com",
       "id": "suika",
-      "type": "OpenInGL"
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Tetris": {
       "url": "https://www.lumpty.com/amusements/Games/Tetris/tetris.html",
@@ -348,6 +356,65 @@ const games={
       "url": "https://patorjk.com/games/snake/",
       "id": "snake",
       "type": "OpenInGL"
+    },
+    "Super Smash Flash": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/SuperSmash.swf",
+      "id": "ssf",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Super Smash Flash 2": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/SuperSmash2.swf",
+      "id": "ssf2",
+      "type": "OpenInGL"
+    },
+    "Super Mario 63": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/sueprmario63.swf",
+      "id": "sm63",
+      "type": "OpenInGL"
+    },
+    "Happy Wheels": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/happyWheels.swf",
+      "id": "hw",
+      "type": "OpenInGL"
+    },
+    "FPA World 1": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld1.swf",
+      "id": "fpaw1",
+      "type": "OpenInGL"
+    },
+    "FPA World 2": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld2.swf",
+      "id": "fpaw2",
+      "type": "OpenInGL"
+    },
+    "FPA World 3": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld3.swf",
+      "id": "fpaw3",
+      "type": "OpenInGL"
+    },
+    "Duck Life": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife.swf",
+      "id": "dl1",
+      "type": "OpenInGL"
+    },
+    "Duck Life 2": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife2.swf",
+      "id": "dl2",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "25%",}
+    },
+    "Duck Life 3": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife3.swf",
+      "id": "dl3",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Duck Life 4": {
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife4.swf",
+      "id": "dl4",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
     },
     // "Melon Sandbox": {
       // "url": "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",

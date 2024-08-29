@@ -157,3 +157,15 @@
     margin: none;
     padding: none;
 }
+.bpsb_p {
+    padding: .25vmin;
+    padding-left: 1vmin;
+    border-bottom: 1px #707095 solid;
+    font-size: 2vmin;
+    font-weight: 200;
+    cursor: pointer;
+    transition: .35s;
+    user-select: none;
+    color: #bcbcd5;
+    background: #353565;
+}

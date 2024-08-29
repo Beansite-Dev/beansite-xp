@@ -34,7 +34,7 @@ const BeanpoweredGui=(props)=>{
         return(<div className="bpsb_item" 
             onClick={()=>{setSelectedGame({
                 "title":title,
-                "gdata":games[title],
+                "gdata":games[title]
             });}}>{title}</div>);}
     return(<div id="bp_gui">
         <div className="bp_sidebar">
@@ -58,9 +58,13 @@ const BeanpoweredGui=(props)=>{
                 url={games[title].url}
                 id={games[title].id}
                 type={games[title].type}/>)}
+            <a href="https://forms.gle/GNnsZ3KwtWyDH16d6"><div className="bpsb_p">Don't see a game you like? Request one!</div></a>
         </div>
         <div id="bp_contents">
-            <div className="banner" style={{"backgroundImage": `url("/assets/bp_assets/gbanner/${selectedGame.gdata.id}.png")`,}}></div>
+            <div className="banner" style={{
+                ...selectedGame.gdata.customBannerCSS?selectedGame.gdata.customBannerCSS:null,
+                "backgroundImage": `url("/assets/bp_assets/gbanner/${selectedGame.gdata.id}.png")`,
+            }}></div>
             <div className="actionbar">
                 <h1>{selectedGame.title}</h1>
                 <button className="playButton" onClick={()=>{OpenGame(selectedGame.gdata, selectedGame.title);}}>Play ▶</button>

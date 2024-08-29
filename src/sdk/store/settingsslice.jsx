@@ -10,6 +10,7 @@ export const settingsSlice=createSlice({
         backgroundImage: null,
         backgroundFit: "cover",
         customCss:"",
+        experimentalMode:false,
     },
   },
   reducers: {
@@ -41,6 +42,11 @@ export const settingsSlice=createSlice({
       // document.getElementById("bxpgui")
         // .style.objectFit=`${action.payload}`;
     },
+    setExperimentalMode:(state,action)=>{
+      state.value.experimentalMode=action.payload;
+      // document.getElementById("bxpgui")
+        // .style.objectFit=`${action.payload}`;
+    },
   },
 });
 export const {
@@ -50,5 +56,6 @@ export const {
   setBackgroundFit,
   setSettings,
   setCustomCss,
+  setExperimentalMode,
 }=settingsSlice.actions;
 export default settingsSlice.reducer;
