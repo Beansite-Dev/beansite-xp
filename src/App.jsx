@@ -11,8 +11,8 @@ import { Helmet } from 'react-helmet-async';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.0.0",
-  "date":"8/19/24",
+  "version":"v1.3.5",
+  "date":"8/31/24",
   "comment":"FINALLY YES",
   "features_added":[
     "Added Settings Savings",
@@ -33,6 +33,8 @@ const release_data={
     "Added Ruffle Loader",
     "Implemented React Helmet",
     "Desktop Icons!!!!!!",
+    "Fixed Desktop Icons!!!!!!",
+    "Moved URL To https://beansite.vercel.app",
   ],
   "games_added":[
     "Super Smash Flash",

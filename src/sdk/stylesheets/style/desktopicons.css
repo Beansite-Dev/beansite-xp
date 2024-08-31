@@ -20,6 +20,7 @@
   max-width: 100vw;
 }
 #desktopIconWrapper .desktopShortcut {
+  box-sizing: border-box;
   height: fit-content;
   display: flex;
   max-width: 12vmin;
@@ -35,6 +36,7 @@
   max-width: 100%;
   min-width: 100%;
   color: #fff;
+  user-select: none;
   text-shadow: 1px 1px 1px black;
 }
 #desktopIconWrapper .desktopShortcut .icon {
@@ -42,7 +44,11 @@
   aspect-ratio: 1/1;
   background-position: center;
   background-size: contain;
+  cursor: pointer;
   /* top: calc(50% - (3vmin / 2));
   left: 50%;
   transform: translate(-50%,-50%); */
+}
+#desktopIconWrapper .desktopShortcut:active {
+  border: 1px lightgray dotted;
 }/*# sourceMappingURL=desktopicons.css.map */
