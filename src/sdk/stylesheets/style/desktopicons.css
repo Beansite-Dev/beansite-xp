@@ -1,0 +1,48 @@
+#desktopIconWrapper {
+  height: calc(100dvh - 48px);
+  width: 100dvw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 150;
+  transform: translate(-50%, calc(-50% - 24px));
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  min-height: calc(100vh - 45px);
+  max-height: calc(100vh - 45px);
+  max-width: 100vw;
+}
+#desktopIconWrapper .desktopShortcut {
+  height: fit-content;
+  display: flex;
+  max-width: 12vmin;
+  overflow: hidden;
+}
+#desktopIconWrapper .desktopShortcut h1 {
+  font-size: 2.5vmin;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  max-width: 100%;
+  min-width: 100%;
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+}
+#desktopIconWrapper .desktopShortcut .icon {
+  height: 7.5vmin;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+  /* top: calc(50% - (3vmin / 2));
+  left: 50%;
+  transform: translate(-50%,-50%); */
+}/*# sourceMappingURL=desktopicons.css.map */

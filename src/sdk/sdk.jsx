@@ -22,9 +22,11 @@ import 'react-contexify/ReactContexify.css';
 import { toast, ToastContainer, Slide } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { CreateNotification } from './modules/Notification';
+import { DesktopIcon } from "./modules/desktopIcon";
 
 const BeansiteXP=({ 
   startMenuShortcuts=[],
+  desktopShortcuts=[],
   children, 
   config={
     "debugMode": location.hostname=="localhost"?true:false,
@@ -83,7 +85,7 @@ const BeansiteXP=({
     }
     window.addEventListener("keydown",(e)=>{
       if(e.repeat)return;
-      // if (e.ctrlKey && e.key === 's') {
+      /*// if (e.ctrlKey && e.key === 's') {
         // e.preventDefault();
         // html2canvas(document.body,{
           // backgroundColor:null}).then(canvas=>{
@@ -95,7 +97,7 @@ const BeansiteXP=({
           // link.setAttribute('href',image);
           // link.click();
         // });
-      // }
+      // }*/
     })
   },[]);
   return (<>
@@ -120,6 +122,14 @@ const BeansiteXP=({
         <Item id="mbxpccm_del" onClick={handleItemClick}>Delete</Item>
         <Item id="mbxpccm_rename" onClick={handleItemClick}>Rename</Item>
       </Menu>
+      <div id="desktopIconWrapper">
+        {desktopShortcuts.map((data,index)=>
+          <DesktopIcon 
+            win_id={data.win_id}
+            title={data.title}
+            icon={data.icon}/>)}
+        {/* \{\/\* Test \*\/\} <DesktopIcon win_id="welcome" title="Dingus" icon="/icons/xp/Information.png" /> */}
+      </div>
       <div id="winWrapper">
         {children}
         <Explorer />

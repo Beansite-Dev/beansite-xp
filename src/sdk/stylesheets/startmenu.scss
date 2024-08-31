@@ -1,3 +1,9 @@
+#startMenuLeaveDetect {
+    height: 100dvh;
+    width: 100dvw;
+    z-index: 347;
+    background: transparent;
+}
 #startmenu {
     height: 65vmin;
     width: 55vmin;
@@ -9,7 +15,7 @@
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
     overflow: hidden;
-    transition: .65s;
+    transition: 1s;
     transform: translateY(65vmin);
     filter: brightness(85%);
     box-shadow: 

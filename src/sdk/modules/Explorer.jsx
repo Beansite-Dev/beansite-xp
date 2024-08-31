@@ -24,10 +24,12 @@ const TaskbarIcon=(tbi_props)=>{
 const sm_actions={
     open:()=>{
         document.getElementById("startmenu").style.transform=`translateY(0px)`
+        document.getElementById("startMenuLeaveDetect").style.transform=`translateY(0px)`;
         document.getElementById("startmenu").style.filter=`brightness(100%)`},
     close:()=>{
-        document.getElementById("startmenu").style.transform=`translateY(65vmin)`
-        document.getElementById("startmenu").style.filter=`brightness(85%)`},
+        document.getElementById("startmenu").style.transform=`translateY(100dvh)`;
+        document.getElementById("startMenuLeaveDetect").style.transform=`translateY(100dvh)`;
+        document.getElementById("startmenu").style.filter=`brightness(85%)`;},
 }
 const StartMenu=(props)=>{
     const userdata=useSelector((state)=>state.userdata);
@@ -39,55 +41,64 @@ const StartMenu=(props)=>{
         }}>
             <div className="icon" style={{"backgroundImage":`url("${icon}")`}}></div>
             <h1>{title}</h1>
-        </div>)
+        </div>);
     }
-    return(<div id="startmenu">
-        <meta id="startMenuOpen?" content="false" />
-        <div id="topbar">
-            <h1>{userdata.username}</h1>
+    return(<>
+        <div 
+            id="startMenuLeaveDetect" 
+            style={{transform:"translateY(100dvh)"}}
+            onClick={(e)=>{
+                e.preventDefault();
+                sm_actions.close();
+            }}></div>
+        <div id="startmenu">
+            <meta id="startMenuOpen?" content="false" />
+            <div id="topbar">
+                <h1>{userdata.username}</h1>
+            </div>
+            <div className="contents">
+                <div className="left">
+                    {props.shortcuts.map((data,index)=>
+                        <StartMenuIcon 
+                            title={data.title}
+                            icon={data.icon}
+                            win_id={data.win_id}
+                            key={index}
+                            beforeLaunch={data.beforeLaunch}/>)}
+                    {debug?<>
+                        <StartMenuIcon 
+                            title="Debug Menu"
+                            icon="/icons/xp/Services.png"
+                            win_id="debugMenu"/>
+                    </>:null}
+                </div>
+                <div className="right">
+                </div>
+            </div>
+            <div id="footer">
+                <div 
+                    className="action"
+                    id="shutdown_btn"
+                    onClick={(e)=>{
+                        e.preventDefault();
+                        document.getElementById("shutdownScreen").style.display="flex";
+                    }}>
+                    <div className="icon" style={{"backgroundImage":`url("/icons/xp/Power.png")`}}></div>
+                    <h1>Shut down</h1>
+                </div>
+                <div 
+                    className="action"
+                    id="restart_btn"
+                    onClick={(e)=>{
+                        e.preventDefault();
+                        window.location.reload();
+                    }}>
+                    <div className="icon" style={{"backgroundImage":`url("/icons/xp/Restart.png")`}}></div>
+                    <h1>Restart</h1>
+                </div>
+            </div>
         </div>
-        <div className="contents">
-            <div className="left">
-                {props.shortcuts.map((data,index)=>
-                    <StartMenuIcon 
-                        title={data.title}
-                        icon={data.icon}
-                        win_id={data.win_id}
-                        key={index}
-                        beforeLaunch={data.beforeLaunch}/>)}
-                {debug?<>
-                    <StartMenuIcon 
-                        title="Debug Menu"
-                        icon="/icons/xp/Services.png"
-                        win_id="debugMenu"/>
-                </>:null}
-            </div>
-            <div className="right">
-            </div>
-        </div>
-        <div id="footer">
-            <div 
-                className="action"
-                id="shutdown_btn"
-                onClick={(e)=>{
-                    e.preventDefault();
-                    document.getElementById("shutdownScreen").style.display="flex";
-                }}>
-                <div className="icon" style={{"backgroundImage":`url("/icons/xp/Power.png")`}}></div>
-                <h1>Shut down</h1>
-            </div>
-            <div 
-                className="action"
-                id="restart_btn"
-                onClick={(e)=>{
-                    e.preventDefault();
-                    window.location.reload();
-                }}>
-                <div className="icon" style={{"backgroundImage":`url("/icons/xp/Restart.png")`}}></div>
-                <h1>Restart</h1>
-            </div>
-        </div>
-    </div>);
+    </>);
 }
 const Taskbar=(tb_props)=>{
     return(<div id="taskbar">

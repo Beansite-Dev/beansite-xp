@@ -13,7 +13,7 @@ export const debug=config.debugMode;
 const release_data={
   "version":"v1.0.0",
   "date":"8/19/24",
-  "comment":"Idek",
+  "comment":"FINALLY YES",
   "features_added":[
     "Added Settings Savings",
     "Added Settings Reset",
@@ -32,6 +32,7 @@ const release_data={
     "fun things",
     "Added Ruffle Loader",
     "Implemented React Helmet",
+    "Desktop Icons!!!!!!",
   ],
   "games_added":[
     "Super Smash Flash",
@@ -60,6 +61,37 @@ const App=()=>{
     });
   },[]);
   const[glTitle,setGlTitle]=useState(`Gameloader`);
+  const Shortcuts=[
+    {
+      "title":"Welcome",
+      "icon":"/icons/xp/Information.png",
+      "win_id":"welcome",
+    },{
+      "title":"Beanpowered",
+      "icon":"/icons/bp.png",
+      "win_id":"beanpowered",
+    },{
+      "title":"Explorer",
+      "icon":"/icons/xp/Explorer.png",
+      "win_id":"explorer",
+    },{
+      "title":"Beanshell",
+      "icon":"/icons/xp/Command Prompt.png",
+      "win_id":"beanshell",
+    },{
+      "title":"Settings",
+      "icon":"/icons/xp/Additional Settings.png",
+      "win_id":"settings",
+    },{
+      "title":"FireBean",
+      "icon":"/assets/firebean/firebean.png",
+      "win_id":"firebean",
+    },{
+      "title":"Paint",
+      "icon":"/icons/xp/Paint.png",
+      "win_id":"paint",
+    },
+  ]
   return(<>
     <Helmet>
       <title>Beansite XP</title>
@@ -67,37 +99,8 @@ const App=()=>{
     </Helmet>
     <BeansiteXP 
       config={config}
-      startMenuShortcuts={[
-        {
-          "title":"Welcome",
-          "icon":"/icons/xp/Information.png",
-          "win_id":"welcome",
-        },{
-          "title":"Beanpowered",
-          "icon":"/icons/bp.png",
-          "win_id":"beanpowered",
-        },{
-          "title":"Explorer",
-          "icon":"/icons/xp/Explorer.png",
-          "win_id":"explorer",
-        },{
-          "title":"Beanshell",
-          "icon":"/icons/xp/Command Prompt.png",
-          "win_id":"beanshell",
-        },{
-          "title":"Settings",
-          "icon":"/icons/xp/Additional Settings.png",
-          "win_id":"settings",
-        },{
-          "title":"FireBean",
-          "icon":"/assets/firebean/firebean.png",
-          "win_id":"firebean",
-        },{
-          "title":"Paint",
-          "icon":"/icons/xp/Paint.png",
-          "win_id":"paint",
-        },
-      ]}>
+      desktopShortcuts={Shortcuts}
+      startMenuShortcuts={Shortcuts}>
       <Window 
         // customLayer="549"
         size={{

@@ -115,7 +115,7 @@ const games={
       "type": "OpenInGL"
     },
     "Burrito Bison: Launcha Libre": {
-      "url": "https://tybsi.com/games/burrito-bison-launcha-libre/",
+      "url": "https://mountain658.github.io/BurritoBison.html",
       "id": "burritobll",
       "type": "OpenInGL"
     },
