@@ -5,7 +5,7 @@ const games={
       "type": "OpenInGL"
     }, 
     "Slope 2": {
-      "url": "https://slope2.github.io/a6/slope-2/",
+      "url": "https://lnahtml.github.io/a6/slope-2/",
       "id": "slope2",
       "type": "OpenInGL"
     }, 
@@ -29,9 +29,14 @@ const games={
       "id": "2048",
       "type": "OpenInGL"
     },
+    "Eaglercraft 1.8.8": {
+      "url": "/games/e188-61624-ecxu35u.html",
+      "id": "eag188",
+      "type": "NewTab"
+    },
     "Eaglercraft 1.5.2": {
-      "url": "/games/07ed39eb95c1ce7e451192d7c7517c6c3382a59cb40702d8bab86dc61e3b555d.html",
-      "id": "eag",
+      "url": "/games/e152-102522-ec22w43ac.html",
+      "id": "eag152",
       "type": "NewTab"
     },
     "Final Fantasy VII": {
@@ -195,7 +200,7 @@ const games={
       "type": "OpenInGL"
     },
     "Baldi's Basics": {
-      "url": "https://igroutka.ru/loader/game/26471/",
+      "url": "https://assets.theludos.com/games/baldis-basics/", //old: https://igroutka.ru/loader/game/26471/
       "id": "baldis",
       "type": "OpenInGL"
     },

@@ -48,6 +48,7 @@ const release_data={
     "Duck Life 2",
     "Duck Life 3",
     "Duck Life 4",
+    "Eaglercraft 1.8.8",
   ],
   "games_removed":[
     

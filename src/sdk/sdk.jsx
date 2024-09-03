@@ -125,6 +125,7 @@ const BeansiteXP=({
       <div id="desktopIconWrapper">
         {desktopShortcuts.map((data,index)=>
           <DesktopIcon 
+            key={`di_${data.win_id}`}
             win_id={data.win_id}
             title={data.title}
             icon={data.icon}/>)}
@@ -193,7 +194,7 @@ this menu contains debug options to test beansites functionality
       <Taskbar>
         {Object.keys(tbi).map((win_id)=>
           <TaskbarIcon 
-            key={win_id} 
+            key={`tbi_${win_id}`} 
             title={tbi[win_id].title} 
             id={`${win_id}_tbs`} 
             eid={tbi[win_id].eid} 

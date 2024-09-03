@@ -25,8 +25,9 @@ const BeanpoweredGui=(props)=>{
                     props.setGlTitle(title);
                     document.getElementById("gl_frame").setAttribute("src",url);
                     WinUtils.openWindow("gameloader");break;
+                case "NewTab":
                 case "OpenInNewTab":
-                    null;
+                    window.open(url,title,'width=800,height=600');break;
             }
         }
     }

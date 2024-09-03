@@ -35,6 +35,9 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+#bp_gui .bp_sidebar a {
+  text-decoration: none;
+}
 #bp_gui .bp_sidebar::-webkit-scrollbar {
   display: none;
 }

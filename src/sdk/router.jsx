@@ -4,8 +4,18 @@ import store from './store/store.jsx';
 import { Provider } from 'react-redux';
 import ShutdownScreen from './modules/shutdownScreen.jsx';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 const BeanXPRouter=(props)=>{
+    useEffect(()=>{
+        if (location.hostname === "localhost"
+            ||location.hostname === "127.0.0.1")
+            window.onbeforeunload=function(e){
+                var dialogText='Do you really want to close Beansite XP?';
+                e.returnValue=dialogText;
+                return dialogText;
+        }
+    },[]);
     return(<>
         <HelmetProvider>
             <ErrorBoundary>
