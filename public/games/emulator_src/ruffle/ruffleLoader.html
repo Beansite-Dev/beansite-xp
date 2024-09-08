@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Smash Flash</title>
     <link rel="stylesheet" href="/games/GlobalStyleSheet.css"/>
 </head>
 <body>
@@ -24,6 +23,7 @@
                 autoplay: "on",
                 scale: "showAll",
                 unmuteOverlay: "hidden",
+                letterbox:getQueryParams(document.location.search).lb==="true"?"on":"fullscreen",
             }
         };
     
@@ -35,6 +35,8 @@
             player.load(getQueryParams(document.location.search).g);
             player.style.width="100%";
             player.style.height="100%";
+            document.title=getQueryParams(document.location.search).g;
+
         });
     </script>
     <script src="/games/emulator_src/ruffle/ruffle_src/ruffle.js"></script>

@@ -11,6 +11,7 @@ export const settingsSlice=createSlice({
         backgroundFit: "cover",
         customCss:"",
         experimentalMode:false,
+        useLetterBoxInEmulators:true,
     },
   },
   reducers: {
@@ -47,6 +48,9 @@ export const settingsSlice=createSlice({
       // document.getElementById("bxpgui")
         // .style.objectFit=`${action.payload}`;
     },
+    setLetterBox:(state,action)=>{
+      state.value.useLetterBoxInEmulators=action.payload;
+    },
   },
 });
 export const {
@@ -57,5 +61,6 @@ export const {
   setSettings,
   setCustomCss,
   setExperimentalMode,
+  setLetterBox,
 }=settingsSlice.actions;
 export default settingsSlice.reducer;

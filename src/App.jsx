@@ -11,9 +11,9 @@ import { Helmet } from 'react-helmet-async';
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.3.5",
-  "date":"8/31/24",
-  "comment":"FINALLY YES",
+  "version":"v1.4.1",
+  "date":"9/8/24",
+  "comment":"My b day! yippe",
   "features_added":[
     "Added Settings Savings",
     "Added Settings Reset",
@@ -93,6 +93,10 @@ const App=()=>{
       "title":"Paint",
       "icon":"/icons/xp/Paint.png",
       "win_id":"paint",
+    },{
+      "title":"Beancloak",
+      "icon":"/icons/xp/Padlock.png",
+      "win_id":"beancloak",
     },
   ]
   return(<>
@@ -194,6 +198,23 @@ const App=()=>{
           <iframe id="gl_frame" />
       </Window>
       <FireBean />
+      <Window 
+        size={{
+          "height": "50dvh",
+          "width": "50dvw"}} 
+        pos={{
+          "x":["left","20vmin"],
+          "y":["top","20vmin"],}}
+        includeTitlebarOptions={{
+          "min": true,
+          "max": true,
+          "close": true,}}
+        id="beancloak"
+        closed
+        title="Beancloak - undetectable"
+        icon="/icons/xp/Padlock.png">
+
+      </Window>
     </BeansiteXP>
   </>);
 }

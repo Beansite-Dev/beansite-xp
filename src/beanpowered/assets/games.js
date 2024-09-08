@@ -1,3 +1,4 @@
+import { queryParams } from "../../sdk/modules/lib";
 const games={
     "Slope": {
       "url": "https://kdata1.com/2020/05/slope/",
@@ -379,47 +380,52 @@ const games={
       "type": "OpenInGL"
     },
     "Happy Wheels": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/happyWheels.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/happyWheels.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hw",
       "type": "OpenInGL"
     },
     "FPA World 1": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld1.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld1.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "fpaw1",
       "type": "OpenInGL"
     },
     "FPA World 2": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld2.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld2.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "fpaw2",
       "type": "OpenInGL"
     },
     "FPA World 3": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld3.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld3.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "fpaw3",
       "type": "OpenInGL"
     },
     "Duck Life": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl1",
       "type": "OpenInGL"
     },
     "Duck Life 2": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife2.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife2.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl2",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "25%",}
     },
     "Duck Life 3": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife3.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife3.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl3",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Duck Life 4": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife4.swf",
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife4.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl4",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Penalty Shooters 2": {
+      "url": "https://html5.gamedistribution.com/571b9df027e449f78e3869ba19658754/?gd_sdk_referrer_url=https://gamedistribution.com/games/Penalty-Shooters-2/",
+      "id": "ps2",
+      "type": "OpenInGL",
     },
     // "Melon Sandbox": {
       // "url": "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",
@@ -427,4 +433,5 @@ const games={
       // "type": "OpenInGL"
     // },
 };
+//? add '&lb=true' to enable letterbox on ruffle urls
 export default games;

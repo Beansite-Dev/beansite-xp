@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+// import { viteSingleFile } from "vite-plugin-singlefile"
 // import { sentryVitePlugin } from "@sentry/vite-plugin";
 // import laravel from 'laravel-vite-plugin';
 
@@ -7,6 +8,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [
     react(),
+    // viteSingleFile(/* { removeViteModuleLoader: true } */),
     // laravel([]),
   ],
   build: {

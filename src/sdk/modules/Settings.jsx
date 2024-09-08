@@ -8,7 +8,9 @@ import {
     setSettings,
     setCustomCss,
     setExperimentalMode,
+    setLetterBox,
 } from "../store/settingsslice";
+import { queryParams } from "./lib";
 import { getBase64, dataURItoBlob } from "./lib";
 import { useEffect } from "react";
 import { debug } from "../../App";
@@ -56,6 +58,12 @@ const Settings=(props)=>{
         document.getElementById("customcss").innerHTML=settings.customCss;
         // experimental mode
         // nun
+
+        // letter box
+        if(settings.useLetterBoxInEmulators&&queryParams.lb!=="true")
+            {window.location="/?lb=true"}
+        else if(!settings.useLetterBoxInEmulators&&queryParams.lb=="true")
+            {window.location="/"}
     },[settings]);
     return(<Window
         size={{
@@ -81,6 +89,11 @@ const Settings=(props)=>{
                 <input type="checkbox" onChange={(e)=>{
                     dispatch(setExperimentalMode(e.target.checked));}}
                     defaultChecked={settings.experimentalMode}></input></label><br/>
+            {/*//! gotta fix this
+            <label>Use Letterbox on Emulators:<span>&nbsp;</span>
+                <input type="checkbox" onChange={(e)=>{
+                    dispatch(setLetterBox(e.target.checked));}}
+                    defaultChecked={settings.useLetterBoxInEmulators}></input></label><br/> */}
             <br/>
             {settings.experimentalMode?<>
                 <h3>Experimental Settings:</h3>
