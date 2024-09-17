@@ -1,3 +1,4 @@
+import { generateId } from "../sdk/sdk";
 const tips=[
     "There are tons of easter eggs in CMD; Try to find them all",
     "Did you know Boston is also called Beantown? Just me? oh...",
@@ -69,5 +70,24 @@ const tips=[
     "yk the beansite xp sdk is rly easy to use. yall can literally make ur own beansites.",
     "just bought ANOTHER monitor (i still dont enough enough)",
     "'should i cop?' - me, to rajeh",
+    "the best things in life are free. Beansite is free, therfore, beansite is the best",
+    "beansite classic coming ~ 10/1",
+    "man im thirsty asf",
+    "why am i thirsty asf?",
+    "i need water",
+    "im so thirsty",
+    "i barely ever touch the 'tips.js' file, so when new drops, its like jesus' second coming",
+    generateId(10),
+    "console.log();",
+    "document.getElementById();",
+    "i listened to the sky under the sea 166 times this week :skull:",
+    "if yall like coding in js, please help me mantain beansite. i cant keep doing this",
+    "apperently yall are reading these, so hi",
+    "i cant spell for shit man",
+    "the day vercel gets blocked is the day i transfer",
+    "bringus",
+    "im bored asf rn",
+    "goob",
+    "https://github.com/Beansite-Dev/beansite-xp/"
 ];
 export default tips;
