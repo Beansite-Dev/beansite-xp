@@ -88,6 +88,7 @@ const tips=[
     "bringus",
     "im bored asf rn",
     "goob",
-    "https://github.com/Beansite-Dev/beansite-xp/"
+    "https://github.com/Beansite-Dev/beansite-xp/",
+    "https://github.com/Beansite-Dev/",
 ];
 export default tips;

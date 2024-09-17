@@ -7,7 +7,7 @@ const LoadingScreen=()=>{
           [array[i],array[j]]=[array[j],array[i]]; 
         } return array; 
     };
-    const shuffledTips=shuffle(tips);
+    const shuffledTips=shuffle(shuffle(tips));
     let i=0;
     const[tip,setTip]=useState(shuffledTips[i]);
     const tipsInterval=setInterval(()=>{
