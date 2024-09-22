@@ -301,43 +301,43 @@ const games={
       "type": "OpenInGL"
     },
     "Riddle School": {
-      "url": "https://riddle-school.github.io/file/",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool.swf",
       "id": "riddleschool1",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 2": {
-      "url": "https://games.crazygames.com/en_US/riddle-school-2/index.html",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool2.swf",
       "id": "riddleschool2",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 3": {
-      "url": "https://games.crazygames.com/en_US/riddle-school-3/index.html",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool3.swf",
       "id": "riddleschool3",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 4": {
-      "url": "https://games.crazygames.com/en_US/riddle-school-4/index.html",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool4.swf",
       "id": "riddleschool4",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 5": {
-      "url": "https://games.crazygames.com/en_US/riddle-school-5/index.html",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool5.swf",
       "id": "riddleschool5",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle Transfer": {  
-      "url": "https://games.crazygames.com/en_US/riddle-transfer/index.html",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddletransfer.swf",
       "id": "riddleschool6",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle Transfer 2": {
-      "url": "https://games.crazygames.com/en_US/riddle-transfer-2/index.html",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddletransfer2.swf",
       "id": "riddleschool7",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}

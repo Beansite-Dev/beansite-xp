@@ -16,9 +16,11 @@ const release_data={
   "date":"9/22/24",
   "comment":"updates been slow but ive been busy as shit. expect more soon tho!",
   "features_added":[
-    "Added Beancloaked"
+    "Added Beancloaked",
+    "Added Game Hosting",
   ],
   "games_added":[
+    "Updated Riddle School games to use local ruffle emulator",
     <>Penalty Shooters 2 <p className='reqtxt'> - Requested by ChickenTenderMan84</p></>,
     <>Pokemon Gold <p className='reqtxt'> - Requested by grilledshrimp</p></>,
     // <>_g <p className='reqtxt'> - Requested by _u</p></>, // special request
@@ -202,10 +204,13 @@ const App=()=>{
           <div className='bc_content'>
             <h3>Tab Settings:</h3>
             <p className='caption'>The settings for the tab's title and icon</p>
-            <label>Preset: <select onChange={(e)=>{
+            <label>Preset: <select defaultChecked={JSON.stringify({
+                title:"Beansite XP",
+                icon:"beanxp_logo.png",
+              })} onChange={(e)=>{
               setBeancloaked(JSON.parse(e.target.value));
             }}>
-              <option selected value={JSON.stringify({
+              <option value={JSON.stringify({
                 title:"Beansite XP",
                 icon:"beanxp_logo.png",
               })}>Beansite XP</option>  
