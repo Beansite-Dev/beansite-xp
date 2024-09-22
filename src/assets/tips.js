@@ -77,7 +77,7 @@ const tips=[
     "i need water",
     "im so thirsty",
     "i barely ever touch the 'tips.js' file, so when new drops, its like jesus' second coming",
-    generateId(10),
+    ()=>{try{return generateId(10)}catch{return "RnhPMlBiZlFqVw=="}},
     "console.log();",
     "document.getElementById();",
     "i listened to the sky under the sea 166 times this week :skull:",

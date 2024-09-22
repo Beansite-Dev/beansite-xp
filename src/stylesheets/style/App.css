@@ -69,11 +69,6 @@
 #win_settings input[type=file] {
   display: none;
 }
-#win_settings .caption {
-  font-size: 1.5vmin;
-  text-align: left;
-  width: 100%;
-}
 #win_settings textarea {
   width: 100%;
   height: 5rem;
@@ -112,4 +107,58 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.reqtxt {
+  color: #909090;
+  font-size: 1.5vmin;
+}
+
+.caption {
+  font-size: 1.5vmin;
+  text-align: left;
+  width: 100%;
+}
+
+#win_beancloak .content {
+  padding: 0vmin !important;
+}
+#win_beancloak .bc_head {
+  height: 10vmin;
+  width: 100%;
+  background: url("/assets/beancloaked/header.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3.5vmin;
+  gap: 0.5vmin;
+  box-shadow: 0 0 1vmin #ca9c40, 0 0 5vmin #ead277;
+}
+#win_beancloak .bc_head h1 {
+  font-size: 4vmin;
+  text-shadow: 0 0 1vmin #ead277, 0 0 2vmin #ead277, 0 0 5vmin #ead277, 0 0 15vmin #ead277;
+}
+#win_beancloak .bc_head #bc_icon {
+  height: 150%;
+  aspect-ratio: 1/1;
+  background: url("/icons/xp/Padlock.png");
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1vmin #ead277) drop-shadow(0 0 2vmin #ead277) drop-shadow(0 0 5vmin #ead277) drop-shadow(0 0 15vmin #ead277);
+}
+#win_beancloak .bc_content {
+  height: calc(100% - 10vmin);
+  width: 100%;
+  padding: 3.5vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: scroll;
+}
+#win_beancloak .bc_content .caption {
+  margin-bottom: 0.5vmin;
 }/*# sourceMappingURL=App.css.map */

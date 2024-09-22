@@ -375,7 +375,7 @@ const games={
       "type": "OpenInGL"
     },
     "Super Mario 63": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/sueprmario63.swf",
+      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/supermario63.swf",
       "id": "sm63",
       "type": "OpenInGL"
     },
@@ -425,6 +425,11 @@ const games={
     "Penalty Shooters 2": {
       "url": "https://html5.gamedistribution.com/571b9df027e449f78e3869ba19658754/?gd_sdk_referrer_url=https://gamedistribution.com/games/Penalty-Shooters-2/",
       "id": "ps2",
+      "type": "OpenInGL",
+    },
+    "Pokemon Gold": {
+      "url": "https://static.arcadespot.com/retroemulator.php?system=gbc&game=2016/07/pokemon-gold.zip",
+      "id": "pokegold",
       "type": "OpenInGL",
     },
     // "Melon Sandbox": {

@@ -8,47 +8,20 @@ import FireBean from './firebean/firebean';
 import config from './beansite.config';
 import ReactGA from 'react-ga4';
 import { Helmet } from 'react-helmet-async';
+import { useHotkeys, HotkeysProvider } from 'react-hotkeys-hook'
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.4.1",
-  "date":"9/8/24",
-  "comment":"My b day! yippe",
+  "version":"v1.5.4",
+  "date":"9/22/24",
+  "comment":"updates been slow but ive been busy as shit. expect more soon tho!",
   "features_added":[
-    "Added Settings Savings",
-    "Added Settings Reset",
-    "Added Themes: Green, Pink",
-    "Added Custom CSS",
-    "Added Paint",
-    "Added Desktop App (dev only for now)",
-    "Added Google Analytics",
-    "Fixed bug where ga4 would report pointlessly",
-    "Some tweaks",
-    "Added borderless windows",
-    "Added Notifications (using Toastify)",
-    "Added Context Menu (using Contexify)",
-    "Added Notification and Context Menu styling to all themes",
-    "Added theme fallback for image renderer",
-    "fun things",
-    "Added Ruffle Loader",
-    "Implemented React Helmet",
-    "Desktop Icons!!!!!!",
-    "Fixed Desktop Icons!!!!!!",
-    "Moved URL To https://beansite.vercel.app",
+    "Added Beancloaked"
   ],
   "games_added":[
-    "Super Smash Flash",
-    "Super Smash Flash 2",
-    "Super Mario 63",
-    "Happy Wheels",
-    "FPA World 1",
-    "FPA World 2",
-    "FPA World 3",
-    "Duck Life",
-    "Duck Life 2",
-    "Duck Life 3",
-    "Duck Life 4",
-    "Eaglercraft 1.8.8",
+    <>Penalty Shooters 2 <p className='reqtxt'> - Requested by ChickenTenderMan84</p></>,
+    <>Pokemon Gold <p className='reqtxt'> - Requested by grilledshrimp</p></>,
+    // <>_g <p className='reqtxt'> - Requested by _u</p></>, // special request
   ],
   "games_removed":[
     
@@ -99,10 +72,20 @@ const App=()=>{
       "win_id":"beancloak",
     },
   ]
+  const[beancloaked,setBeancloaked]=useState({
+    title:"Beansite XP",
+    icon:"beanxp_logo.png",
+  });
+  const[bcredir,setBcredir]=useState("https://google.com");
+  useHotkeys('ctrl+k',()=>{
+    console.log("emergency key pressed");
+    window.onbeforeunload=()=>{};
+    location.href=bcredir;
+  },{scopes:['mbxpgui']});
   return(<>
     <Helmet>
-      <title>Beansite XP</title>
-      <link id="icon" rel="icon" type="image/svg+xml" href="/assets/beanxp_logo.png" />
+      <title>{beancloaked.title}</title>
+      <link id="icon" rel="icon" type="image/svg+xml" href={`/assets/${beancloaked.icon}`} />
     </Helmet>
     <BeansiteXP 
       config={config}
@@ -200,8 +183,8 @@ const App=()=>{
       <FireBean />
       <Window 
         size={{
-          "height": "50dvh",
-          "width": "50dvw"}} 
+          "height": "38vmin",
+          "width": "58vmin"}} 
         pos={{
           "x":["left","20vmin"],
           "y":["top","20vmin"],}}
@@ -211,9 +194,35 @@ const App=()=>{
           "close": true,}}
         id="beancloak"
         closed
-        title="Beancloak - undetectable"
+        title="Beancloak"
         icon="/icons/xp/Padlock.png">
-
+          <div className='bc_head'>
+            <div id='bc_icon'></div><h1>Beancloaked</h1>
+          </div>
+          <div className='bc_content'>
+            <h3>Tab Settings:</h3>
+            <p className='caption'>The settings for the tab's title and icon</p>
+            <label>Preset: <select onChange={(e)=>{
+              setBeancloaked(JSON.parse(e.target.value));
+            }}>
+              <option selected value={JSON.stringify({
+                title:"Beansite XP",
+                icon:"beanxp_logo.png",
+              })}>Beansite XP</option>  
+              <option value={JSON.stringify({
+                title:"Home",
+                icon:"/beancloaked/icons/googleclassroom.png",
+              })}>Google Classroom</option>  
+            </select></label><br/>
+            <h3>Emergency Key Settings</h3>
+            <p className='caption'>
+              Settigns for the emergency key, which can save you if a teacher walks behind 
+              you. keybind is "ctrl+k"
+            </p>
+            <label>Redirect URL: <input type="text" defaultValue={bcredir} onChange={(e)=>{
+              setBcredir(e.target.value);
+            }}/></label>
+          </div>
       </Window>
     </BeansiteXP>
   </>);
