@@ -1,12 +1,11 @@
 {
-    "buildCommand": "yarn build",
-    "devCommand": "yarn dev",
-    "installCommand": "yarn",
-    "framework": "vite",
-    "public": true,
-    "routes": [
-        { "src": "/", "dest": "/" },
-        { "src": "/render-window", "dest": "/" },
-        { "src": "/g/*", "dest": "/" }
+    "buildCommand":"yarn build",
+    "devCommand":"yarn dev",
+    "installCommand":"yarn",
+    "framework":"vite",
+    "public":true,
+    "redirects": [
+        {"source":"/gh-src","destination":"https://github.com/Beansite-Dev/beansite-xp","permanent":true},
+        {"source":"/mb95","destination":"https://mb95.vercel.app","permanent":true}
     ]
 }
