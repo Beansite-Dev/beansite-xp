@@ -1,8 +1,13 @@
 {
+    "buildCommand": "yarn build",
+    "devCommand": "yarn dev",
+    "installCommand": "yarn",
+    "framework": "vite",
+    "cleanUrls": true,
+    "public": true,
     "routes": [
         { "src": "/", "dest": "/" },
         { "src": "/render-window", "dest": "/" },
-        { "src": "/privacy-policy", "dest": "/" },
-        { "src": "/terms", "dest": "/" }
+        { "src": "/g/*", "dest": "/" }
     ]
 }
