@@ -3,7 +3,6 @@
     "devCommand": "yarn dev",
     "installCommand": "yarn",
     "framework": "vite",
-    "cleanUrls": true,
     "public": true,
     "routes": [
         { "src": "/", "dest": "/" },
