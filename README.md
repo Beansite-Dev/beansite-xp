@@ -1,13 +1,6 @@
 # Beansite XP
 This is the official repository for the up-and-coming predecessor to [Beansite 95](https://mb95.vercel.app). Naturally, both being themed after Windows OS versions, It came to name this "Beansite XP"
 
-## Get Access Early
-There are two wways to get early access to Beansite XP<br>
-**#1 - Request an Access Key**<br>
-You can request an access key from me via discord or snap and I will create one for you.<br>
-**#2 - Run Locally**<br>
-This will not work if you do not have a windows computer. You also have to be somewhat experienced with computers. All you need to do is clone the repository and run `_START.bat`. the app will automatically detect that its running locally and will allow you to access it with full debug utilities.
-
 ## Stay Updated on Development Progress
 We have created a new project, which you can find in the projects tab of this repository or in the Github Orginization. Simply click the one labeled `release`. It will show all features/bugs and their current progress in being released. You can also see how the development is going.
 

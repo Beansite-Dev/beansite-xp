@@ -97,6 +97,18 @@ const BeanpoweredGui=(props)=>{
                     "500Mb Drive Capacity",]
                     [Math.floor(Math.random()*4)]}</li>
             </ul>
+            <p 
+                id="playinfs" 
+                onClick={(e)=>{
+                    e.preventDefault();
+                    if(selectedGame.gdata.id!=="_placeholder"){
+                        OpenGame({
+                            ...selectedGame.gdata,
+                            url:`/g/${selectedGame.gdata.id}`,
+                            type:"OpenInNewTab",
+                        },selectedGame.title);
+                    }
+                }}>Play this game in fullscreen</p>
         </div>
     </div>);
 }

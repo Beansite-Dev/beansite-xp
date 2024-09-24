@@ -180,3 +180,74 @@
         }
     }
 }
+#err404 {
+    height: 100dvh;
+    width: 100dvw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #009cb5;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vmin;
+    .center {
+        height: fit-content;
+        max-height: 65vmin;
+        width: 50vmin;
+        background: #d3d3d3;
+        border: 2px solid #009cb5;
+        outline: 2px #d3d3d3 solid;
+        padding: 20px;
+        text-align: center;
+        overflow: auto;
+        * {
+            font-family: serif;
+        }
+        h1 {
+            color: #000;
+            font-size: 7.5vmin;
+            font-weight: normal;
+        }
+        h3 {
+            color: #000;
+            font-size: 3.5vmin;
+            font-weight: normal;
+        }
+        p {
+            color: #000;
+            font-size: 2.5vmin;
+            font-weight: normal;
+        }
+        hr {
+            margin: 10px 0;
+            border: none;
+            border-top: 1px #505050 solid;
+        }
+        .b1 {
+            margin: 2px;
+            width: 100%;
+            padding: 5px;
+            color: #000;
+            font-size: 2.35vmin;
+            font-weight: normal;
+            background: #d3d3d3;
+            border: 1px #505050 solid;
+            cursor: pointer;
+            &:hover {
+                border: 1px #009cb5 solid;
+            }
+        }
+        #brdplogo {
+            width: 100%;
+            height: 20vmin;
+            background-image: url("/assets/ui/brdp.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}

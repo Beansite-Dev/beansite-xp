@@ -104,6 +104,13 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+#bp_gui #bp_contents #playinfs {
+  font-size: 2vmin;
+  color: #707095;
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 0 1.5vmin;
+}
 #bp_gui #bp_contents .actionbar {
   height: 5vmin;
   width: 100%;

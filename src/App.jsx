@@ -12,12 +12,13 @@ import { useHotkeys, HotkeysProvider } from 'react-hotkeys-hook'
 
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.5.4",
-  "date":"9/22/24",
-  "comment":"updates been slow but ive been busy as shit. expect more soon tho!",
+  "version":"v1.6.2",
+  "date":"9/24/24",
+  "comment":"Some QOL Features mostly",
   "features_added":[
     "Added Beancloaked",
     "Added Game Hosting",
+    "Added ability to play games in Full Screen",
   ],
   "games_added":[
     "Updated Riddle School games to use local ruffle emulator",

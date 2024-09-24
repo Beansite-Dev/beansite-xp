@@ -221,6 +221,13 @@
   gap: 2vmin;
   pointer-events: auto;
 }
+#loading #brdplogo {
+  width: 100%;
+  background-image: url("/assets/ui/brdp.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 #loading #loadingIcon {
   height: 50vmin;
   width: 100vmin;

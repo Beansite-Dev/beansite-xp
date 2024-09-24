@@ -15,6 +15,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import games from './beanpowered/assets/games.js';
 import { GameHost } from './sdk/modules/GameHost.jsx';
 import { generateId } from './sdk/sdk.jsx';
+import { PageNotFound } from './sdk/modules/PageNotFound.jsx';
 
 InitializeGoogleAnalytics();
 
@@ -26,10 +27,11 @@ ReactDOM.createRoot(document.getElementById('root'))
     <Routes>
       <Route path="" element={<App/>}/>
       <Route path="/render-window" element={<RenderImage/>}/>
+      <Route path="*" element={<PageNotFound />}/>
       {Object.keys(games).map((gname)=><Route 
         exact path={`/g/${games[gname].id}`}
         key={generateId(10)}
-        element={<GameHost gdata={games[gname]} />} />)}
+        element={<GameHost gdata={games[gname]} gname={gname} />} />)}
     </Routes>
   </BrowserRouter>
 </BeanXPRouter>);

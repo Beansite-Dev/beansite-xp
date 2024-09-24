@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-export const GameHost=({gdata})=>{
+import { Helmet } from "react-helmet-async";
+export const GameHost=({gdata,gname})=>{
     /* const navigate=useNavigate();
     useEffect(()=>{
         if(gdata.type=="OpenInNewTab"){
@@ -8,6 +9,9 @@ export const GameHost=({gdata})=>{
         }
     },[]); */
     return(<>
+        <Helmet>
+            <title>{gname}</title>
+        </Helmet>
         <style>{`
             iframe {
                 height: 100dvh;
