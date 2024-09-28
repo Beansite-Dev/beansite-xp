@@ -30,16 +30,6 @@ const games={
       "id": "2048",
       "type": "OpenInGL"
     },
-    "Eaglercraft 1.8.8": {
-      "url": "/games/e188-61624-ecxu35u.html",
-      "id": "eag188",
-      "type": "NewTab"
-    },
-    "Eaglercraft 1.5.2": {
-      "url": "/games/e152-102522-ec22w43ac.html",
-      "id": "eag152",
-      "type": "NewTab"
-    },
     "Final Fantasy VII": {
       "url": "https://www.retrogames.cc/embed/43658-final-fantasy-vii-usa-disc-1.html",
       "id": "ffvii",
@@ -51,7 +41,7 @@ const games={
       "type": "OpenInGL"
     },
     "X-Trench Run": {
-      "url": "https://html5.gamedistribution.com/24d6db9a49d94cc28cf6c5b0073adb28/",
+      "url": "https://lagged.com/game-embed/x-trench-run/",
       "id": "xtr",
       "type": "OpenInGL"
     },

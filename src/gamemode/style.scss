@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+body{overflow: hidden;}
+nav {
+    height: 10vmin;
+    width: 100dvw;
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        to right, 
+        #320a60f0 0%, 
+        #1f063cf0 10%,
+        #170d20f0 50%, 
+        #151515f0 100%);
+    z-index: 99;
+    backdrop-filter: blur(1vmin);
+    border-bottom: 1px solid #252525;
+    box-shadow: 0 0 5vmin #1f063cf0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    // padding: 1.75vmin;
+    // gap: 1vmin;
+    a{height: 100%;width: fit-content;}
+    .navbtn {
+        height: 100%;
+        padding: .5vmin 5vmin;
+        font-size: 3vmin;
+        color: #ffffffd0;
+        border: none;
+        line-height: 0;
+        cursor: pointer;
+        background: linear-gradient(to top, #38006950, transparent);
+        min-width: 30vmin;
+        transition: .35s;
+        transition-timing-function: ease-out;
+        // border-bottom: .5vmin #30007d50 solid;
+        &::after {
+            content :"";
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: .5vmin;
+            width: 100%;
+            background: #30007d50;
+            transition: .35s;
+        }
+        &.active,&:hover {
+            background: linear-gradient(to top, #320961, transparent) !important;
+            &::after {
+                background: #690ed1;
+            }
+        }
+    }
+    #logo {
+        position: fixed;
+        height: 6.5vmin;
+        top: 1.75vmin;
+        left: 1.75vmin;
+        aspect-ratio: 1 / 1;
+        background-image: url("/assets/favicon_modern.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 200;
+        transition: 1s;
+        animation-timing-function: ease-in-out;
+        cursor: pointer;
+        filter: 
+            drop-shadow(0 0 1vmin #7700ff)
+            drop-shadow(0 0 5vmin #7700ff)
+            drop-shadow(0 0 20vmin #7700ff);
+        &:hover {
+            transform: scale(115%) rotate(360deg);
+            filter: 
+                drop-shadow(0 0 1vmin #7700ff)
+                drop-shadow(0 0 5vmin #7700ff)
+                drop-shadow(0 0 5vmin #7700ff)
+                drop-shadow(0 0 10vmin #7700ff);
+        }
+    }
+}
+#gm_uiw {
+    &,*{font-family: 'Noto Sans';}
+    background: #101010;
+    // height: calc(100dvh - 10vmin);
+    height: 100dvh;
+    width: 100dvw;
+    position: fixed;
+    // top: calc(50% + (10vmin / 2));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: auto;
+}

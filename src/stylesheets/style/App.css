@@ -35,6 +35,98 @@
 #win_changelog ul {
   padding-left: 3vmin;
 }
+#win_changelog #showcase_wrapper {
+  height: 20vmin;
+  width: 100%;
+  overflow: hidden;
+}
+#win_changelog #showcase_wrapper button#sce_left {
+  aspect-ratio: 1/1;
+  position: absolute;
+  height: 4vmin;
+  background: linear-gradient(to top, #d0d0d0, #f0f0f0);
+  border: 2px outset #b5b5b5;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.35s;
+  user-select: none;
+  z-index: 300;
+  left: 1vmin;
+}
+#win_changelog #showcase_wrapper button#sce_left:hover {
+  transform: translateY(calc(-50% - 0.5vmin));
+}
+#win_changelog #showcase_wrapper button#sce_left:active {
+  background: linear-gradient(to top, #c0c0c0, #dfdfdf);
+  border: 2px inset #b0b0b0;
+}
+#win_changelog #showcase_wrapper button#sce_right {
+  aspect-ratio: 1/1;
+  position: absolute;
+  height: 4vmin;
+  background: linear-gradient(to top, #d0d0d0, #f0f0f0);
+  border: 2px outset #b5b5b5;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.35s;
+  user-select: none;
+  z-index: 300;
+  right: 1vmin;
+}
+#win_changelog #showcase_wrapper button#sce_right:hover {
+  transform: translateY(calc(-50% - 0.5vmin));
+}
+#win_changelog #showcase_wrapper button#sce_right:active {
+  background: linear-gradient(to top, #c0c0c0, #dfdfdf);
+  border: 2px inset #b0b0b0;
+}
+#win_changelog #showcase_wrapper #showcase {
+  scroll-behavior: smooth;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  background: #000;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#win_changelog #showcase_wrapper #showcase::-webkit-scrollbar {
+  display: none;
+}
+#win_changelog #showcase_wrapper #showcase .sce {
+  height: calc(100% - 1vmin);
+  aspect-ratio: 16/9;
+  max-width: 100%;
+  max-height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  background-position: center;
+  background-size: cover;
+}
+#win_changelog #showcase_wrapper #showcase .sce.sce_0 {
+  transform: translate(calc(-50% + 0vmin), -50%);
+}
+#win_changelog #showcase_wrapper #showcase .sce.sce_1 {
+  transform: translate(calc(50% + 2vmin), -50%);
+}
+#win_changelog #showcase_wrapper #showcase .sce.sce_2 {
+  transform: translate(calc(150% + 4vmin), -50%);
+}
+#win_changelog #showcase_wrapper #showcase .sce.sce_3 {
+  transform: translate(calc(250% + 6vmin), -50%);
+}
+#win_changelog #showcase_wrapper #showcase .sce.bc_feature {
+  background-image: url("/assets/slideshow/bc_feature.png");
+}
 
 #win_settings h3 {
   font-size: 3vmin;

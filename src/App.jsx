@@ -9,15 +9,19 @@ import config from './beansite.config';
 import ReactGA from 'react-ga4';
 import { Helmet } from 'react-helmet-async';
 import { useHotkeys, HotkeysProvider } from 'react-hotkeys-hook'
-
+import { MultibeanMC } from './multibeanmc/MultibeanMC';
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.6.2",
-  "date":"9/24/24",
-  "comment":"Some QOL Features mostly",
+  "version":"v1.7.3",
+  "date":"9/27/24",
+  "comment":"lots planned and lots worked on",
   "features_added":[
     "Added Beancloaked",
     "Added Game Hosting",
+    "Added Changelog Slideshow",
+    "Planned Game Mode (like hahagames)",
+    // <>Added <a href="/g">Game Mode</a></>,
+    "Added MultibeanMC (minecraft launcher for beansite)",
     "Added ability to play games in Full Screen",
   ],
   "games_added":[
@@ -73,6 +77,10 @@ const App=()=>{
       "title":"Beancloak",
       "icon":"/icons/xp/Padlock.png",
       "win_id":"beancloak",
+    },{
+      "title":"MultibeanMC",
+      "icon":"/assets/mbmc/logo.png",
+      "win_id":"mbmc",
     },
   ]
   const[beancloaked,setBeancloaked]=useState({
@@ -135,6 +143,29 @@ const App=()=>{
         id="changelog"
         title="Changelog"
         icon="/icons/xp/Services.png">
+          <div id="showcase_wrapper">
+            <button id="sce_left" onClick={(e)=>{
+              [document.getElementById("showcase")].map((showcase)=>{
+                [document.getElementsByClassName("sce")[0]].map((sce)=>{
+                  showcase.scrollBy(0-(sce.getBoundingClientRect().width+parseInt("2vmin")),0);
+                });
+              })
+            }}>{`<`}</button>
+            <button id="sce_right" onClick={(e)=>{
+              [document.getElementById("showcase")].map((showcase)=>{
+                [document.getElementsByClassName("sce")[0]].map((sce)=>{
+                  showcase.scrollBy(sce.getBoundingClientRect().width+parseInt("2vmin"),0);
+                });
+              })
+            }}>{`>`}</button>
+            <div id="showcase">
+              {/*---*/}
+              <div id="sce_0" className="sce sce_0 bc_feature" ></div>
+              {/* <div id="sce_1" className="sce sce_1"></div>
+              <div id="sce_2" className="sce sce_2"></div>
+              <div id="sce_3" className="sce sce_3"></div> */}
+            </div>
+          </div>
           <h1>{`What's New - ${release_data.version} - ${release_data.date}`}</h1>
           <p>{release_data.comment}</p>
           <ul>
@@ -230,6 +261,7 @@ const App=()=>{
             }}/></label>
           </div>
       </Window>
+      <MultibeanMC/>
     </BeansiteXP>
   </>);
 }

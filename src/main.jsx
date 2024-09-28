@@ -16,6 +16,7 @@ import games from './beanpowered/assets/games.js';
 import { GameHost } from './sdk/modules/GameHost.jsx';
 import { generateId } from './sdk/sdk.jsx';
 import { PageNotFound } from './sdk/modules/PageNotFound.jsx';
+import { Gamemode } from './gamemode/Gamemode.jsx';
 
 InitializeGoogleAnalytics();
 
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root'))
       <Route path="" element={<App/>}/>
       <Route path="/render-window" element={<RenderImage/>}/>
       <Route path="*" element={<PageNotFound />}/>
+      <Route path="/g" element={<Gamemode/>}/>
       {Object.keys(games).map((gname)=><Route 
         exact path={`/g/${games[gname].id}`}
         key={generateId(10)}
