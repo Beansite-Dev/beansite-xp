@@ -31,9 +31,11 @@ ReactDOM.createRoot(document.getElementById('root'))
       <Route path="*" element={<PageNotFound />}/>
       <Route path="/g" element={<Gamemode/>}/>
       {Object.keys(games).map((gname)=><Route 
-        exact path={`/g/${games[gname].id}`}
+        exact path={`/g/host/${games[gname].id}`}
         key={generateId(10)}
-        element={<GameHost gdata={games[gname]} gname={gname} />} />)}
+        element={<GameHost 
+          gdata={games[gname]}
+          gname={gname} />}/>)}
     </Routes>
   </BrowserRouter>
 </BeanXPRouter>);

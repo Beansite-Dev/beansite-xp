@@ -83,8 +83,19 @@ nav #logo:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 5vmin;
+  padding-top: 15vmin;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1vmin;
   overflow: auto;
 }
 #gm_uiw, #gm_uiw * {
   font-family: "Noto Sans";
+}
+#gm_uiw .gm_game {
+  width: 33.3333333333%;
+  aspect-ratio: 16/9;
+  background: #fff;
 }/*# sourceMappingURL=style.css.map */

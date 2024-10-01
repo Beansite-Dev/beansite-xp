@@ -104,6 +104,7 @@
                 @each $slide in $sce_slides {&.sce_#{$slide}{transform:
                     translate(calc(-50% + (100% * $slide) + (2vmin * $slide)),-50%);}}
                 &.bc_feature{background-image: url("/assets/slideshow/bc_feature.png");}
+                &.mbmc_feature{background-image: url("/assets/slideshow/mbmc_feature.png");}
             }
         }
     }

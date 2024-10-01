@@ -422,6 +422,42 @@ const games={
       "id": "pokegold",
       "type": "OpenInGL",
     },
+    "Breaking the Bank": {
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/breakingthebank.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "id": "hsbtb",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Escaping the Prison": {
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/escapingtheprisongame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "id": "hsetp",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Crossing the Pit": {
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/flash_crossingthepit.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "id": "hsctp",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Fleeing the Complex": {
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/fleeing_the_complex.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "id": "hsftc",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Infiltrating The Airship": {
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/infiltratingtheairshipgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "id": "hsita",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Stealing the Diamond": {
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "id": "hsstd",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
     // "Melon Sandbox": {
       // "url": "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",
       // "id": "melon",

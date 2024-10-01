@@ -12,9 +12,9 @@ import { useHotkeys, HotkeysProvider } from 'react-hotkeys-hook'
 import { MultibeanMC } from './multibeanmc/MultibeanMC';
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.7.3",
+  "version":"v1.8.1",
   "date":"9/27/24",
-  "comment":"lots planned and lots worked on",
+  "comment":"Early deploy lol (theres like 50 unfinished features but ive hidden them all)",
   "features_added":[
     "Added Beancloaked",
     "Added Game Hosting",
@@ -25,6 +25,7 @@ const release_data={
     "Added ability to play games in Full Screen",
   ],
   "games_added":[
+    "Added all Henry Stickman Games",
     "Updated Riddle School games to use local ruffle emulator",
     <>Penalty Shooters 2 <p className='reqtxt'> - Requested by ChickenTenderMan84</p></>,
     <>Pokemon Gold <p className='reqtxt'> - Requested by grilledshrimp</p></>,
@@ -160,10 +161,10 @@ const App=()=>{
             }}>{`>`}</button>
             <div id="showcase">
               {/*---*/}
-              <div id="sce_0" className="sce sce_0 bc_feature" ></div>
-              {/* <div id="sce_1" className="sce sce_1"></div>
-              <div id="sce_2" className="sce sce_2"></div>
-              <div id="sce_3" className="sce sce_3"></div> */}
+              <div id="sce_0" className="sce sce_0 mbmc_feature" ></div>
+              <div id="sce_1" className="sce sce_1 bc_feature"></div>
+              {/* <div id="sce_2" className="sce sce_2"></div> */}
+              {/* <div id="sce_3" className="sce sce_3"></div> */}
             </div>
           </div>
           <h1>{`What's New - ${release_data.version} - ${release_data.date}`}</h1>

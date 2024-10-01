@@ -127,6 +127,9 @@
 #win_changelog #showcase_wrapper #showcase .sce.bc_feature {
   background-image: url("/assets/slideshow/bc_feature.png");
 }
+#win_changelog #showcase_wrapper #showcase .sce.mbmc_feature {
+  background-image: url("/assets/slideshow/mbmc_feature.png");
+}
 
 #win_settings h3 {
   font-size: 3vmin;
