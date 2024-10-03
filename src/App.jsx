@@ -12,19 +12,27 @@ import { useHotkeys, HotkeysProvider } from 'react-hotkeys-hook'
 import { MultibeanMC } from './multibeanmc/MultibeanMC';
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.8.1",
-  "date":"9/27/24",
-  "comment":"Early deploy lol (theres like 50 unfinished features but ive hidden them all)",
+  "version":"v1.9.1",
+  "date":"10/2/24",
+  "comment":"Planned features and many fixes",
   "features_added":[
     "Added Beancloaked",
     "Added Game Hosting",
     "Added Changelog Slideshow",
     "Planned Game Mode (like hahagames)",
+    "Added Game Icons",
+    "Fixed Window/WinUtil bugs",
+    "Fixed Themeing bugs",
+    "Fixed high drag radius",
+    "Fixed weird css",
+    "Added custom dark theme",
+    "Allowed Beancloaked Hotkey Tweaking",
     // <>Added <a href="/g">Game Mode</a></>,
     "Added MultibeanMC (minecraft launcher for beansite)",
     "Added ability to play games in Full Screen",
   ],
   "games_added":[
+    "Cluster Trucks",
     "Added all Henry Stickman Games",
     "Updated Riddle School games to use local ruffle emulator",
     <>Penalty Shooters 2 <p className='reqtxt'> - Requested by ChickenTenderMan84</p></>,
@@ -45,6 +53,7 @@ const App=()=>{
     });
   },[]);
   const[glTitle,setGlTitle]=useState(`Gameloader`);
+  const[glIcon,setGlIcon]=useState(`/icons/xp/Game Controller.png`);
   const Shortcuts=[
     {
       "title":"Welcome",
@@ -89,7 +98,8 @@ const App=()=>{
     icon:"beanxp_logo.png",
   });
   const[bcredir,setBcredir]=useState("https://google.com");
-  useHotkeys('ctrl+k',()=>{
+  const[bchotkey,setBchotkey]=useState("ctrl+k");
+  useHotkeys(bchotkey,()=>{
     console.log("emergency key pressed");
     window.onbeforeunload=()=>{};
     location.href=bcredir;
@@ -191,7 +201,7 @@ const App=()=>{
         id="beanpowered"
         title="Beanpowered"
         icon="/icons/bp.png">
-          <BeanpoweredGui  setGlTitle={setGlTitle} />
+          <BeanpoweredGui  setGlTitle={setGlTitle} setGlIcon={setGlIcon} />
       </Window>
       <Window 
         size={{
@@ -212,7 +222,7 @@ const App=()=>{
         id="gameloader"
         closed
         title={glTitle}
-        icon="/icons/xp/Game Controller.png">
+        icon={glIcon}>
           <iframe id="gl_frame" />
       </Window>
       <FireBean />
@@ -255,11 +265,17 @@ const App=()=>{
             <h3>Emergency Key Settings</h3>
             <p className='caption'>
               Settigns for the emergency key, which can save you if a teacher walks behind 
-              you. keybind is "ctrl+k"
+              you.
             </p>
             <label>Redirect URL: <input type="text" defaultValue={bcredir} onChange={(e)=>{
               setBcredir(e.target.value);
             }}/></label>
+            <label>Key Combination: <input type="text" defaultValue={bchotkey} onChange={(e)=>{
+              setBchotkey(e.target.value);
+            }}/></label>
+            <p className='caption'>
+              Please format your string as "ctrl + shift + alt + key" (all optional. you can set to whatever)
+            </p>
           </div>
       </Window>
       <MultibeanMC/>

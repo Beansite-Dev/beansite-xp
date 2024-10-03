@@ -11,6 +11,7 @@ export const GameHost=({gdata,gname})=>{
     return(<>
         <Helmet>
             <title>{gname}</title>
+            <link id="icon" rel="icon" type="image/svg+xml" href={`/assets/bp_assets/gicon/${gdata.id}.png`} />
         </Helmet>
         <style>{`
             iframe {

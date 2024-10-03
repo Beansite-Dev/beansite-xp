@@ -75,11 +75,11 @@ export const WinUtils={
   getTheme:(settings)=>{
     var theme;
     switch(settings.theme){
-      case "dark":theme="dark_icons";break;
-      case "pink":theme="pink";break;
-      case "green":theme="green";break;
-      case "classic":default:theme="xp";break;
+      case "dark":return "dark_icons";
+      case "pink":return "pink";
+      case "green":return "green";
+      case "darkclassic":return "darkclassic";
+      case "classic":default:return "xp";
     }
-    return theme;
   }
 }

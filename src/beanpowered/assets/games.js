@@ -95,7 +95,7 @@ const games={
       "id": "dr3d",
       "type": "OpenInGL"
     },
-    "Fridy Night Funkin'": {
+    "Friday Night Funkin'": {
       "url": "https://friday-nightfunkin.io/friday-night-funkin",
       "id": "funkin",
       "type": "OpenInGL"
@@ -455,6 +455,12 @@ const games={
     "Stealing the Diamond": {
       "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hsstd",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Cluster Trucks": {
+      "url": `https://clusterrush.io/game/cluster-rush/`,
+      "id": "clustert",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },

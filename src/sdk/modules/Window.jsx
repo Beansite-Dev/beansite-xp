@@ -179,7 +179,7 @@ export const Window=({
         pos3 = e.clientX;
         pos4 = e.clientY;
         //! buggy with new themes
-        document.getElementById("maximizePreview").style.opacity=(pos4<=60)?1:0;
+        document.getElementById("maximizePreview").style.opacity=(pos4<=40)?1:0;
         // set the element's new position:
         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -191,7 +191,7 @@ export const Window=({
         elmnt.style.transition=".5s";
         var isMax=document.getElementById(`win_${id}_isMax?`);
         // ! buggy with new theme system
-        if(pos4<=60){
+        if(pos4<=40){
           document.getElementById("maximizePreview").style.opacity=0;
           isMax.setAttribute("content",`true`);
           nb_actions.maximize(document.getElementById(`win_${id}_max`),elmnt,true);

@@ -61,7 +61,7 @@
         }
         .bpsb_item {
             padding: .25vmin;
-            padding-left: 1vmin;
+            padding-left: 3.5vmin;
             border-bottom: 1px #707095 solid;
             font-size: 2vmin;
             font-weight: 200;
@@ -69,9 +69,21 @@
             transition: .35s;
             user-select: none;
             &:hover {
-                padding-left: 1.5vmin;
+                padding-left: 4vmin;
                 padding-right: 0;
                 background: rgba(255,255,255,.35);
+            }
+            .bpsb_item_icon {
+                width: 2.5vmin;
+                aspect-ratio: 1 / 1;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: .5vmin;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: .5vmin;
             }
         }
     }
@@ -108,6 +120,22 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            #bp_bgicon {
+                height: calc(100% - 2vmin);
+                aspect-ratio: 1 / 1;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 1vmin;
+                border-radius: .5vmin;
+                filter:
+                    drop-shadow(0 0 1vmin black)
+                    drop-shadow(0 0 3.5vmin black)
+                    drop-shadow(0 0 10vmin black);
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
         }
         #playinfs {
             font-size: 2vmin;

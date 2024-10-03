@@ -60,10 +60,10 @@ const Settings=(props)=>{
         // nun
 
         // letter box
-        if(settings.useLetterBoxInEmulators&&queryParams.lb!=="true")
+        /* if(settings.useLetterBoxInEmulators&&queryParams.lb!=="true")
             {window.location="/?lb=true"}
         else if(!settings.useLetterBoxInEmulators&&queryParams.lb=="true")
-            {window.location="/"}
+            {window.location="/"} */
     },[settings]);
     return(<Window
         size={{
@@ -249,6 +249,7 @@ const Settings=(props)=>{
                     <option value="dark">Dark</option>
                     <option value="pink">Pink</option>
                     <option value="green">Green</option>
+                    <option value="darkclassic">Classic Dark</option>
                 </select>
             </label><br/>
             <label>Background Image:<span>&nbsp;</span>

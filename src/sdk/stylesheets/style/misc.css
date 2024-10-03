@@ -14,20 +14,18 @@
 }
 
 #maximizePreview {
-  height: calc(100dvh - 48px - 2vmin);
-  width: calc(100dvw - 2vmin);
+  height: calc(100dvh - 60px);
+  width: calc(100dvw - 12px);
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, calc(-50% - 48px + 2.5vmin));
-  background: rgba(255, 255, 255, 0.7098039216);
-  border: 1px #fff solid;
-  border-radius: 15px;
-  backdrop-filter: blur(8px);
+  top: 6px;
+  left: 6px;
+  background: rgba(255, 255, 255, 0.2078431373);
+  border: 3px dashed #d0d0d0;
+  backdrop-filter: blur(1px);
   transition: 0.35s;
   opacity: 0;
   pointer-events: none;
-  z-index: 3;
+  z-index: 159;
 }
 
 #shutdownScreen {

@@ -23,6 +23,7 @@ const BeanpoweredGui=(props)=>{
             switch(type){
                 case "OpenInGL":
                     props.setGlTitle(title);
+                    props.setGlIcon(`/assets/bp_assets/gicon/${id}.png`)
                     document.getElementById("gl_frame").setAttribute("src",url);
                     WinUtils.openWindow("gameloader");break;
                 case "NewTab":
@@ -36,7 +37,9 @@ const BeanpoweredGui=(props)=>{
             onClick={()=>{setSelectedGame({
                 "title":title,
                 "gdata":games[title]
-            });}}>{title}</div>);}
+            });}}><div 
+                style={{backgroundImage:`url("assets/bp_assets/gicon/${id}.png")`}} 
+                className="bpsb_item_icon"></div>{title}</div>);}
     return(<div id="bp_gui">
         <div className="bp_sidebar">
             <input 
@@ -65,7 +68,11 @@ const BeanpoweredGui=(props)=>{
             <div className="banner" style={{
                 ...selectedGame.gdata.customBannerCSS?selectedGame.gdata.customBannerCSS:null,
                 "backgroundImage": `url("/assets/bp_assets/gbanner/${selectedGame.gdata.id}.png")`,
-            }}></div>
+            }}>
+                <div 
+                    id="bp_bgicon" 
+                    style={{"backgroundImage": `url("/assets/bp_assets/gicon/${selectedGame.gdata.id}.png")`,}}></div>
+            </div>
             <div className="actionbar">
                 <h1>{selectedGame.title}</h1>
                 <button className="playButton" onClick={()=>{OpenGame(selectedGame.gdata, selectedGame.title);}}>Play ▶</button>
@@ -104,7 +111,7 @@ const BeanpoweredGui=(props)=>{
                     if(selectedGame.gdata.id!=="_placeholder"){
                         OpenGame({
                             ...selectedGame.gdata,
-                            url:`/g/${selectedGame.gdata.id}`,
+                            url:`/g/host/${selectedGame.gdata.id}`,
                             type:"OpenInNewTab",
                         },selectedGame.title);
                     }
