@@ -124,10 +124,10 @@
                 height: calc(100% - 2vmin);
                 aspect-ratio: 1 / 1;
                 position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
+                bottom: 1vmin;
                 left: 1vmin;
                 border-radius: .5vmin;
+                max-height: 22.5vmin;
                 filter:
                     drop-shadow(0 0 1vmin black)
                     drop-shadow(0 0 3.5vmin black)

@@ -30,6 +30,7 @@ const release_data={
     // <>Added <a href="/g">Game Mode</a></>,
     "Added MultibeanMC (minecraft launcher for beansite)",
     "Added ability to play games in Full Screen",
+    "Added Pranks",
   ],
   "games_added":[
     "Cluster Trucks",
@@ -171,8 +172,8 @@ const App=()=>{
             }}>{`>`}</button>
             <div id="showcase">
               {/*---*/}
-              <div id="sce_0" className="sce sce_0 mbmc_feature" ></div>
-              <div id="sce_1" className="sce sce_1 bc_feature"></div>
+              <div id="sce_0" className="sce sce_0 mbmc_feature" onClick={(e)=>{e.preventDefault();WinUtils.openWindow("mbmc")}}></div>
+              <div id="sce_1" className="sce sce_1 bc_feature" onClick={(e)=>{e.preventDefault();WinUtils.openWindow("beancloak")}}></div>
               {/* <div id="sce_2" className="sce sce_2"></div> */}
               {/* <div id="sce_3" className="sce sce_3"></div> */}
             </div>
