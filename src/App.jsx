@@ -33,6 +33,7 @@ const release_data={
     "Added Pranks",
   ],
   "games_added":[
+    <>Tank Trouble <p className='reqtxt'> - Requested by geith</p></>,
     "Cluster Trucks",
     "Added all Henry Stickman Games",
     "Updated Riddle School games to use local ruffle emulator",

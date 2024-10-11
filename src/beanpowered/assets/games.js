@@ -464,6 +464,12 @@ const games={
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
+    "Tank Trouble": {
+      "url": `https://tanktrouble.com`,
+      "id": "tanktrouble",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
     // "Melon Sandbox": {
       // "url": "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",
       // "id": "melon",
