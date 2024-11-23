@@ -470,6 +470,35 @@ const games={
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
+    "Coreball": {
+      "url": `https://www.arealme.com/coreball/en/`,
+      "id": "coreball",
+      "type": "OpenInGL",
+    },
+    "Block Blast": {
+      "url": `https://blockblastonline.com/game/block-blast-v1/`,
+      "id": "blockblast",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "85%",}
+    },
+    "Big Shot Boxing": {
+      "url": `https://g2.igroutka.ru/games/164/3EPlpaMwGYF4D9A2/2/big_shot_boxing/`,
+      "id": "bigshotboxing",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Basketball Random": {
+      "url": `https://games.crazygames.com/en_US/basket-random/index.html?v=1.311`,
+      "id": "bbrand",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
+    "Mario Crossover": {
+      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "id": "smbco",
+      "type": "OpenInGL",
+      "customBannerCSS":{"backgroundPositionY": "top",}
+    },
     // "Melon Sandbox": {
       // "url": "https://yandex.com/games/app/260481?header=no&skip-guard=1&utm_source=distrib&utm_medium=gamepix",
       // "id": "melon",

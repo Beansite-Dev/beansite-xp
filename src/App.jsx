@@ -12,25 +12,11 @@ import { useHotkeys, HotkeysProvider } from 'react-hotkeys-hook'
 import { MultibeanMC } from './multibeanmc/MultibeanMC';
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.9.1",
-  "date":"10/2/24",
-  "comment":"Planned features and many fixes",
+  "version":"v1.10.1",
+  "date":"11/23/24",
+  "comment":"Massive Game Drop",
   "features_added":[
-    "Added Beancloaked",
-    "Added Game Hosting",
-    "Added Changelog Slideshow",
-    "Planned Game Mode (like hahagames)",
-    "Added Game Icons",
-    "Fixed Window/WinUtil bugs",
-    "Fixed Themeing bugs",
-    "Fixed high drag radius",
-    "Fixed weird css",
-    "Added custom dark theme",
-    "Allowed Beancloaked Hotkey Tweaking",
-    // <>Added <a href="/g">Game Mode</a></>,
-    "Added MultibeanMC (minecraft launcher for beansite)",
-    "Added ability to play games in Full Screen",
-    "Added Pranks",
+    <>Devs kinda slow, but im working on something new <a style={{color:"blue",textDecoration:"none"}} href="https://beansite-7.vercel.app">;)</a></>,
   ],
   "games_added":[
     <>Tank Trouble <p className='reqtxt'> - Requested by geith</p></>,
@@ -39,6 +25,10 @@ const release_data={
     "Updated Riddle School games to use local ruffle emulator",
     <>Penalty Shooters 2 <p className='reqtxt'> - Requested by ChickenTenderMan84</p></>,
     <>Pokemon Gold <p className='reqtxt'> - Requested by grilledshrimp</p></>,
+    <>Coreball <p className='reqtxt'> - Requested by coreballuser316</p></>,
+    "Block Blast",
+    "Big Shot Boxing",
+    <>Basketbal Random <p className='reqtxt'> - Requested by aeon</p></>,
     // <>_g <p className='reqtxt'> - Requested by _u</p></>, // special request
   ],
   "games_removed":[
