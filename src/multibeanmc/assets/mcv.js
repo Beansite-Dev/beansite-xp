@@ -11,6 +11,12 @@ export const mcv={
       type: "vanilla",
       icon:"/assets/mbmc/vi/eag.png",
     },
+    "Eaglercraft 1.8.8 WASM-GC":{
+      url: "/games/e188-122324-ecxu46-wasm-gc.html",
+      id: "eag188_wasmgc",
+      type: "vanilla",
+      icon:"/assets/mbmc/vi/eag.png",
+    },
     /* "Resent Client 3.6 (1.8.8)": {
       url: "/games/res188-38.html",
       id: "res188_38",
@@ -22,5 +28,23 @@ export const mcv={
       id: "res188_40",
       type: "modded",
       icon:"/assets/mbmc/vi/res.png",
+    },
+    "Fuchsiax Ghost Client (1.5.2)": {
+      url: "/games/fuchsiaxghostclient152.html",
+      id: "fgc152",
+      type: "modded",
+      icon:"/assets/mbmc/vi/eag.png",
+    },
+    "Kerosene Client 1.5.2": {
+      url: "/games/keroseneclient152.html",
+      id: "ksc152",
+      type: "modded",
+      icon:"/assets/mbmc/vi/eag.png",
+    },
+    "Dragon X Client 1.8.8": {
+      url: "/games/dragonxclient188.html",
+      id: "dxc188",
+      type: "modded",
+      icon:"/assets/mbmc/vi/eag.png",
     },
 }

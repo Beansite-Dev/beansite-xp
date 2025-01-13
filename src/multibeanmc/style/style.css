@@ -90,8 +90,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 1vmin;
+  gap: 3vmin 1vmin;
   margin-top: 4vmin;
+  /* overflow: auto; */
+  flex-wrap: wrap;
 }
 #mbmc_gw #mbmc_c .catagorywrapper::before {
   content: "";

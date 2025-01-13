@@ -13,22 +13,15 @@ import { MultibeanMC } from './multibeanmc/MultibeanMC';
 export const debug=config.debugMode;
 const release_data={
   "version":"v1.10.1",
-  "date":"11/23/24",
-  "comment":"Massive Game Drop",
+  "date":"1/12/25",
+  "comment":"First update of 2025?",
   "features_added":[
-    <>Devs kinda slow, but im working on something new <a style={{color:"blue",textDecoration:"none"}} href="https://beansite-7.vercel.app">;)</a></>,
+    "Sry abt lack of updates ive kinda js lost interest as well as being burnt out",
+    // <>Devs kinda slow, but im working on something new <a style={{color:"blue",textDecoration:"none"}} href="https://beansite-7.vercel.app">;)</a></>,
   ],
   "games_added":[
-    <>Tank Trouble <p className='reqtxt'> - Requested by geith</p></>,
-    "Cluster Trucks",
-    "Added all Henry Stickman Games",
-    "Updated Riddle School games to use local ruffle emulator",
-    <>Penalty Shooters 2 <p className='reqtxt'> - Requested by ChickenTenderMan84</p></>,
-    <>Pokemon Gold <p className='reqtxt'> - Requested by grilledshrimp</p></>,
-    <>Coreball <p className='reqtxt'> - Requested by coreballuser316</p></>,
-    "Block Blast",
-    "Big Shot Boxing",
-    <>Basketbal Random <p className='reqtxt'> - Requested by aeon</p></>,
+    "Eaglercraft 1.8.8 WASM-GC",
+    "Hacked Eaglercraft Clients"
     // <>_g <p className='reqtxt'> - Requested by _u</p></>, // special request
   ],
   "games_removed":[
