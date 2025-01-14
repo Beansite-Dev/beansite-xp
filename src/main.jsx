@@ -18,6 +18,7 @@ import { generateId } from './sdk/sdk.jsx';
 import { PageNotFound } from './sdk/modules/PageNotFound.jsx';
 import { Gamemode } from './gamemode/Gamemode.jsx';
 
+// if(!(location.hostname === "localhost"||location.hostname === "127.0.0.1"))
 InitializeGoogleAnalytics();
 
 ReactDOM.createRoot(document.getElementById('root'))

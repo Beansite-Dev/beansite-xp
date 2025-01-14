@@ -291,43 +291,43 @@ const games={
       "type": "OpenInGL"
     },
     "Riddle School": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool.swf",
       "id": "riddleschool1",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 2": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool2.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool2.swf",
       "id": "riddleschool2",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 3": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool3.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool3.swf",
       "id": "riddleschool3",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 4": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool4.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool4.swf",
       "id": "riddleschool4",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle School 5": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddleschool5.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddleschool5.swf",
       "id": "riddleschool5",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle Transfer": {  
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddletransfer.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddletransfer.swf",
       "id": "riddleschool6",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Riddle Transfer 2": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/riddletransfer2.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/riddletransfer2.swf",
       "id": "riddleschool7",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
@@ -354,60 +354,60 @@ const games={
       "type": "OpenInGL"
     },
     "Super Smash Flash": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/SuperSmash.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/SuperSmash.swf",
       "id": "ssf",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Super Smash Flash 2": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/SuperSmash2.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/SuperSmash2.swf",
       "id": "ssf2",
       "type": "OpenInGL"
     },
     "Super Mario 63": {
-      "url": "/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/supermario63.swf",
+      "url": "/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/supermario63.swf",
       "id": "sm63",
       "type": "OpenInGL"
     },
     "Happy Wheels": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/happyWheels.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/happyWheels.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hw",
       "type": "OpenInGL"
     },
     "FPA World 1": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld1.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld1.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "fpaw1",
       "type": "OpenInGL"
     },
     "FPA World 2": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld2.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld2.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "fpaw2",
       "type": "OpenInGL"
     },
     "FPA World 3": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/FPAWorld3.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/FPAWorld3.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "fpaw3",
       "type": "OpenInGL"
     },
     "Duck Life": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl1",
       "type": "OpenInGL"
     },
     "Duck Life 2": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife2.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife2.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl2",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "25%",}
     },
     "Duck Life 3": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife3.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife3.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl3",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Duck Life 4": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/ducklife4.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/ducklife4.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "dl4",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
@@ -423,37 +423,37 @@ const games={
       "type": "OpenInGL",
     },
     "Breaking the Bank": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/breakingthebank.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/breakingthebank.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hsbtb",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Escaping the Prison": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/escapingtheprisongame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/escapingtheprisongame.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hsetp",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Crossing the Pit": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/flash_crossingthepit.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/flash_crossingthepit.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hsctp",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Fleeing the Complex": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/fleeing_the_complex.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/fleeing_the_complex.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hsftc",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Infiltrating The Airship": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/infiltratingtheairshipgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/infiltratingtheairshipgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hsita",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Stealing the Diamond": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "hsstd",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}
@@ -494,7 +494,7 @@ const games={
       "customBannerCSS":{"backgroundPositionY": "top",}
     },
     "Mario Crossover": {
-      "url": `/games/emulator_src/ruffle/ruffleLoader.html?g=/games/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
+      "url": `/gs/emulator_src/ruffle/ruffleLoader.html?g=/gs/emulator_src/ruffle/games/stealingthediamondgame.swf${queryParams.lb==="true"?"&lb=true":""}`,
       "id": "smbco",
       "type": "OpenInGL",
       "customBannerCSS":{"backgroundPositionY": "top",}

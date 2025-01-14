@@ -1,18 +1,18 @@
 export const mcv={
     "Eaglercraft 1.8.8": {
-      url: "/games/e188-61624-ecxu35u.html",
+      url: "/gs/e188-61624-ecxu35u.html",
       id: "eag188_v",
       type: "vanilla",
       icon:"/assets/mbmc/vi/eag.png",
     },
     "Eaglercraft 1.5.2": {
-      url: "/games/e152-102522-ec22w43ac.html",
+      url: "/gs/e152-102522-ec22w43ac.html",
       id: "eag152_v",
       type: "vanilla",
       icon:"/assets/mbmc/vi/eag.png",
     },
     "Eaglercraft 1.8.8 WASM-GC":{
-      url: "/games/e188-122324-ecxu46-wasm-gc.html",
+      url: "/gs/e188-122324-ecxu46-wasm-gc.html",
       id: "eag188_wasmgc",
       type: "vanilla",
       icon:"/assets/mbmc/vi/eag.png",
@@ -24,25 +24,25 @@ export const mcv={
       icon:"/assets/mbmc/vi/res.png",
     }, */
     "Resent Client 4.0 (1.8.8)": {
-      url: "/games/res188-40.html",
+      url: "/gs/res188-40.html",
       id: "res188_40",
       type: "modded",
       icon:"/assets/mbmc/vi/res.png",
     },
     "Fuchsiax Ghost Client (1.5.2)": {
-      url: "/games/fuchsiaxghostclient152.html",
+      url: "/gs/fuchsiaxghostclient152.html",
       id: "fgc152",
       type: "modded",
       icon:"/assets/mbmc/vi/eag.png",
     },
     "Kerosene Client 1.5.2": {
-      url: "/games/keroseneclient152.html",
+      url: "/gs/keroseneclient152.html",
       id: "ksc152",
       type: "modded",
       icon:"/assets/mbmc/vi/eag.png",
     },
     "Dragon X Client 1.8.8": {
-      url: "/games/dragonxclient188.html",
+      url: "/gs/dragonxclient188.html",
       id: "dxc188",
       type: "modded",
       icon:"/assets/mbmc/vi/eag.png",
