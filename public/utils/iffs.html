@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe id="ifsrc" src="#"></iframe>
+    <style>
+        iframe {
+            height: 100dvh;
+            width: 100dvw;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <script>
+        function getQueryParams(qs) {
+            qs = qs.split('+').join(' ');
+            var params = {},
+                tokens,
+                re = /[?&]?([^=]+)=([^&]*)/g;
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+            }
+            return params;
+        };
+        window.onload=()=>{
+            document.getElementById("ifsrc").setAttribute("src",
+            getQueryParams(document.location.search).src?
+            getQueryParams(document.location.search).src:"#");
+        };
+    </script>
+</body>
+</html>
