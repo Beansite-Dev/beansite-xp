@@ -12,13 +12,14 @@ import { useHotkeys, HotkeysProvider } from 'react-hotkeys-hook'
 import { MultibeanMC } from './multibeanmc/MultibeanMC';
 export const debug=config.debugMode;
 const release_data={
-  "version":"v1.10.1",
-  "date":"1/12/25",
+  "version":"v1.11.3",
+  "date":"1/14/25",
   "comment":"First update of 2025?",
   "features_added":[
     "Sry abt lack of updates ive kinda js lost interest as well as being burnt out",
     "Fixed major Eaglercraft bug",
-    "Public directory tree tweak"
+    "Public directory tree tweak",
+    "Fixed version number",
     // <>Devs kinda slow, but im working on something new <a style={{color:"blue",textDecoration:"none"}} href="https://beansite-7.vercel.app">;)</a></>,
   ],
   "games_added":[
