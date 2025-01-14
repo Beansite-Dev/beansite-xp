@@ -7,7 +7,7 @@ export const MultibeanMC_GUI=()=>{
         data:mcv["Eaglercraft 1.8.8"],
     });
     const OpenGame=({url,title})=>{
-        window.open(url,title,'width=800,height=600');}
+        window.open(url,`mbmc_gid_${btoa(title)}`,'width=800,height=600');}
     const MCV=({ 
         title,
         data,
